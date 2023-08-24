@@ -52,8 +52,20 @@ window.onload = function() {
             this.pureMazeData = mazeData[mazeIndex].data.replace(new RegExp(gap, 'g'), String.fromCharCode(10));
             this.paintWalls(this.pureMazeData);
         },
+        loadMaps: function() {
+            var options = '';
+            var mapsControl = document.getElementById('maze-select');
+            for (var i = 0; i < mazeData.length; i++) {
+                options += '<option value="' + i + '">' + mazeData[i].name + '</option>'
+            }
+            mapsControl.innerHTML = options;
+            mapsControl.addEventListener('change', function() {
+                mazeArea.loadMaze(mapsControl.value);
+            });
+        },
     }
 
     mazeArea.init();
+    mazeArea.loadMaps();
     mazeArea.loadMaze(0);
 }
