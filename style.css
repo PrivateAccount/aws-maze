@@ -20,13 +20,18 @@ div#main {
     padding: 1em;
     margin: 1em;
     width: auto;
-    height: calc(100vh - 300px);
+    height: auto;
     border: 1px solid #999;
+    text-align: center;
+    display: block;
 }
 div#panel {
     padding: 1em;
     margin: 1em;
     width: auto;
-    height: 100px;
+    height: calc(100vh - 800px);
     border: 1px solid #999;
+}
+canvas#game-canvas { 
+    border: 1px solid #aaa; 
 }
