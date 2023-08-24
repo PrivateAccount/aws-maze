@@ -16,6 +16,10 @@ div#title {
     padding: .1em;
     color: crimson;
 }
+div#content {
+    display: block;
+    text-align: center;
+}
 div#main {
     padding: 1em;
     margin: 1em;
@@ -23,14 +27,16 @@ div#main {
     height: auto;
     border: 1px solid #999;
     text-align: center;
-    display: block;
+    display: inline-block;
 }
 div#panel {
     padding: 1em;
     margin: 1em;
     width: auto;
-    height: calc(100vh - 800px);
+    height: auto;
     border: 1px solid #999;
+    text-align: left;
+    display: inline-block;
 }
 canvas#game-canvas { 
     border: 1px solid #aaa; 

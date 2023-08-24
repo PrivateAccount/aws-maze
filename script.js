@@ -24,6 +24,7 @@ window.onload = function() {
     });
 
     stopButton.disabled = true;
+    mazeMap = [];
 
     var mazeArea = {
 		cellSize: 18,
@@ -49,6 +50,7 @@ window.onload = function() {
 		},
         paintWalls: function(data) {
             var index = 0, color = '#fff';
+            mazeMap = [];
             for (j = 0; j < this.rowsCount; j++) {
 			    for (i = 0; i < this.colsCount; i++) {				
                     if (data.charCodeAt(index) == 10) index++;
@@ -57,6 +59,7 @@ window.onload = function() {
                     if (data.charCodeAt(index) == 124) color = this.wallColor;
                     if (data.charCodeAt(index) == 32) color = this.cellColor;
 					this.paintCell(i, j, color);
+                    mazeMap.push(data.charCodeAt(index) == 32);
                     index++;
 				}
 			}
@@ -94,53 +97,49 @@ window.onload = function() {
             mazeArea.paintCell(this.x, this.y, this.color);
         },
         isCollision: function() {
-            var result = false;
             var index = 0;
             switch (this.direction) {
                 case direction.UP:
                     index = (this.y - 1) * mazeArea.colsCount + this.x;
-                    if (this.y < 2 || mazeArea.pureMazeData.charCodeAt(index) != 32) result = true;
                     break;
                 case direction.DOWN:
                     index = (this.y + 1) * mazeArea.colsCount + this.x;
-                    if (this.y > mazeArea.rowsCount - 2 || mazeArea.pureMazeData.charCodeAt(index) != 32) result = true;
                     break;
                 case direction.LEFT:
                     index = this.y * mazeArea.colsCount + this.x - 1;
-                    if (this.x < 2 || mazeArea.pureMazeData.charCodeAt(index) != 32) result = true;
                     break;
                 case direction.RIGHT:
                     index = this.y * mazeArea.colsCount + this.x + 1;
-                    if (this.x > mazeArea.colsCount - 2 || mazeArea.pureMazeData.charCodeAt(index) != 32) result = true;
                     break;
             }
-            return result;
+            return !mazeMap[index];
         },
         move: function() {
             mazeArea.paintCell(this.x, this.y, mazeArea.cellColor);
+            const which = Math.floor(Math.random() * 2);
             switch (this.direction) {
                 case direction.UP:
-                    if (this.isCollision()) this.direction = direction.RIGHT;
-                    if (this.y > 2) this.y--;
+                    if (this.isCollision()) this.direction = which ? direction.LEFT : direction.RIGHT;
+                    else if (this.y > 1) this.y--;
                     break;
                 case direction.DOWN:
-                    if (this.isCollision()) this.direction = direction.LEFT;
-                    if (this.y < mazeArea.rowsCount - 2) this.y++;
+                    if (this.isCollision()) this.direction = which ? direction.LEFT : direction.RIGHT;
+                    else if (this.y < mazeArea.rowsCount - 1) this.y++;
                     break;
                 case direction.LEFT:
-                    if (this.isCollision()) this.direction = direction.UP;
-                    if (this.x > 2) this.x--;
+                    if (this.isCollision()) this.direction = which ? direction.UP : direction.DOWN;
+                    else if (this.x > 1) this.x--;
                     break;
                 case direction.RIGHT:
-                    if (this.isCollision()) this.direction = direction.DOWN;
-                    if (this.x < mazeArea.colsCount - 2) this.x++;
+                    if (this.isCollision()) this.direction = which ? direction.UP : direction.DOWN;
+                    else if (this.x < mazeArea.colsCount - 1) this.x++;
                     break;
             }
             mazeArea.paintCell(this.x, this.y, this.color);
             if (this.state == state.START) {
                 setTimeout(function() {
                     mazeMouse.move();
-                }, 100);
+                }, 20);
             }
         },
         start: function() {
