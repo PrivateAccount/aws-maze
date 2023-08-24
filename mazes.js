@@ -1,6 +1,6 @@
 var mazeData = [
     { 
-        name: 'apec1988', 
+        name: 'apec-1988', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
             |           |                       |       |       |           |
@@ -38,7 +38,7 @@ var mazeData = [
         ` 
     },
     { 
-        name: 'apec1998', 
+        name: 'apec-1998', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
             |                                                               |
@@ -76,7 +76,7 @@ var mazeData = [
         ` 
     },
     { 
-        name: 'apec2009', 
+        name: 'apec-2009', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
             |                                                               |
@@ -114,7 +114,7 @@ var mazeData = [
         ` 
     },
     { 
-        name: 'apec2010', 
+        name: 'apec-2010', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
             |                                                               |
@@ -152,7 +152,7 @@ var mazeData = [
         ` 
     },
     { 
-        name: 'apec2011', 
+        name: 'apec-2011', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
             |                                                               |
@@ -190,7 +190,7 @@ var mazeData = [
         ` 
     },
     { 
-        name: 'apec2013', 
+        name: 'apec-2013', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
             |                                                               |
@@ -228,7 +228,7 @@ var mazeData = [
         ` 
     },
     { 
-        name: 'apec2014', 
+        name: 'apec-2014', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
             |                                                               |
@@ -266,7 +266,7 @@ var mazeData = [
         ` 
     },
     { 
-        name: 'apec2016', 
+        name: 'apec-2016', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
             |                                                               |
@@ -304,7 +304,7 @@ var mazeData = [
         ` 
     },
     { 
-        name: 'apec2018', 
+        name: 'apec-2018', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
             |                                                               |
@@ -342,7 +342,7 @@ var mazeData = [
         ` 
     },
     { 
-        name: 'chubu2017', 
+        name: 'chubu-2017', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
             |                                                               |
@@ -383,7 +383,7 @@ var mazeData = [
         name: 'cut', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
-            |   |       |           |   |                                   |
+            |                       |   |                                   |
             o---o---o---o   o   o---o   o   o---o---o---o---o---o---o---o   o
             |               |               |               |               |
             o   o   o---o---o   o---o   o---o   o   o---o   o   o---o   o---o
