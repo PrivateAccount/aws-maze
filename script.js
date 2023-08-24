@@ -24,7 +24,10 @@ window.onload = function() {
     });
 
     stopButton.disabled = true;
-    mazeMap = [];
+    
+    var mazeMap = [];
+    var steps = 0;
+    const MAX_STEPS = 6;
 
     var mazeArea = {
 		cellSize: 18,
@@ -114,24 +117,72 @@ window.onload = function() {
             }
             return !mazeMap[index];
         },
+        isBranchLeft: function() {
+            var index = 0;
+            switch (this.direction) {
+                case direction.UP:
+                    index = this.y * mazeArea.colsCount + this.x - 1;
+                    break;
+                case direction.DOWN:
+                    index = this.y * mazeArea.colsCount + this.x + 1;
+                    break;
+                case direction.LEFT:
+                    index = (this.y + 1) * mazeArea.colsCount + this.x;
+                    break;
+                case direction.RIGHT:
+                    index = (this.y - 1) * mazeArea.colsCount + this.x;
+                    break;
+            }
+            if (mazeMap[index]) steps++;
+            if (steps == MAX_STEPS) steps = 0;
+            return mazeMap[index] && !steps;
+        },
+        isBranchRight: function() {
+            var index = 0;
+            switch (this.direction) {
+                case direction.UP:
+                    index = this.y * mazeArea.colsCount + this.x + 1;
+                    break;
+                case direction.DOWN:
+                    index = this.y * mazeArea.colsCount + this.x - 1;
+                    break;
+                case direction.LEFT:
+                    index = (this.y - 1) * mazeArea.colsCount + this.x;
+                    break;
+                case direction.RIGHT:
+                    index = (this.y + 1) * mazeArea.colsCount + this.x;
+                    break;
+            }
+            if (mazeMap[index]) steps++;
+            if (steps == MAX_STEPS) steps = 0;
+            return mazeMap[index] && !steps;
+        },
         move: function() {
             mazeArea.paintCell(this.x, this.y, mazeArea.cellColor);
             const which = Math.floor(Math.random() * 2);
             switch (this.direction) {
                 case direction.UP:
                     if (this.isCollision()) this.direction = which ? direction.LEFT : direction.RIGHT;
+                    else if (this.isBranchLeft()) { this.direction = direction.LEFT; this.x--; }
+                    else if (this.isBranchRight()) { this.direction = direction.RIGHT; this.x++; }
                     else if (this.y > 1) this.y--;
                     break;
                 case direction.DOWN:
                     if (this.isCollision()) this.direction = which ? direction.LEFT : direction.RIGHT;
+                    else if (this.isBranchLeft()) { this.direction = direction.RIGHT; this.x++; }
+                    else if (this.isBranchRight()) { this.direction = direction.LEFT; this.x--; }
                     else if (this.y < mazeArea.rowsCount - 1) this.y++;
                     break;
                 case direction.LEFT:
                     if (this.isCollision()) this.direction = which ? direction.UP : direction.DOWN;
+                    else if (this.isBranchLeft()) { this.direction = direction.DOWN; this.y++; }
+                    else if (this.isBranchRight()) { this.direction = direction.UP; this.y--; }
                     else if (this.x > 1) this.x--;
                     break;
                 case direction.RIGHT:
                     if (this.isCollision()) this.direction = which ? direction.UP : direction.DOWN;
+                    else if (this.isBranchLeft()) { this.direction = direction.UP; this.y--; }
+                    else if (this.isBranchRight()) { this.direction = direction.DOWN; this.y++; }
                     else if (this.x < mazeArea.colsCount - 1) this.x++;
                     break;
             }
