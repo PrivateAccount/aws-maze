@@ -8,6 +8,13 @@ window.onload = function() {
 
 	canvas.background = "#def";
 
+	var mazeMap = [];
+	var mazeCount = [];
+	var steps = 0;
+	var markVisited = false;
+	const MAX_STEPS = 5;
+	const MOVE_STEP_PERIOD = 20;
+
 	const direction = { UP: 0, RIGHT: 1, DOWN: 2, LEFT: 3 };
 	const state = { STOP: 0, START: 1 };
 
@@ -23,13 +30,13 @@ window.onload = function() {
 		mazeMouse.stop();
 	});
 
+	const markHistory = document.getElementById('mark-history');
+	markHistory.addEventListener('click', function() {
+		markVisited = markHistory.checked;
+	});
+
 	stopButton.disabled = true;
 	
-	var mazeMap = [];
-	var mazeCount = [];
-	var steps = 0;
-	const MAX_STEPS = 5;
-
 	var mazeArea = {
 		cellSize: 18,
 		cellDist: 2,
@@ -37,6 +44,7 @@ window.onload = function() {
 		rowsCount: 33,
 		cellColor: "#cde",
 		wallColor: '#666',
+		visitedColor: '#abc',
 		pureMazeData: '',
 		init: function() {
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -120,6 +128,28 @@ window.onload = function() {
 			}
 			return !mazeMap[index];
 		},
+		isLocking: function() {
+			var leftIndex = 0, rightIndex = 0;
+			switch (this.direction) {
+				case direction.UP:
+					leftIndex = this.y * mazeArea.colsCount + this.x - 1;
+					rightIndex = this.y * mazeArea.colsCount + this.x + 1;
+					break;
+				case direction.DOWN:
+					leftIndex = this.y * mazeArea.colsCount + this.x - 1;
+					rightIndex = this.y * mazeArea.colsCount + this.x + 1;
+					break;
+				case direction.LEFT:
+					leftIndex = (this.y - 1) * mazeArea.colsCount + this.x;
+					rightIndex = (this.y + 1) * mazeArea.colsCount + this.x;
+					break;
+				case direction.RIGHT:
+					leftIndex = (this.y - 1) * mazeArea.colsCount + this.x;
+					rightIndex = (this.y + 1) * mazeArea.colsCount + this.x;
+					break;
+			}
+			return !mazeMap[leftIndex] && !mazeMap[rightIndex];
+		},
 		isBranchLeft: function() {
 			var index = 0;
 			switch (this.direction) {
@@ -161,31 +191,66 @@ window.onload = function() {
 			return mazeMap[index] && !steps;
 		},
 		move: function() {
-			mazeArea.paintCell(this.x, this.y, mazeArea.cellColor);
+			if (markVisited)
+				mazeArea.paintCell(this.x, this.y, mazeArea.visitedColor);
+			else
+				mazeArea.paintCell(this.x, this.y, mazeArea.cellColor);
 			const index = this.y * mazeArea.colsCount + this.x;
 			mazeCount[index]++;
 			const which = Math.floor(Math.random() * 2);
 			switch (this.direction) {
 				case direction.UP:
-					if (this.isCollision()) this.direction = which ? direction.LEFT : direction.RIGHT;
+					if (this.isCollision()) { 
+						if (this.isLocking()) {
+							this.direction = direction.DOWN;
+							mazeMap[index] = false;
+						} 
+						else { 
+							this.direction = which ? direction.LEFT : direction.RIGHT; 
+						}
+					}
 					else if (this.isBranchLeft()) { this.direction = direction.LEFT; this.x--; }
 					else if (this.isBranchRight()) { this.direction = direction.RIGHT; this.x++; }
 					else if (this.y > 1) this.y--;
 					break;
 				case direction.DOWN:
-					if (this.isCollision()) this.direction = which ? direction.LEFT : direction.RIGHT;
+					if (this.isCollision()) { 
+						if (this.isLocking()) {
+							this.direction = direction.UP;
+							mazeMap[index] = false;
+						} 
+						else { 
+							this.direction = which ? direction.LEFT : direction.RIGHT; 
+						}
+					}
 					else if (this.isBranchLeft()) { this.direction = direction.RIGHT; this.x++; }
 					else if (this.isBranchRight()) { this.direction = direction.LEFT; this.x--; }
 					else if (this.y < mazeArea.rowsCount - 1) this.y++;
 					break;
 				case direction.LEFT:
-					if (this.isCollision()) this.direction = which ? direction.UP : direction.DOWN;
+					if (this.isCollision()) { 
+						if (this.isLocking()) {
+							this.direction = direction.RIGHT;
+							mazeMap[index] = false;
+						} 
+						else { 
+							this.direction = which ? direction.UP : direction.DOWN; 
+						}
+					}
 					else if (this.isBranchLeft()) { this.direction = direction.DOWN; this.y++; }
 					else if (this.isBranchRight()) { this.direction = direction.UP; this.y--; }
 					else if (this.x > 1) this.x--;
 					break;
 				case direction.RIGHT:
-					if (this.isCollision()) this.direction = which ? direction.UP : direction.DOWN;
+					if (this.isCollision()) { 
+						if (this.isLocking()) {
+							this.direction = direction.LEFT;
+							mazeMap[index] = false;
+						} 
+						else { 
+							this.direction = which ? direction.UP : direction.DOWN; 
+						}
+					}
 					else if (this.isBranchLeft()) { this.direction = direction.UP; this.y--; }
 					else if (this.isBranchRight()) { this.direction = direction.DOWN; this.y++; }
 					else if (this.x < mazeArea.colsCount - 1) this.x++;
@@ -195,7 +260,7 @@ window.onload = function() {
 			if (this.state == state.START) {
 				setTimeout(function() {
 					mazeMouse.move();
-				}, 20);
+				}, MOVE_STEP_PERIOD);
 			}
 		},
 		start: function() {

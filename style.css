@@ -46,6 +46,9 @@ select {
     padding: 5px 10px;
     width: 200px;
 }
+input#mark-history {
+    margin: 1em 0.5em 2em 0;
+}
 button {
     width: 96px;
 }
