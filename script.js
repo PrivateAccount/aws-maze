@@ -128,6 +128,50 @@ window.onload = function() {
 			}
 			return !mazeMap[index];
 		},
+		isCornerLeft: function() {
+			var leftIndex = 0, rightIndex = 0;
+			switch (this.direction) {
+				case direction.UP:
+					leftIndex = this.y * mazeArea.colsCount + this.x - 1;
+					rightIndex = this.y * mazeArea.colsCount + this.x + 1;
+					break;
+				case direction.DOWN:
+					leftIndex = this.y * mazeArea.colsCount + this.x - 1;
+					rightIndex = this.y * mazeArea.colsCount + this.x + 1;
+					break;
+				case direction.LEFT:
+					leftIndex = (this.y - 1) * mazeArea.colsCount + this.x;
+					rightIndex = (this.y + 1) * mazeArea.colsCount + this.x;
+					break;
+				case direction.RIGHT:
+					leftIndex = (this.y - 1) * mazeArea.colsCount + this.x;
+					rightIndex = (this.y + 1) * mazeArea.colsCount + this.x;
+					break;
+			}
+			return !mazeMap[leftIndex] && mazeMap[rightIndex];
+		},
+		isCornerRight: function() {
+			var leftIndex = 0, rightIndex = 0;
+			switch (this.direction) {
+				case direction.UP:
+					leftIndex = this.y * mazeArea.colsCount + this.x - 1;
+					rightIndex = this.y * mazeArea.colsCount + this.x + 1;
+					break;
+				case direction.DOWN:
+					leftIndex = this.y * mazeArea.colsCount + this.x - 1;
+					rightIndex = this.y * mazeArea.colsCount + this.x + 1;
+					break;
+				case direction.LEFT:
+					leftIndex = (this.y - 1) * mazeArea.colsCount + this.x;
+					rightIndex = (this.y + 1) * mazeArea.colsCount + this.x;
+					break;
+				case direction.RIGHT:
+					leftIndex = (this.y - 1) * mazeArea.colsCount + this.x;
+					rightIndex = (this.y + 1) * mazeArea.colsCount + this.x;
+					break;
+			}
+			return mazeMap[leftIndex] && !mazeMap[rightIndex];
+		},
 		isLocking: function() {
 			var leftIndex = 0, rightIndex = 0;
 			switch (this.direction) {
@@ -201,7 +245,13 @@ window.onload = function() {
 			switch (this.direction) {
 				case direction.UP:
 					if (this.isCollision()) { 
-						if (this.isLocking()) {
+						if (this.isCornerLeft()) {
+							this.direction = direction.RIGHT;
+						} 
+						else if (this.isCornerRight()) {
+							this.direction = direction.LEFT;
+						} 
+						else if (this.isLocking()) {
 							this.direction = direction.DOWN;
 							mazeMap[index] = false;
 						} 
@@ -215,7 +265,13 @@ window.onload = function() {
 					break;
 				case direction.DOWN:
 					if (this.isCollision()) { 
-						if (this.isLocking()) {
+						if (this.isCornerLeft()) {
+							this.direction = direction.RIGHT;
+						} 
+						else if (this.isCornerRight()) {
+							this.direction = direction.LEFT;
+						} 
+						else if (this.isLocking()) {
 							this.direction = direction.UP;
 							mazeMap[index] = false;
 						} 
@@ -229,7 +285,13 @@ window.onload = function() {
 					break;
 				case direction.LEFT:
 					if (this.isCollision()) { 
-						if (this.isLocking()) {
+						if (this.isCornerLeft()) {
+							this.direction = direction.UP;
+						} 
+						else if (this.isCornerRight()) {
+							this.direction = direction.DOWN;
+						} 
+						else if (this.isLocking()) {
 							this.direction = direction.RIGHT;
 							mazeMap[index] = false;
 						} 
@@ -243,7 +305,13 @@ window.onload = function() {
 					break;
 				case direction.RIGHT:
 					if (this.isCollision()) { 
-						if (this.isLocking()) {
+						if (this.isCornerLeft()) {
+							this.direction = direction.DOWN;
+						} 
+						else if (this.isCornerRight()) {
+							this.direction = direction.UP;
+						} 
+						else if (this.isLocking()) {
 							this.direction = direction.LEFT;
 							mazeMap[index] = false;
 						} 
