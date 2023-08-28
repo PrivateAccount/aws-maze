@@ -30,11 +30,8 @@ div#main {
     display: inline-block;
 }
 div#panel {
-    padding: 1em;
-    margin: 1em;
     width: auto;
     height: auto;
-    border: 1px solid #999;
     text-align: left;
     display: inline-block;
 }
@@ -50,5 +47,20 @@ input#mark-history {
     margin: 1em 0.5em 2em 0;
 }
 button {
-    width: 96px;
+    width: 97px;
+    height: 40px;
+}
+span#position-x, span#position-y {
+    width: 50px;
+    margin: 1em 0 1em 1em;
+    display: inline-block;
+    font-weight: bold;
+    color: #c00;
+}
+span#time-min, span#time-sec {
+    width: 50px;
+    margin: 1em 0 1em 1em;
+    display: inline-block;
+    font-weight: bold;
+    color: #c00;
 }
