@@ -1,66 +1,62 @@
 body {
-    color: #666;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin: 0;
-    padding: 0;
+	color: #666;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	margin: 0;
+	padding: 0;
 }
 div#page {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #eee;
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #eee;
 }
 div#title {
-    text-align: center;
-    padding: .1em;
-    color: crimson;
+	text-align: center;
+	padding: .1em;
+	color: crimson;
 }
 div#content {
-    display: block;
-    text-align: center;
+	display: block;
+	text-align: center;
 }
 div#main {
-    padding: 1em;
-    margin: 1em;
-    width: auto;
-    height: auto;
-    border: 1px solid #999;
-    text-align: center;
-    display: inline-block;
+	padding: 1em;
+	margin: 1em;
+	width: auto;
+	height: auto;
+	border: 1px solid #999;
+	text-align: center;
+	display: inline-block;
 }
 div#panel {
-    width: auto;
-    height: auto;
-    text-align: left;
-    display: inline-block;
+	width: auto;
+	height: auto;
+	text-align: left;
+	display: inline-block;
 }
 canvas#game-canvas { 
-    border: 1px solid #aaa; 
+	border: 1px solid #aaa; 
+}
+div.row {
+	margin: 0 0 -0.5em 0;
 }
 select {
-    margin: 1em 0;
-    padding: 5px 10px;
-    width: 200px;
+	margin: 1em 0;
+	padding: 5px 10px;
+	width: 200px;
 }
 input#mark-history {
-    margin: 1em 0.5em 2em 0;
+	margin: 1em 0.5em 2em 0;
 }
 button {
-    width: 97px;
-    height: 40px;
+	width: 97px;
+	height: 40px;
 }
-span#position-x, span#position-y {
-    width: 50px;
-    margin: 1em 0 1em 1em;
-    display: inline-block;
-    font-weight: bold;
-    color: #c00;
-}
-span#time-min, span#time-sec {
-    width: 50px;
-    margin: 1em 0 1em 1em;
-    display: inline-block;
-    font-weight: bold;
-    color: #c00;
+span#step, span#position-x, span#position-y, span#time-min, span#time-sec {
+	width: 50px;
+	margin: 1em 0 1em 1em;
+	display: inline-block;
+	font-weight: bold;
+	color: #c00;
 }
