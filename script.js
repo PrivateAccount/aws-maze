@@ -139,6 +139,26 @@ window.onload = function() {
 			}
 			return !mazeMap[index];
 		},
+		isNewer: function(currentCount) {
+			var result = { found: false, direction: 0 };
+			var indexes = [
+				(this.y - 1) * mazeArea.colsCount + this.x,
+				this.y * mazeArea.colsCount + this.x + 1,
+				(this.y + 1) * mazeArea.colsCount + this.x,
+				this.y * mazeArea.colsCount + this.x - 1,
+			];
+			var minCounter = currentCount;
+			for (var i = 0; i < indexes.length; i++) {
+				if (mazeMap[indexes[i]]) {
+					if (mazeCount[indexes[i]] < minCounter) {
+						minCounter = mazeCount[indexes[i]];
+						result.found = true;
+						result.direction = i;
+					}
+				}
+			}
+			return result;
+		},
 		isBranchLeft: function() {
 			var index = 0;
 			switch (this.direction) {
@@ -186,6 +206,9 @@ window.onload = function() {
 				mazeArea.paintCell(this.x, this.y, mazeArea.cellColor);
 			const index = this.y * mazeArea.colsCount + this.x;
 			mazeCount[index]++;
+			if (this.isNewer(mazeCount[index]).found) {
+				this.direction = this.isNewer(mazeCount[index]).direction;
+			}
             var which = 0, newIndex = 0, found = false;
             do {
                 which = Math.floor(Math.random() * 2);
