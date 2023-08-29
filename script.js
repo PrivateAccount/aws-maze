@@ -42,8 +42,6 @@ window.onload = function() {
 	const displayTimeMin = document.getElementById('time-min');
 	const displayTimeSec = document.getElementById('time-sec');
 
-	stopButton.disabled = true;
-	
 	var mazeArea = {
 		cellSize: 18,
 		cellDist: 2,
@@ -62,6 +60,7 @@ window.onload = function() {
 					this.paintCell(i, j, this.cellColor);
 				}
 			}
+			stopButton.disabled = true;
 		},
 		paintCell: function(x, y, color) {
 			ctx.fillStyle = color;
@@ -140,7 +139,7 @@ window.onload = function() {
 			}
 			return !mazeMap[index];
 		},
-		isNewer: function(currentCount) {
+		preferBranch: function(currentCount, currentDirection) {
 			var result = { found: false, direction: 0 };
 			var indexes = [
 				(this.y - 1) * mazeArea.colsCount + this.x,
@@ -149,10 +148,13 @@ window.onload = function() {
 				this.y * mazeArea.colsCount + this.x - 1,
 			];
 			var minCounter = currentCount;
+			var factor = 0, counter = 0;
 			for (var i = 0; i < indexes.length; i++) {
+				factor = currentDirection == i ? 1 : 2;
+				counter = mazeCount[indexes[i]] * factor;
 				if (mazeMap[indexes[i]]) {
-					if (mazeCount[indexes[i]] < minCounter) {
-						minCounter = mazeCount[indexes[i]];
+					if (counter < minCounter) {
+						minCounter = counter;
 						result.found = true;
 						result.direction = i;
 					}
@@ -207,8 +209,8 @@ window.onload = function() {
 				mazeArea.paintCell(this.x, this.y, mazeArea.cellColor);
 			const index = this.y * mazeArea.colsCount + this.x;
 			mazeCount[index]++;
-			if (this.isNewer(mazeCount[index]).found) {
-				this.direction = this.isNewer(mazeCount[index]).direction;
+			if (this.preferBranch(mazeCount[index], this.direction).found) {
+				this.direction = this.preferBranch(mazeCount[index], this.direction).direction;
 			}
 			var which = 0, newIndex = 0, found = false;
 			do {
