@@ -443,13 +443,13 @@ var mazeData = [
             o   o   o---o   o---o   o   o---o---o---o   o   o   o   o   o   o
             |       |       |   |   |   |       |   |   |   |   |   |   |   |
             o   o---o   o---o   o   o---o   o   o   o   o   o   o   o   o   o
-            |   |       |       |   |       |   |   |   |   |   |   |   |   |
+            |   |       |           |       |   |   |   |   |   |   |   |   |
             o---o   o---o---o---o---o   o---o   o   o   o   o   o   o   o   o
-            |       |       |   |       |       |   |   |   |   |   |   |   |
+            |       |           |       |       |   |   |   |   |   |   |   |
             o   o---o   o   o---o   o---o   o---o   o   o   o   o   o   o   o
             |           |   |       |       |       |   |   |   |   |   |   |
             o   o---o   o   o   o---o   o---o   o   o   o   o   o   o   o   o
-            |   |   |   |   |   |       |   |   |       |   |   |       |   |
+            |   |   |   |   |   |       |       |       |   |   |       |   |
             o   o   o   o   o---o   o---o   o   o   o   o   o   o---o---o   o
             |   |       |               |   |   |   |   |                   |
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
@@ -467,7 +467,7 @@ var mazeData = [
             o   o   o   o   o   o   o   o   o   o   o   o---o   o---o---o   o
             |       |                                                       |
             o   o   o   o---o---o---o---o---o   o   o---o---o---o---o---o   o
-            |   |   |                       |   |   |                   |   |
+            |   |   |                       |   |   |                       |
             o   o   o   o---o---o---o---o---o---o---o---o---o---o---o---o   o
             |       |   |           |                           |           |
             o   o   o   o   o---o   o---o---o---o---o   o---o   o   o   o   o
@@ -483,7 +483,7 @@ var mazeData = [
             o   o   o   o---o   o---o---o---o   o---o   o---o---o---o---o---o
             |       |       |   |                   |   |                   |
             o   o   o   o---o   o   o---o---o   o---o   o   o---o---o---o   o
-            |   |   |       |   |   |   |       |       |   |               |
+            |   |   |       |   |       |       |       |   |               |
             o   o   o   o---o   o   o---o   o---o---o   o   o   o---o---o---o
             |   |   |       |   |   |       |           |   |   |           |
             o   o   o   o---o   o   o   o---o---o---o   o   o   o   o---o   o
@@ -927,13 +927,13 @@ var mazeData = [
             o---o---o---o---o---o---o---o---o---o   o---o---o---o---o   o   o
             |                                   |       |               |   |
             o   o---o---o---o---o---o---o---o   o   o---o   o---o---o---o   o
-            |   |       |                   |   |       |               |   |
+            |   |                           |   |       |               |   |
             o   o---o---o   o---o---o---o---o   o   o---o   o---o---o   o   o
-            |   |       |   |           |       |   |                   |   |
+            |           |   |           |       |   |                   |   |
             o   o---o---o   o   o---o   o   o   o---o   o---o---o---o   o   o
-            |   |       |   |   |       |       |   |   |           |   |   |
+            |   |           |   |       |       |   |   |           |   |   |
             o   o---o---o   o   o---o   o---o---o   o---o   o---o---o   o   o
-            |   |   |                   |   |   |           |           |   |
+            |       |                   |   |   |           |           |   |
             o   o   o   o---o---o---o---o   o   o---o---o   o---o---o   o   o
             |   |   |                       |           |           |   |   |
             o   o---o   o   o---o---o---o---o   o---o---o---o   o   o   o   o
@@ -1085,19 +1085,19 @@ var mazeData = [
             o   o   o   o---o---o---o   o   o   o---o   o---o   o   o   o   o
             |   |   |   |       |   |   |       |           |   |   |   |   |
             o   o   o   o---o   o   o   o---o---o---o   o---o   o   o   o   o
-            |   |   |       |       |           |   |       |       |   |   |
+            |   |   |       |       |           |           |       |   |   |
             o---o   o   o---o---o---o   o---o   o---o   o---o---o---o   o   o
-            |       |   |                   |   |   |   |               |   |
+            |       |   |                   |       |   |               |   |
             o   o---o---o---o---o---o---o   o   o---o   o   o---o---o---o   o
-            |   |               |               |   |   |                   |
+            |   |               |               |       |                   |
             o   o---o---o   o   o   o---o---o   o---o   o   o---o---o---o   o
-            |           |       |       |   |   |       |       |       |   |
+            |           |       |           |   |       |       |       |   |
             o   o   o   o---o---o   o   o   o---o---o   o   o---o   o   o   o
-            |   |   |       |       |   |   |   |       |   |       |   |   |
+            |   |   |       |       |   |               |   |       |   |   |
             o---o   o   o---o---o---o   o   o---o---o---o---o   o---o   o   o
             |       |   |       |       |   |   |   |           |       |   |
             o   o   o   o   o   o   o---o   o   o   o   o---o---o   o---o   o
-            |   |   |       |       |   |       |       |                   |
+            |   |   |       |       |           |       |                   |
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
         ` 
     },
@@ -2027,7 +2027,7 @@ var mazeData = [
             o   o---o   o---o---o---o   o---o---o   o---o   o   o   o---o   o
             |   |                   |   |       |   |                   |   |
             o   o   o---o---o---o   o   o---o---o   o   o---o---o---o   o   o
-            |   |   |           |   |               |   |           |   |   |
+            |   |               |   |               |   |               |   |
             o   o   o   o---o   o   o---o---o---o---o   o   o---o   o   o   o
             |       |   |   |   |   |               |   |   |   |   |   |   |
             o   o   o   o---o   o   o   o---o---o   o   o   o---o   o   o   o
@@ -2036,11 +2036,11 @@ var mazeData = [
             |   |                   |           |   |                   |   |
             o   o---o---o---o---o---o---o---o---o---o---o---o---o   o---o   o
             |                                                   |           |
-            o   o---o---o---o---o   o---o---o---o---o   o---o   o---o---o   o
-            |               |   |   |   |   |   |   |   |   |   |       |   |
+            o   o---o---o---o---o   o---o   o   o---o   o---o   o---o---o   o
+            |               |       |       |       |       |   |       |   |
             o   o---o   o   o---o   o---o---o---o---o   o---o   o   o   o   o
-            |   |   |   |   |   |                       |   |   |   |   |   |
-            o   o---o   o   o   o---o---o---o---o---o---o   o   o   o   o   o
+            |   |   |   |       |                       |       |   |   |   |
+            o   o---o   o   o   o   o   o---o---o   o   o   o   o   o   o   o
             |           |   |   |   |   |       |   |   |   |   |   |       |
             o   o---o---o   o---o---o---o   o   o---o---o---o   o   o   o   o
             |               |               |                   |   |   |   |
@@ -2633,10 +2633,10 @@ var mazeData = [
             o   o   o---o---o   o   o   o   o   o   o---o   o---o   o   o   o
             |               |   |   |   |   |   |       |       |   |       |
             o---o---o---o   o   o   o   o   o   o---o---o---o---o   o---o   o
-            |   |       |   |   |   |   |   |           |       |       |   |
+            |           |   |   |   |   |   |           |       |       |   |
             o---o---o   o   o   o   o   o   o   o---o---o   o---o   o   o   o
-            |   |       |   |   |   |   |   |   |               |   |   |   |
-            o---o---o---o   o   o   o---o   o   o   o---o   o   o   o   o   o
+            |           |   |   |   |   |   |   |               |   |   |   |
+            o   o---o---o   o   o   o---o   o   o   o---o   o   o   o   o   o
             |               |       |       |   |   |   |   |   |   |       |
             o---o---o   o---o---o---o   o---o---o   o   o   o   o   o   o   o
             |           |               |           |   |   |       |   |   |
@@ -2647,7 +2647,7 @@ var mazeData = [
             o   o---o---o   o   o   o   o   o   o   o---o   o   o   o   o   o
             |   |           |   |   |   |   |   |           |   |   |   |   |
             o---o   o---o   o   o   o   o   o   o---o---o   o---o   o   o   o
-            |   |           |   |   |   |   |           |               |   |
+            |               |   |   |   |   |           |               |   |
             o---o---o---o   o   o   o   o   o   o---o---o---o---o---o---o   o
             |               |   |   |   |   |   |               |   |   |   |
             o   o---o   o---o   o   o   o   o   o   o---o   o---o   o   o   o
@@ -2789,7 +2789,7 @@ var mazeData = [
             o   o   o---o---o   o---o   o   o---o   o---o   o---o---o---o   o
             |   |           |       |       |       |       |           |   |
             o   o---o---o   o---o   o---o---o   o---o   o---o   o   o---o   o
-            |           |           |           |   |   |   |       |       |
+            |                       |           |   |   |   |       |       |
             o   o   o---o   o   o---o   o---o---o---o   o   o---o---o   o   o
             |       |       |       |   |       |       |               |   |
             o   o---o   o---o---o   o   o   o   o   o   o   o---o---o---o   o
