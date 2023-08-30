@@ -38,9 +38,6 @@ div#panel {
 canvas#game-canvas { 
 	border: 1px solid #aaa; 
 }
-div.row {
-	margin: 0 0 -0.5em 0;
-}
 select {
 	margin: 1em 0;
 	padding: 5px 10px;
@@ -53,9 +50,24 @@ button {
 	width: 97px;
 	height: 40px;
 }
-span#step, span#position-x, span#position-y, span#time-min, span#time-sec {
-	width: 50px;
-	margin: 1em 0 1em 1em;
+span.label {
+	width: 80px;
+	height: 40px;
+	margin: 0 40px 0 0;
+	display: inline-block;
+}
+span#step {
+	width: 77px;
+	text-align: right;
+	margin: 0 1em 0 0;
+	display: inline-block;
+	font-weight: bold;
+	color: #c00;
+}
+span#position-x, span#position-y, span#time-min, span#time-sec {
+	width: 30px;
+	text-align: right;
+	margin: 0 10px 0 0;
 	display: inline-block;
 	font-weight: bold;
 	color: #c00;
