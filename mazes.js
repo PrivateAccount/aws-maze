@@ -943,7 +943,7 @@ var mazeData = [
             o   o   o   o   o   o---o---o   o---o---o---o   o---o   o   o   o
             |   |           |           |   |   |               |       |   |
             o   o   o---o---o---o---o---o   o   o---o---o   o   o---o   o   o
-            |   |   |               |   |       |       |   |       |   |   |
+            |   |   |                   |       |       |   |       |   |   |
             o   o   o   o---o---o   o   o---o---o   o   o   o   o---o---o   o
             |   |                   |               |                       |
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
