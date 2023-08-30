@@ -1,5 +1,499 @@
 var mazeData = [
     { 
+        name: '13ye', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |                                                           |
+            o   o   o---o---o---o---o---o---o---o   o---o---o---o---o---o   o
+            |   |                           |       |               |       |
+            o   o   o---o   o---o   o---o---o   o---o   o---o---o   o---o   o
+            |   |                       |           |   |       |   |       |
+            o   o   o---o   o---o   o---o   o---o   o   o---o   o---o---o   o
+            |   |                   |       |   |   |                       |
+            o   o   o---o   o---o---o   o---o   o   o   o---o---o---o---o   o
+            |   |               |       |       |   |   |           |       |
+            o   o   o---o---o---o   o---o   o   o   o   o   o---o   o---o   o
+            |   |           |       |       |   |   |   |   |   |           |
+            o   o   o---o---o   o---o   o---o   o---o   o---o   o---o---o   o
+            |   |       |           |   |           |                   |   |
+            o   o---o   o   o---o   o   o---o---o   o   o---o---o---o---o   o
+            |           |           |   |       |                           |
+            o   o---o---o   o---o---o   o   o   o---o---o---o---o---o---o   o
+            |           |           |   |           |                   |   |
+            o   o---o   o   o---o   o   o---o---o   o   o---o   o---o---o   o
+            |   |       |           |           |   |   |   |   |   |       |
+            o   o   o---o---o   o---o   o---o   o   o   o   o---o   o---o   o
+            |   |           |       |       |   |   |   |                   |
+            o   o   o---o---o---o   o---o   o---o   o   o---o   o---o---o---o
+            |   |               |       |       |   |       |               |
+            o   o   o---o   o---o---o   o---o   o   o   o---o---o---o---o   o
+            |   |                   |       |       |   |                   |
+            o   o   o---o   o---o   o---o   o---o---o   o---o   o---o---o---o
+            |   |                   |                       |               |
+            o   o   o---o   o---o   o---o---o   o---o   o---o---o---o---o   o
+            |   |                           |       |                       |
+            o   o   o---o---o---o---o---o---o---o   o   o---o---o---o---o   o
+            |   |                                   |                       |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: '1st-world', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o---o---o---o---o---o---o---o---o---o   o---o   o---o
+            |       |                                   |                   |
+            o   o   o   o---o---o---o---o---o---o---o   o---o---o---o   o   o
+            |   |   |                                               |   |   |
+            o   o   o   o---o---o---o---o---o---o---o---o---o---o   o   o   o
+            |   |   |       |   |                               |   |   |   |
+            o   o   o   o   o   o   o---o---o---o---o---o   o   o   o   o   o
+            |   |   |   |   |   |   |                   |   |   |   |       |
+            o   o   o   o   o   o   o   o   o---o---o   o   o   o   o   o   o
+            |       |           |   |   |                       |       |   |
+            o   o---o   o   o   o   o   o   o---o---o   o---o---o   o---o   o
+            |   |   |   |   |   |   |   |               |           |   |   |
+            o   o   o   o   o   o   o   o---o---o   o   o   o---o---o   o   o
+            |   |   |   |   |   |   |   |       |   |   |       |   |   |   |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |   |               |   |       |       |   |       |   |   |
+            o   o   o   o---o---o---o   o---o   o---o---o   o   o   o   o---o
+            |   |   |   |           |                   |   |   |       |   |
+            o   o   o---o   o---o   o   o---o---o---o   o   o   o---o   o   o
+            |   |   |   |   |       |                   |           |       |
+            o   o   o   o   o   o   o---o   o---o   o---o---o---o   o   o   o
+            |   |       |       |   |               |                   |   |
+            o   o   o   o   o---o   o---o---o   o---o   o---o---o---o---o   o
+            |       |       |       |           |                       |   |
+            o---o---o---o---o   o---o---o   o---o---o---o---o---o   o---o   o
+            |                       |                       |               |
+            o   o---o---o   o---o   o---o---o   o---o---o   o---o---o   o   o
+            |   |                           |                           |   |
+            o   o   o---o---o---o---o---o   o   o---o---o---o---o---o---o   o
+            |   |                           |                               |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: '2003-kankou', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |               |                                               |
+            o   o---o---o   o---o   o---o---o---o---o   o---o   o---o   o   o
+            |               |   |   |               |   |       |       |   |
+            o   o---o   o---o---o   o   o---o---o   o   o---o---o   o---o   o
+            |   |               |   |   |       |   |   |               |   |
+            o   o   o---o---o   o   o   o   o   o   o   o   o---o---o   o   o
+            |       |   |   |   |   |   |   |   |   |   |   |   |   |       |
+            o   o---o   o---o   o   o   o---o---o   o---o   o---o   o---o   o
+            |   |           |       |       |       |   |   |           |   |
+            o   o   o---o   o   o---o---o---o---o---o   o   o   o---o   o   o
+            |       |   |   |   |   |               |       |   |   |   |   |
+            o   o---o   o   o---o   o   o---o---o   o   o---o   o   o   o   o
+            |   |   |   |       |   |   |   |   |       |       |   |   |   |
+            o   o   o   o---o   o---o   o---o---o---o---o   o---o   o   o   o
+            |   |   |               |           |   |           |   |   |   |
+            o   o---o   o---o---o   o---o   o   o---o   o---o---o   o   o   o
+            |           |       |   |   |       |       |       |   |   |   |
+            o   o---o   o   o---o   o   o---o---o   o   o---o   o   o   o   o
+            |   |   |   |   |       |               |       |   |   |       |
+            o   o---o   o   o---o   o   o---o---o---o   o---o   o   o---o   o
+            |   |   |   |   |   |   |   |               |   |   |   |       |
+            o   o   o---o   o---o   o   o   o---o---o---o---o   o---o---o   o
+            |   |   |   |   |   |       |   |           |   |   |   |       |
+            o   o   o   o   o   o   o---o   o   o---o   o   o   o   o   o   o
+            |       |           |   |       |   |   |   |           |   |   |
+            o   o   o---o---o---o   o   o---o   o---o   o---o---o---o   o   o
+            |   |                   |   |                               |   |
+            o   o   o---o---o---o---o   o   o---o---o---o---o---o---o---o   o
+            |   |   |                   |               |   |           |   |
+            o   o   o   o---o---o---o---o   o---o---o---o   o   o---o   o   o
+            |   |                                               |   |       |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: '3-path-test', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                   |                                           |
+            o   o   o---o---o---o   o---o---o---o---o   o---o---o---o   o   o
+            |   |           |   |   |               |   |               |   |
+            o   o   o---o   o   o   o   o---o---o   o   o   o---o---o   o   o
+            |       |   |       |   |           |   |   |       |   |       |
+            o   o---o   o---o   o   o   o---o   o   o---o   o---o   o---o   o
+            |   |           |   |   |           |   |       |               |
+            o   o   o   o   o   o   o   o---o   o   o   o   o   o   o   o   o
+            |   |   |   |   |       |               |   |   |   |   |   |   |
+            o   o   o   o   o   o---o---o---o   o---o   o   o   o   o   o   o
+            |       |   |   |   |                       |   |   |   |   |   |
+            o   o   o   o   o---o   o   o---o---o   o---o---o   o   o   o   o
+            |   |   |   |       |   |           |   |   |       |   |   |   |
+            o   o   o   o---o   o---o---o---o   o---o---o   o---o   o   o   o
+            |   |   |               |   |       |               |       |   |
+            o   o   o   o---o---o   o   o   o   o   o   o---o---o   o---o   o
+            |           |           |   |       |   |           |       |   |
+            o   o   o   o   o---o   o   o---o---o   o   o---o   o   o   o   o
+            |   |   |   |   |       |               |       |   |   |   |   |
+            o   o   o   o   o   o   o   o---o---o---o   o   o   o   o   o   o
+            |   |   |   |   |   |   |   |               |   |   |   |       |
+            o   o   o   o   o   o   o   o   o---o---o   o   o   o   o   o   o
+            |   |   |   |   |   |       |   |           |   |   |   |   |   |
+            o   o   o   o   o   o   o   o   o   o---o   o   o   o   o   o   o
+            |       |           |   |       |           |           |   |   |
+            o   o   o---o---o---o   o   o---o   o---o   o---o---o---o   o   o
+            |   |                   |   |                               |   |
+            o   o   o---o---o---o---o   o   o---o---o---o---o---o---o---o   o
+            |   |   |                   |   |                           |   |
+            o   o   o   o---o---o---o---o   o---o---o---o   o---o---o   o   o
+            |   |                                                   |       |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: '50', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |       |               |       |                   |       |   |
+            o   o   o   o   o   o   o   o   o---o   o---o---o   o   o   o   o
+            |   |       |   |   |   |   |   |       |       |       |       |
+            o   o---o---o   o   o   o   o   o   o---o   o   o---o---o---o   o
+            |   |           |   |   |   |       |       |                   |
+            o   o   o---o---o   o   o   o---o---o   o---o---o---o   o---o---o
+            |   |   |               |   |   |       |               |       |
+            o   o   o---o   o---o---o   o   o   o---o   o---o---o---o   o   o
+            |   |   |       |           |       |               |       |   |
+            o   o   o---o   o   o---o---o   o---o---o   o---o   o---o   o   o
+            |   |   |       |   |           |                   |       |   |
+            o   o   o---o   o   o---o   o---o   o---o---o---o   o---o   o   o
+            |   |   |           |       |           |                   |   |
+            o   o   o---o   o---o   o---o   o---o   o   o---o---o---o---o   o
+            |       |       |       |   |       |   |                   |   |
+            o   o---o   o---o   o---o   o   o   o   o---o---o---o---o   o   o
+            |   |       |       |       |       |   |                   |   |
+            o   o   o---o   o---o---o   o---o---o   o---o---o   o---o---o   o
+            |   |           |       |                                       |
+            o   o   o---o---o   o---o---o---o---o---o---o---o   o---o---o---o
+            |   |       |               |       |       |       |       |   |
+            o   o   o   o   o   o---o---o   o   o   o   o   o   o   o---o   o
+            |   |   |       |           |   |       |       |               |
+            o   o   o---o---o   o---o---o   o---o---o---o---o   o---o   o---o
+            |   |   |       |       |       |       |       |       |       |
+            o   o   o   o---o---o   o   o---o   o   o   o   o   o   o---o   o
+            |   |               |               |       |       |       |   |
+            o   o   o---o---o   o   o   o---o---o---o---o---o---o---o   o   o
+            |   |                   |   |                               |   |
+            o   o   o   o---o---o---o   o   o---o---o---o---o---o---o---o   o
+            |   |   |           |                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: '5x5', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o   o---o---o---o   o---o---o---o---o---o---o---o---o   o
+            |       |                       |                               |
+            o---o   o   o---o---o   o---o   o   o---o---o---o---o---o---o   o
+            |       |                       |                           |   |
+            o   o---o   o---o   o---o---o---o---o---o---o---o---o   o---o   o
+            |       |   |       |                                   |   |   |
+            o---o   o   o   o---o   o---o---o---o---o---o---o---o---o   o   o
+            |       |       |   |   |                           |       |   |
+            o   o---o   o   o   o   o   o---o---o---o   o   o   o   o   o   o
+            |       |   |   |   |       |               |   |   |   |   |   |
+            o---o   o   o---o   o---o   o   o   o---o   o   o   o   o   o   o
+            |       |               |       |       |   |   |   |   |   |   |
+            o   o---o   o---o---o---o---o---o---o---o   o   o   o   o   o   o
+            |       |                   |       |       |       |   |   |   |
+            o   o   o   o---o---o---o   o   o   o---o   o---o   o   o   o   o
+            |   |   |   |       |       |       |           |   |   |   |   |
+            o   o   o   o---o   o   o---o---o   o---o   o---o   o   o   o   o
+            |   |   |       |       |               |       |       |   |   |
+            o---o   o   o---o---o---o---o---o   o---o   o---o---o---o   o   o
+            |       |   |       |       |           |   |               |   |
+            o   o---o---o---o   o---o   o---o   o---o   o   o---o---o---o   o
+            |   |               |       |           |   |                   |
+            o   o---o---o   o   o   o---o---o   o---o   o   o---o---o---o   o
+            |   |   |       |   |       |               |       |       |   |
+            o   o   o   o   o---o---o   o---o   o---o   o   o---o   o   o   o
+            |   |               |       |   |           |   |       |   |   |
+            o   o   o---o---o---o---o---o   o---o---o---o---o   o---o   o   o
+            |                   |   |       |       |           |       |   |
+            o   o   o---o---o   o   o   o   o   o   o   o---o---o   o---o   o
+            |   |                       |       |       |                   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: '86', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                               |               |
+            o   o---o---o---o---o---o---o   o---o   o   o   o   o   o   o   o
+            |   |                   |   |   |       |   |   |   |   |   |   |
+            o   o---o   o   o   o   o   o   o---o   o   o   o---o   o   o   o
+            |   |   |   |   |   |   |   |   |       |   |           |   |   |
+            o   o   o   o   o   o   o   o   o---o---o---o   o---o---o---o   o
+            |   |   |   |   |   |   |   |                               |   |
+            o   o   o   o   o   o   o   o   o---o---o---o   o---o---o   o   o
+            |   |       |   |   |   |   |   |                           |   |
+            o   o   o   o   o   o   o   o   o---o---o---o   o---o---o   o   o
+            |   |   |   |               |   |                           |   |
+            o   o   o   o   o   o   o   o   o   o---o---o   o---o---o   o   o
+            |   |   |   |   |   |   |   |   |                           |   |
+            o   o---o   o   o   o   o   o---o---o---o---o---o---o---o---o   o
+            |               |   |   |   |       |                       |   |
+            o   o---o   o   o   o   o   o   o   o---o---o---o---o---o   o   o
+            |   |   |   |   |   |   |   |       |                           |
+            o   o   o   o   o   o   o   o   o---o---o---o---o---o---o---o   o
+            |   |   |   |   |   |   |   |   |                           |   |
+            o   o   o   o   o   o   o   o   o---o---o---o   o---o---o   o   o
+            |   |   |   |               |   |                           |   |
+            o   o   o   o   o   o   o   o   o---o---o---o   o---o---o   o   o
+            |   |       |   |   |   |   |   |                               |
+            o   o   o   o   o   o   o   o   o---o---o---o   o---o---o   o   o
+            |   |   |   |   |   |   |       |                           |   |
+            o   o   o   o   o   o   o   o   o   o---o---o   o---o---o---o   o
+            |   |   |   |   |   |   |   |           |   |           |   |   |
+            o   o---o   o   o   o   o   o   o   o---o   o   o---o   o   o   o
+            |   |                   |   |   |       |   |   |   |   |   |   |
+            o   o   o---o---o---o---o---o---o---o---o   o---o   o   o   o   o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: '87-sin', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |                                                           |
+            o   o   o   o---o---o---o---o---o---o---o---o---o---o---o---o   o
+            |   |   |   |   |       |                                   |   |
+            o   o   o   o   o   o   o---o---o---o---o---o---o---o   o   o   o
+            |   |   |   |   |   |                       |   |   |   |   |   |
+            o   o   o   o   o   o   o---o---o---o---o   o   o   o   o   o   o
+            |   |   |   |   |   |   |                   |   |   |   |   |   |
+            o   o   o   o   o   o   o   o---o---o---o---o   o   o   o   o   o
+            |       |   |   |   |   |                   |   |   |   |   |   |
+            o   o   o   o   o   o   o   o---o   o---o   o   o   o   o   o   o
+            |   |   |   |   |   |   |   |       |   |   |   |   |   |   |   |
+            o   o   o   o   o   o   o   o---o---o   o   o   o   o   o   o   o
+            |   |   |   |       |   |               |   |   |   |   |   |   |
+            o   o   o   o   o   o   o   o---o---o   o   o   o   o   o   o   o
+            |   |   |   |   |   |   |   |           |   |                   |
+            o   o   o   o   o   o   o   o   o   o   o   o---o   o   o---o   o
+            |       |   |   |   |   |   |       |   |   |       |       |   |
+            o   o   o   o   o   o   o   o---o---o---o   o---o   o   o---o   o
+            |   |   |       |   |   |                   |   |   |   |   |   |
+            o   o   o   o   o   o   o   o---o---o---o   o   o   o   o   o   o
+            |   |   |   |   |   |   |                           |       |   |
+            o   o   o   o   o   o   o---o---o---o---o---o---o---o---o   o   o
+            |   |   |   |   |   |                                   |   |   |
+            o   o   o   o---o   o---o---o---o---o---o   o---o---o   o   o   o
+            |       |                                               |   |   |
+            o   o   o   o---o---o---o---o---o   o---o---o---o---o---o   o   o
+            |   |   |                                                   |   |
+            o   o   o   o---o---o---o---o---o---o---o---o---o---o---o   o   o
+            |   |   |                                                   |   |
+            o   o   o---o---o---o---o---o---o   o---o---o---o---o---o---o---o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: '88-us', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |               |       |   |       |           |               |
+            o---o---o   o   o   o   o   o   o   o   o   o   o   o---o---o   o
+            |           |       |       |   |   |   |   |           |       |
+            o   o---o   o   o---o---o   o   o   o   o   o   o   o   o   o   o
+            |       |   |           |   |   |   |   |   |   |   |   |   |   |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |   |   |   |   |           |           |   |   |       |   |
+            o   o---o   o---o---o---o   o---o---o---o---o   o   o---o   o   o
+            |       |       |   |       |                   |       |       |
+            o   o   o---o   o   o   o---o   o   o   o   o---o---o   o---o---o
+            |   |   |       |       |   |   |   |   |           |           |
+            o---o   o   o---o   o---o   o   o   o   o   o---o---o---o---o   o
+            |       |                   |       |   |           |           |
+            o   o---o---o---o---o---o---o---o---o---o---o---o   o   o---o   o
+            |                       |           |               |       |   |
+            o   o---o---o---o---o---o   o   o   o   o---o---o   o---o   o---o
+            |   |                   |   |       |                   |       |
+            o   o   o---o---o---o   o   o---o---o---o---o   o   o   o   o---o
+            |   |   |               |   |   |       |   |   |   |   |   |   |
+            o   o   o---o---o---o   o   o   o   o   o   o   o---o---o   o   o
+            |   |               |       |       |       |           |   |   |
+            o   o   o---o   o---o---o---o   o---o   o   o   o---o   o   o   o
+            |   |   |                               |       |       |   |   |
+            o   o---o---o---o---o---o---o---o---o---o---o---o---o   o   o   o
+            |   |               |           |   |               |   |       |
+            o   o---o---o   o   o   o---o   o   o   o---o---o   o---o---o   o
+            |           |   |       |   |       |                   |   |   |
+            o   o---o   o   o---o---o   o   o---o---o---o---o---o   o   o   o
+            |   |   |   |       |               |                   |       |
+            o   o   o   o   o   o   o---o---o   o---o---o   o   o---o---o   o
+            |   |           |               |               |               |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: '90-tor', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |               |                                               |
+            o   o---o---o---o   o---o---o   o---o---o   o---o---o   o   o   o
+            |   |   |       |   |   |           |           |       |   |   |
+            o   o   o   o   o   o   o   o   o---o---o   o---o   o---o   o   o
+            |       |   |   |           |                           |   |   |
+            o   o   o   o   o   o   o   o   o---o---o   o---o---o---o   o   o
+            |   |   |   |       |   |   |   |   |       |   |       |   |   |
+            o   o   o   o   o   o   o---o---o   o   o   o   o---o   o   o   o
+            |   |   |   |   |   |                   |               |   |   |
+            o   o   o   o   o---o---o---o---o---o---o   o---o---o   o   o   o
+            |   |   |   |   |   |               |   |   |   |   |   |   |   |
+            o   o   o   o   o   o   o---o---o   o   o   o   o   o   o   o   o
+            |   |   |   |   |   |                   |   |   |       |   |   |
+            o   o   o   o   o   o   o---o---o---o   o   o   o   o   o   o   o
+            |   |   |   |   |   |       |           |   |   |   |   |   |   |
+            o   o   o   o   o   o---o   o   o   o---o---o   o   o   o   o---o
+            |   |   |   |   |   |       |       |       |   |   |   |       |
+            o   o   o   o   o   o   o---o---o---o   o   o   o   o   o---o   o
+            |   |   |   |   |   |       |           |   |   |   |   |       |
+            o   o   o   o   o   o---o   o   o---o---o---o   o   o   o   o   o
+            |   |   |   |   |   |       |                   |   |       |   |
+            o   o   o   o   o   o   o---o---o---o---o---o   o   o   o   o   o
+            |   |           |   |   |   |                   |   |   |   |   |
+            o   o   o   o   o   o   o   o   o---o---o---o---o   o   o   o   o
+            |   |   |   |   |   |                               |   |   |   |
+            o   o---o---o   o   o---o---o---o---o---o---o---o---o---o   o   o
+            |       |   |                                               |   |
+            o   o   o   o---o---o---o---o---o---o---o---o---o---o---o   o   o
+            |   |                   |       |       |                   |   |
+            o   o---o---o---o---o   o   o   o   o   o---o---o---o---o---o   o
+            |   |                       |       |                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: '92-bos', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o---o---o---o---o---o---o---o---o---o---o---o---o   o
+            |   |                                                       |   |
+            o   o   o---o---o---o---o---o---o---o---o---o---o---o---o   o   o
+            |   |   |                                               |   |   |
+            o   o   o   o---o---o---o---o   o---o   o---o---o---o   o   o   o
+            |   |   |   |   |           |       |       |       |   |   |   |
+            o   o   o   o   o   o---o   o   o---o   o---o   o   o   o   o   o
+            |   |   |       |   |       |   |       |       |   |   |   |   |
+            o   o   o---o   o   o   o---o   o   o---o   o---o   o   o   o   o
+            |   |   |   |   |   |           |   |       |       |   |   |   |
+            o   o   o   o   o   o---o---o   o   o   o---o   o---o   o   o   o
+            |   |   |       |   |       |   |       |       |   |   |   |   |
+            o   o   o   o---o   o   o   o---o---o---o   o---o   o   o   o   o
+            |   |   |   |   |   |   |   |       |       |       |   |   |   |
+            o   o   o   o   o   o   o   o   o   o   o---o   o   o   o   o   o
+            |   |   |       |   |   |   |       |           |   |   |   |   |
+            o   o   o   o---o   o   o   o---o   o   o---o   o   o   o   o   o
+            |                   |   |           |   |           |   |   |   |
+            o   o---o   o---o   o   o---o---o   o---o   o---o---o   o   o   o
+            |   |               |           |   |       |       |   |   |   |
+            o   o   o---o   o---o---o---o   o   o   o---o   o   o   o   o   o
+            |                           |   |   |           |   |   |   |   |
+            o   o---o   o---o   o---o   o   o   o---o---o---o   o   o   o   o
+            |                           |   |                   |   |   |   |
+            o   o---o   o---o   o---o   o   o---o---o---o---o---o   o   o   o
+            |                           |   |                       |   |   |
+            o   o   o---o   o---o   o   o   o---o---o---o---o---o---o   o   o
+            |   |                   |   |                               |   |
+            o   o---o   o---o   o---o   o---o---o---o---o---o---o---o---o   o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'a-maze', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                           |   |
+            o   o---o---o---o---o---o---o---o---o---o   o   o   o   o   o   o
+            |   |                                   |   |   |   |   |       |
+            o   o   o---o---o---o---o---o---o---o   o   o---o   o---o   o---o
+            |   |                           |   |   |   |           |       |
+            o   o---o---o---o   o---o---o---o   o   o   o   o---o   o---o   o
+            |                               |       |   |               |   |
+            o   o---o---o---o---o---o---o   o   o   o   o   o   o---o   o   o
+            |                           |   |   |       |       |   |   |   |
+            o---o---o---o---o---o---o   o   o   o   o---o---o---o   o---o   o
+            |                           |   |   |                           |
+            o---o   o---o---o---o---o---o---o   o---o   o---o---o---o---o   o
+            |                       |       |                           |   |
+            o---o---o   o---o---o---o   o---o   o   o---o---o---o---o   o   o
+            |           |           |   |       |                   |   |   |
+            o---o   o---o   o---o   o   o   o   o---o---o---o---o---o   o   o
+            |       |       |       |   |       |   |               |   |   |
+            o   o---o   o---o   o---o   o---o---o   o---o---o   o   o   o   o
+            |   |       |       |                   |       |   |       |   |
+            o   o   o---o   o---o   o   o---o---o---o   o   o   o   o   o   o
+            |       |       |   |   |   |       |   |   |   |   |   |   |   |
+            o   o---o   o---o   o   o---o   o   o   o   o   o   o   o   o   o
+            |   |       |       |   |       |   |   |   |   |   |   |   |   |
+            o---o   o---o---o---o---o   o---o   o   o   o   o   o   o   o   o
+            |       |       |   |       |       |   |   |   |   |   |   |   |
+            o   o---o   o   o---o   o---o   o---o   o   o   o   o   o   o   o
+            |           |   |       |       |       |   |   |   |   |   |   |
+            o   o---o   o   o   o---o   o---o   o   o   o   o   o   o   o   o
+            |   |   |   |   |   |       |   |   |       |   |   |       |   |
+            o   o   o   o   o---o   o---o   o   o   o   o   o   o---o---o   o
+            |   |       |               |   |   |   |   |                   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'all-america-2013', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o---o   o   o   o---o   o---o   o---o---o   o---o   o---o---o   o
+            |       |   |   |   |   |   |   |   |   |   |                   |
+            o   o   o   o   o---o   o---o   o   o   o   o   o---o---o---o   o
+            |   |   |   |   |   |   |   |   |   |   |   |                   |
+            o   o   o   o   o   o   o   o   o   o   o   o---o   o---o---o   o
+            |       |                                                       |
+            o   o   o   o---o---o---o---o---o   o   o---o---o---o---o---o   o
+            |   |   |                       |   |   |                   |   |
+            o   o   o   o---o---o---o---o---o---o---o---o---o---o---o---o   o
+            |       |   |           |                           |           |
+            o   o   o   o   o---o   o---o---o---o---o   o---o   o   o   o   o
+            |   |   |   |       |   |                   |   |   |   |   |   |
+            o   o   o   o---o   o   o   o---o---o---o   o   o   o   o   o   o
+            |       |   |       |   |   |                   |   |   |   |   |
+            o   o   o   o   o---o   o   o   o   o---o---o   o   o   o   o   o
+            |   |   |   |       |       |       |           |           |   |
+            o   o   o   o---o   o---o---o---o---o---o---o   o---o   o---o   o
+            |       |           |                           |           |   |
+            o   o   o   o---o---o---o---o---o---o   o---o---o---o   o---o   o
+            |   |   |       |                       |                       |
+            o   o   o   o---o   o---o---o---o   o---o   o---o---o---o---o---o
+            |       |       |   |                   |   |                   |
+            o   o   o   o---o   o   o---o---o   o---o   o   o---o---o---o   o
+            |   |   |       |   |   |   |       |       |   |               |
+            o   o   o   o---o   o   o---o   o---o---o   o   o   o---o---o---o
+            |   |   |       |   |   |       |           |   |   |           |
+            o   o   o   o---o   o   o   o---o---o---o   o   o   o   o---o   o
+            |   |   |                                       |       |       |
+            o   o   o---o---o---o---o---o---o---o---o---o---o---o---o   o---o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
         name: 'apec-1988', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
@@ -190,6 +684,44 @@ var mazeData = [
         ` 
     },
     { 
+        name: 'apec-2012', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o---o---o---o---o---o---o---o---o---o---o---o---o   o
+            |   |               |                                           |
+            o   o   o---o---o---o   o---o---o---o---o---o---o---o---o---o   o
+            |   |   |           |       |       |       |               |   |
+            o   o   o   o---o   o---o   o   o   o   o   o   o---o---o   o   o
+            |   |   |   |   |       |       |       |   |       |       |   |
+            o   o   o   o   o---o   o---o---o---o---o   o---o   o   o---o   o
+            |   |   |           |   |       |       |   |       |       |   |
+            o   o   o---o   o---o   o   o   o   o   o   o   o---o---o   o   o
+            |   |   |       |       |   |       |       |   |   |       |   |
+            o   o   o   o---o   o---o   o---o---o---o---o   o   o   o---o   o
+            |   |   |   |       |   |                       |           |   |
+            o   o   o   o   o---o   o   o---o---o---o---o---o   o   o---o   o
+            |   |   |   |   |       |   |       |               |   |       |
+            o   o   o   o   o   o   o---o   o   o   o---o---o---o---o   o   o
+            |   |   |   |       |       |       |           |           |   |
+            o   o   o   o   o---o---o   o---o   o---o---o   o   o   o---o   o
+            |   |   |   |   |           |               |   |   |   |   |   |
+            o   o   o   o---o   o---o---o---o---o   o---o   o   o---o   o   o
+            |   |   |   |       |   |           |       |   |           |   |
+            o   o   o   o   o---o   o   o---o   o---o   o   o---o---o   o   o
+            |   |   |   |           |       |   |       |           |   |   |
+            o   o   o   o---o---o   o   o---o   o   o   o---o---o   o   o   o
+            |   |   |   |           |       |       |   |       |   |   |   |
+            o   o   o   o   o---o---o---o   o   o---o---o   o   o   o   o   o
+            |       |   |                   |               |       |   |   |
+            o   o   o   o---o---o---o---o---o---o---o---o---o---o---o   o   o
+            |   |   |                                                   |   |
+            o   o   o---o---o---o---o---o---o---o---o---o---o---o---o---o   o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
         name: 'apec-2013', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
@@ -304,6 +836,44 @@ var mazeData = [
         ` 
     },
     { 
+        name: 'apec-2017', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o---o---o---o---o---o---o---o---o---o---o---o---o   o
+            |   |                                                           |
+            o   o   o---o---o---o---o---o---o---o---o---o---o---o---o   o   o
+            |   |               |       |               |           |   |   |
+            o   o   o---o---o   o   o   o   o---o---o   o   o---o   o   o   o
+            |   |   |           |   |       |       |   |       |   |   |   |
+            o   o   o   o   o---o   o---o---o   o   o   o---o   o   o   o   o
+            |   |   |   |   |       |   |       |   |   |       |   |   |   |
+            o   o   o   o---o   o---o   o   o---o   o   o   o---o   o   o   o
+            |   |   |   |       |   |           |   |   |       |   |   |   |
+            o   o   o   o   o---o   o   o---o   o   o   o---o   o   o   o   o
+            |   |   |   |   |   |               |       |       |   |   |   |
+            o   o   o   o   o   o   o---o---o---o---o---o---o   o   o   o   o
+            |   |   |       |           |       |               |   |   |   |
+            o   o   o---o---o   o---o   o   o   o   o---o   o   o   o   o   o
+            |   |   |                   |       |           |   |   |   |   |
+            o   o   o   o---o---o---o---o---o   o---o   o   o---o   o   o   o
+            |   |   |       |                   |       |   |       |   |   |
+            o   o   o---o   o   o---o   o---o---o   o   o---o   o---o   o   o
+            |   |   |       |       |   |           |   |       |   |   |   |
+            o   o   o   o---o   o   o---o---o   o   o---o   o---o   o   o   o
+            |   |   |       |   |   |   |       |   |       |       |   |   |
+            o   o   o---o   o   o---o   o   o---o---o   o---o   o   o   o   o
+            |   |       |       |       |       |       |       |   |   |   |
+            o   o---o   o   o---o   o   o---o   o   o---o   o---o   o   o   o
+            |       |   |           |           |           |       |   |   |
+            o   o   o   o---o---o---o---o---o---o---o---o---o---o   o   o   o
+            |   |   |                                                   |   |
+            o   o   o---o---o---o---o---o---o---o---o---o---o---o---o---o   o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
         name: 'apec-2018', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
@@ -337,6 +907,576 @@ var mazeData = [
             o   o   o   o---o---o---o---o---o---o---o---o---o---o---o   o   o
             |   |   |                                                   |   |
             o   o   o---o---o---o---o---o---o---o---o---o---o---o---o---o   o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'at-135', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |           |                                                   |
+            o   o---o   o   o---o---o---o---o---o---o---o---o---o---o   o   o
+            |   |   |       |   |   |   |   |       |       |       |   |   |
+            o   o   o---o---o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |       |                       |       |       |       |   |
+            o   o---o   o   o---o   o   o   o   o---o---o---o---o---o---o   o
+            |   |       |   |   |   |   |   |   |           |       |   |   |
+            o   o   o   o   o   o---o   o---o---o   o---o---o   o   o   o   o
+            |   |   |       |       |   |       |               |       |   |
+            o---o---o---o---o---o---o---o---o---o   o---o---o---o---o   o   o
+            |                                   |       |               |   |
+            o   o---o---o---o---o---o---o---o   o   o---o   o---o---o---o   o
+            |   |       |                   |   |       |               |   |
+            o   o---o---o   o---o---o---o---o   o   o---o   o---o---o   o   o
+            |   |       |   |           |       |   |                   |   |
+            o   o---o---o   o   o---o   o   o   o---o   o---o---o---o   o   o
+            |   |       |   |   |       |       |   |   |           |   |   |
+            o   o---o---o   o   o---o   o---o---o   o---o   o---o---o   o   o
+            |   |   |                   |   |   |           |           |   |
+            o   o   o   o---o---o---o---o   o   o---o---o   o---o---o   o   o
+            |   |   |                       |           |           |   |   |
+            o   o---o   o   o---o---o---o---o   o---o---o---o   o   o   o   o
+            |           |               |                   |   |   |   |   |
+            o---o---o   o   o   o---o---o   o---o---o---o---o   o   o   o   o
+            |       |   |   |           |               |   |       |   |   |
+            o   o   o   o   o   o---o---o   o---o---o---o   o---o   o   o   o
+            |   |           |           |   |   |               |       |   |
+            o   o   o---o---o---o---o---o   o   o---o---o   o   o---o   o   o
+            |   |   |               |   |       |       |   |       |   |   |
+            o   o   o   o---o---o   o   o---o---o   o   o   o   o---o---o   o
+            |   |                   |               |                       |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'beam-94', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |       |   |   |       |       |       |               |       |
+            o   o---o   o   o   o   o   o   o   o   o---o---o---o   o---o   o
+            |           |       |       |       |           |       |   |   |
+            o   o---o   o   o---o---o---o---o---o---o   o   o   o   o   o   o
+            |       |       |           |       |       |   |   |           |
+            o   o---o---o   o---o   o---o   o   o   o---o   o   o   o   o---o
+            |       |                   |   |           |       |   |       |
+            o   o---o---o---o   o---o   o   o   o---o---o   o---o   o   o---o
+            |                       |       |       |       |       |       |
+            o---o   o---o   o---o   o---o---o   o---o   o---o---o   o   o   o
+            |       |       |       |           |   |       |       |   |   |
+            o---o   o---o---o---o---o   o---o---o   o---o   o   o---o   o   o
+            |   |       |               |       |                           |
+            o   o   o---o   o---o---o---o---o   o   o---o---o   o   o---o---o
+            |       |   |       |   |       |               |   |           |
+            o   o   o   o   o   o---o   o   o   o---o---o---o   o   o---o   o
+            |   |   |       |   |   |               |       |   |   |       |
+            o   o---o---o   o   o   o---o---o   o   o   o   o   o---o---o   o
+            |                   |   |           |   |   |               |   |
+            o   o---o   o   o---o   o---o---o---o---o---o   o---o---o   o   o
+            |   |       |       |   |           |       |   |           |   |
+            o   o   o---o---o   o   o---o---o---o---o---o   o---o---o---o   o
+            |           |       |   |   |               |   |   |           |
+            o   o---o   o   o---o   o   o   o---o---o   o   o   o---o   o---o
+            |       |   |       |   |   |       |       |   |   |           |
+            o   o---o   o---o   o   o   o---o   o   o---o   o   o   o---o   o
+            |           |       |   |   |       |   |       |           |   |
+            o   o---o   o   o---o   o   o   o   o   o---o---o   o---o   o   o
+            |       |           |   |       |   |                   |       |
+            o   o   o---o---o---o---o   o---o   o   o---o   o---o---o   o---o
+            |   |                       |           |       |               |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'bon-13', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |               |       |                                   |
+            o   o---o   o---o   o   o   o   o---o   o---o---o---o---o---o   o
+            |   |           |       |       |       |               |       |
+            o   o---o   o---o---o---o   o---o   o   o   o---o   o   o---o   o
+            |   |                   |   |       |   |           |           |
+            o   o---o   o---o---o   o---o   o---o   o   o---o   o   o---o   o
+            |   |               |   |       |   |   |               |       |
+            o   o---o   o---o   o---o   o   o   o   o   o---o---o---o---o   o
+            |   |           |   |       |   |   |   |   |           |       |
+            o   o   o---o---o---o   o---o---o   o   o   o   o---o   o---o   o
+            |               |       |           |   |   |                   |
+            o   o---o---o---o   o---o   o---o   o---o   o---o---o---o---o   o
+            |           |           |   |           |                   |   |
+            o---o---o   o   o---o   o   o---o---o   o   o---o---o---o---o   o
+            |           |           |   |       |                           |
+            o   o---o---o   o---o---o   o   o   o---o---o---o---o---o---o   o
+            |           |           |   |           |                   |   |
+            o   o---o   o   o---o   o   o---o---o   o   o---o---o---o---o   o
+            |   |       |           |           |   |   |                   |
+            o   o   o---o---o   o---o   o---o   o   o   o   o---o---o---o---o
+            |   |           |       |       |   |   |   |                   |
+            o   o   o---o---o---o   o---o   o---o   o   o---o---o---o   o---o
+            |   |           |   |       |       |   |               |       |
+            o   o---o   o---o   o---o   o---o   o   o   o---o---o---o---o   o
+            |   |               |   |       |       |   |                   |
+            o   o---o   o---o---o   o---o   o---o---o   o---o   o---o---o---o
+            |   |                   |   |                   |               |
+            o   o---o   o---o---o---o   o---o   o---o   o   o---o   o---o   o
+            |   |           |       |       |       |   |       |       |   |
+            o   o---o   o---o   o   o   o   o---o   o   o---o   o---o   o---o
+            |   |               |       |           |       |               |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'boston', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |       |                                                       |
+            o   o   o   o---o---o---o---o---o   o   o---o---o---o---o   o   o
+            |   |   |       |               |   |                   |   |   |
+            o   o   o---o   o   o---o---o---o   o   o---o---o---o   o   o   o
+            |   |           |                   |   |               |   |   |
+            o   o---o   o---o---o---o---o---o---o   o---o---o---o   o   o   o
+            |   |       |                                           |   |   |
+            o   o   o   o   o---o   o---o---o---o---o---o---o---o---o   o   o
+            |   |   |       |   |                               |       |   |
+            o   o   o---o   o   o   o---o---o---o---o---o   o   o   o   o   o
+            |   |       |       |                       |   |   |   |   |   |
+            o   o---o   o   o   o   o---o   o---o---o   o   o   o---o   o   o
+            |           |   |   |   |       |       |       |           |   |
+            o   o   o---o   o   o   o   o---o   o   o---o   o   o---o---o   o
+            |   |       |   |   |   |   |       |       |   |       |       |
+            o   o---o   o   o   o   o   o   o   o---o   o   o---o   o   o   o
+            |   |       |   |   |   |   |       |       |       |   |   |   |
+            o   o   o   o   o   o   o   o---o---o   o---o---o   o   o   o   o
+            |   |   |   |       |   |           |       |       |   |   |   |
+            o   o   o   o---o---o   o---o---o   o---o   o   o---o   o   o   o
+            |   |   |   |                   |       |       |       |   |   |
+            o   o   o   o---o---o---o---o   o---o   o   o---o   o   o   o   o
+            |   |   |           |       |       |       |       |   |   |   |
+            o   o   o   o---o   o   o   o---o   o---o   o   o---o   o   o   o
+            |       |       |   |   |       |                       |   |   |
+            o---o   o---o---o   o   o---o   o---o   o---o---o---o---o   o   o
+            |       |           |       |       |                       |   |
+            o   o   o---o---o   o---o   o---o   o---o---o---o---o---o   o   o
+            |   |               |   |       |                           |   |
+            o   o   o---o---o---o   o---o   o---o---o---o---o---o---o---o   o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'bug', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o   o---o---o---o   o---o---o---o---o---o---o---o---o   o
+            |       |                       |                               |
+            o---o   o   o---o---o   o---o   o   o---o---o---o---o---o---o   o
+            |       |                       |                           |   |
+            o   o---o   o---o   o---o---o---o---o---o---o---o---o   o---o   o
+            |       |   |       |                                   |   |   |
+            o---o   o   o   o---o   o---o---o---o---o---o---o---o---o   o   o
+            |       |       |   |   |                           |       |   |
+            o   o---o   o   o   o   o   o---o---o---o   o   o   o   o   o   o
+            |       |   |   |   |       |               |   |   |   |   |   |
+            o---o   o   o---o   o---o   o   o   o---o   o   o   o   o   o   o
+            |       |               |       |       |   |   |   |   |   |   |
+            o---o---o---o---o---o---o---o---o---o---o   o   o   o   o   o   o
+            |       |               |           |       |       |   |   |   |
+            o   o   o   o---o---o---o   o   o   o---o   o---o   o   o   o   o
+            |   |   |   |       |   |   |       |           |   |   |   |   |
+            o   o   o   o---o   o   o   o---o---o---o   o---o   o   o   o   o
+            |   |   |       |       |           |   |       |       |   |   |
+            o---o   o   o---o---o---o   o---o   o---o   o---o---o---o   o   o
+            |       |   |                   |   |   |   |               |   |
+            o   o---o---o---o---o---o---o   o   o---o   o   o---o---o---o   o
+            |   |               |               |   |   |                   |
+            o   o---o---o   o   o   o---o---o   o---o   o   o---o---o---o   o
+            |           |       |       |   |   |       |       |       |   |
+            o   o   o   o---o---o   o   o   o---o---o   o   o---o   o   o   o
+            |   |   |       |       |   |   |   |       |   |       |   |   |
+            o---o   o   o---o---o---o   o   o---o---o---o---o   o---o   o   o
+            |       |   |       |       |   |   |   |           |       |   |
+            o   o   o   o   o   o   o---o   o   o   o   o---o---o   o---o   o
+            |   |   |       |       |   |       |       |                   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'c00d1f', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |                       |                                   |
+            o   o   o---o---o---o---o---o   o---o---o---o---o---o---o---o---o
+            |   |   |                                                       |
+            o   o   o---o---o---o---o---o   o---o---o---o   o---o---o---o   o
+            |   |                       |   |           |               |   |
+            o   o   o   o---o---o---o---o   o   o---o---o   o---o---o---o   o
+            |   |   |                               |       |               |
+            o   o   o   o   o---o---o   o   o   o   o   o---o   o---o   o   o
+            |       |   |               |   |   |       |   |       |   |   |
+            o   o   o   o---o   o---o   o   o   o   o   o---o   o   o   o   o
+            |   |   |   |       |   |   |       |   |       |   |   |       |
+            o   o   o---o   o   o---o   o---o   o   o---o   o   o   o---o   o
+            |   |           |       |           |   |   |       |           |
+            o   o   o   o   o---o---o---o---o---o---o---o---o   o   o   o   o
+            |   |   |   |           |           |   |       |   |   |   |   |
+            o   o   o   o   o---o   o   o   o   o   o   o   o   o   o   o---o
+            |   |   |   |           |   |       |   |   |   |               |
+            o   o   o   o---o---o---o   o---o---o   o   o   o   o---o---o   o
+            |   |   |       |       |   |           |   |   |   |       |   |
+            o   o   o---o   o   o   o   o   o   o   o---o   o   o---o---o   o
+            |   |   |   |       |   |       |   |                           |
+            o   o   o   o   o---o   o   o---o   o---o   o---o   o   o   o---o
+            |   |       |   |       |                       |   |   |   |   |
+            o   o   o   o---o---o   o---o---o---o---o---o---o   o   o   o   o
+            |   |   |           |                       |                   |
+            o   o   o   o   o---o---o   o---o---o---o---o   o---o---o---o   o
+            |   |   |   |           |                                   |   |
+            o   o   o   o---o   o   o---o   o---o---o   o---o   o---o---o   o
+            |   |   |   |   |   |           |           |   |               |
+            o   o   o   o---o   o   o---o   o---o---o---o---o---o---o---o---o
+            |   |   |           |       |                                   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'c00d1p', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |                               |                           |
+            o   o   o---o---o   o---o---o---o---o   o---o---o---o---o---o   o
+            |   |       |               |                   |               |
+            o   o   o   o---o---o   o---o   o---o---o---o   o---o---o---o   o
+            |   |   |           |       |               |               |   |
+            o   o   o   o   o---o   o   o---o---o---o   o   o---o---o---o   o
+            |           |           |               |   |                   |
+            o   o---o---o---o---o---o---o---o---o   o---o   o---o---o   o---o
+            |                       |                               |       |
+            o   o---o   o---o---o---o   o---o---o---o---o---o---o---o   o   o
+            |   |                   |                       |           |   |
+            o   o---o---o   o---o---o---o---o---o---o---o---o   o   o   o   o
+            |   |                   |               |           |   |   |   |
+            o   o   o---o---o   o---o   o---o---o   o   o---o   o   o---o   o
+            |   |           |       |   |       |   |   |   |   |           |
+            o   o   o---o---o---o   o   o   o   o   o   o   o   o   o---o   o
+            |   |   |               |           |       |   |           |   |
+            o   o   o---o---o   o---o---o---o---o   o   o   o---o---o   o   o
+            |   |       |       |                   |   |               |   |
+            o   o   o---o   o---o   o---o---o   o---o---o   o---o---o   o   o
+            |   |   |           |   |                               |   |   |
+            o   o   o---o---o   o   o   o---o---o   o   o---o---o---o   o   o
+            |   |                                   |   |                   |
+            o   o---o---o   o---o---o---o---o---o   o   o---o---o---o---o   o
+            |           |   |   |   |           |   |                   |   |
+            o   o   o   o---o   o   o   o   o---o---o---o---o---o---o---o   o
+            |   |   |           |   |   |   |       |                       |
+            o   o   o---o---o   o   o   o   o---o   o   o---o---o---o   o---o
+            |   |                   |   |                           |       |
+            o   o   o---o---o   o   o---o   o---o---o---o   o---o---o---o   o
+            |   |               |                       |                   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'c00d2f', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |                   |                               |       |
+            o   o   o---o---o---o---o   o---o---o---o---o---o---o---o   o   o
+            |   |   |                                               |   |   |
+            o   o   o   o---o---o   o---o---o   o---o   o---o---o   o   o   o
+            |   |       |           |       |   |   |           |   |   |   |
+            o   o   o   o   o---o---o---o---o   o   o   o---o   o   o   o   o
+            |       |       |                   |   |       |   |   |   |   |
+            o   o   o   o   o---o---o   o   o   o---o   o   o---o---o   o   o
+            |   |       |               |   |           |       |           |
+            o   o   o   o---o---o---o   o   o   o---o   o---o   o   o   o   o
+            |   |   |   |           |   |   |   |   |       |   |   |   |   |
+            o   o   o   o---o---o---o---o---o---o---o---o   o   o   o   o   o
+            |   |   |               |               |   |   |       |   |   |
+            o   o   o   o---o---o   o   o---o---o   o---o   o   o---o   o   o
+            |   |   |               |           |                   |       |
+            o   o---o---o---o---o---o   o   o   o   o---o---o---o---o---o---o
+            |   |   |               |   |       |                   |       |
+            o   o   o   o---o---o   o   o---o---o   o---o   o   o   o   o   o
+            |   |   |               |               |   |   |   |   |   |   |
+            o   o   o   o---o---o---o---o---o---o---o---o   o   o   o   o   o
+            |   |   |   |           |   |   |   |   |   |   |   |       |   |
+            o   o   o   o---o---o---o   o   o   o---o   o   o   o   o   o   o
+            |   |       |               |   |           |       |   |       |
+            o   o   o   o   o---o---o   o   o   o---o---o---o   o---o   o   o
+            |       |       |                       |   |           |   |   |
+            o   o   o   o   o---o---o---o---o   o   o---o   o---o---o   o   o
+            |   |       |                   |   |                   |   |   |
+            o   o   o   o   o---o---o---o---o   o---o---o---o---o---o   o   o
+            |   |   |                                               |   |   |
+            o   o   o---o---o---o---o   o---o---o---o---o---o---o---o   o   o
+            |   |                   |                               |       |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'c00d2p', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |                   |                           |           |
+            o   o   o---o---o---o---o   o---o---o---o---o---o---o   o---o   o
+            |   |   |                   |                           |   |   |
+            o   o   o---o---o---o---o   o---o---o---o---o---o---o   o   o   o
+            |   |                                               |   |   |   |
+            o   o   o---o---o---o---o---o   o---o---o---o---o---o   o   o   o
+            |   |   |                                   |           |   |   |
+            o   o   o   o---o---o---o---o---o---o---o   o---o---o   o---o   o
+            |   |   |   |                       |   |           |           |
+            o   o   o   o   o   o---o---o---o---o   o   o---o   o   o---o   o
+            |       |       |                       |   |   |       |   |   |
+            o   o   o---o   o---o   o---o---o---o   o   o---o   o   o   o   o
+            |   |   |   |   |   |   |           |               |   |   |   |
+            o   o   o   o   o   o   o   o---o---o   o   o---o   o   o---o   o
+            |       |   |   |   |   |           |   |   |   |   |           |
+            o   o   o---o   o   o   o   o   o   o   o   o   o---o---o---o---o
+            |   |           |   |   |   |       |   |   |   |   |           |
+            o   o   o---o   o   o   o   o---o---o   o   o   o   o   o---o   o
+            |   |   |   |   |   |   |                       |   |   |   |   |
+            o   o   o   o   o   o   o   o---o---o   o   o   o   o   o   o   o
+            |   |   |   |   |   |   |               |   |       |   |   |   |
+            o   o   o   o---o   o---o   o---o---o---o   o   o   o   o---o   o
+            |       |   |                               |   |               |
+            o   o   o---o---o---o---o---o---o---o---o---o   o---o   o---o   o
+            |   |   |                               |           |   |   |   |
+            o   o   o   o---o---o   o---o---o---o---o   o---o---o   o   o   o
+            |   |               |   |                   |           |   |   |
+            o   o   o---o---o---o   o---o---o---o---o   o---o---o   o   o   o
+            |   |   |                                           |   |   |   |
+            o   o   o---o---o---o---o---o---o---o---o   o---o---o   o---o   o
+            |   |                                   |   |                   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'c00d3f', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |                       |                       |           |
+            o   o   o---o---o---o---o---o   o---o---o---o---o---o   o---o   o
+            |   |   |                                       |       |   |   |
+            o   o   o---o---o---o---o---o   o---o---o   o   o---o   o   o   o
+            |   |                       |   |       |   |       |   |   |   |
+            o   o   o   o---o   o---o---o   o---o---o   o---o   o   o   o   o
+            |       |   |   |                           |       |   |   |   |
+            o   o   o   o---o   o---o   o---o---o---o   o---o   o   o---o   o
+            |   |   |           |   |   |           |       |               |
+            o   o   o---o---o   o   o   o---o---o---o   o---o---o   o---o   o
+            |   |           |   |   |                       |   |   |   |   |
+            o   o   o---o   o   o---o---o---o---o---o---o   o---o   o   o   o
+            |   |   |   |       |   |                           |   |   |   |
+            o   o   o   o   o---o   o   o---o---o---o---o   o---o---o   o   o
+            |   |   |   |           |           |                   |   |   |
+            o   o---o   o---o---o---o   o   o   o---o---o---o---o---o---o---o
+            |   |   |   |           |   |       |                   |   |   |
+            o   o   o   o   o---o   o   o---o---o---o---o   o---o---o   o   o
+            |   |   |   |       |   |                           |   |   |   |
+            o   o   o---o   o   o---o---o---o---o---o---o   o---o   o   o   o
+            |   |           |   |   |               |       |   |   |   |   |
+            o   o   o---o---o   o   o   o---o   o---o   o---o---o   o---o   o
+            |   |   |           |   |   |   |   |   |   |   |               |
+            o   o   o   o---o   o---o   o---o   o---o   o---o   o   o---o   o
+            |       |   |   |               |               |   |   |   |   |
+            o   o   o   o---o---o---o---o   o---o   o   o---o   o   o   o   o
+            |   |                       |   |       |   |       |   |   |   |
+            o   o   o---o---o---o---o---o   o---o   o   o---o   o   o   o   o
+            |   |   |                               |           |   |   |   |
+            o   o   o---o---o---o---o---o   o---o---o---o---o---o   o---o   o
+            |   |                       |                       |           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'c00d3p', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |                           |                   |           |
+            o   o   o---o---o---o---o---o---o   o---o---o---o---o   o---o   o
+            |   |   |                           |               |   |   |   |
+            o   o   o---o---o---o---o---o---o   o---o---o---o---o   o   o   o
+            |   |                                               |   |   |   |
+            o   o   o---o---o---o---o---o   o---o---o---o---o---o   o   o   o
+            |   |                       |               |       |   |   |   |
+            o   o   o---o---o---o---o---o---o---o---o   o---o---o   o   o   o
+            |   |   |                           |   |           |   |   |   |
+            o   o   o---o   o   o---o---o---o---o   o   o---o   o   o   o   o
+            |       |   |   |                       |   |   |   |   |   |   |
+            o   o   o   o   o   o---o---o---o---o   o   o   o   o   o   o   o
+            |   |   |   |   |   |   |   |       |   |   |   |       |   |   |
+            o   o   o   o   o   o   o   o---o---o   o   o---o   o   o---o   o
+            |   |   |   |   |   |   |           |               |           |
+            o   o   o---o   o   o   o   o   o   o   o---o---o---o---o---o---o
+            |   |           |   |   |   |       |               |           |
+            o   o   o---o   o   o   o   o---o---o   o   o---o   o   o---o   o
+            |   |   |   |   |   |   |               |   |   |   |   |   |   |
+            o   o   o   o   o   o   o---o---o---o   o   o   o   o   o   o   o
+            |   |   |   |   |   |   |               |   |   |   |   |   |   |
+            o   o   o   o   o---o---o---o---o---o---o   o---o   o   o   o   o
+            |       |   |   |                                       |   |   |
+            o   o   o---o---o---o---o---o---o---o---o---o   o---o   o   o   o
+            |   |                                   |           |   |   |   |
+            o   o   o---o---o---o   o---o---o---o---o   o---o---o   o   o   o
+            |   |   |           |   |               |   |       |   |   |   |
+            o   o   o---o---o---o   o---o---o---o---o   o---o---o   o   o   o
+            |   |               |                               |   |   |   |
+            o   o   o---o---o---o---o---o---o---o---o---o---o---o   o---o   o
+            |   |                           |                               |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'c00jcf', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |       |   |       |       |                               |
+            o   o   o   o   o   o   o   o   o   o---o---o---o---o---o---o   o
+            |   |   |   |   |   |   |   |   |                               |
+            o   o   o   o   o   o   o   o   o   o---o---o---o---o---o---o   o
+            |   |   |       |   |   |                                   |   |
+            o   o   o   o---o   o   o   o---o   o   o---o   o---o---o---o   o
+            |       |           |               |   |   |       |           |
+            o   o   o   o---o---o   o---o---o   o   o   o   o   o   o---o   o
+            |   |   |               |       |   |   |   |   |       |   |   |
+            o   o   o   o---o---o---o---o---o   o   o---o   o   o   o   o   o
+            |   |   |                           |           |   |   |   |   |
+            o   o   o---o   o---o   o---o---o---o---o---o---o   o   o---o   o
+            |   |       |       |   |               |           |           |
+            o   o   o   o   o   o---o   o---o---o   o   o   o---o---o   o   o
+            |       |       |       |           |       |       |       |   |
+            o   o---o   o---o   o---o   o   o   o   o---o---o   o   o---o---o
+            |       |       |       |   |       |       |       |       |   |
+            o   o   o   o   o   o---o   o---o---o   o   o   o---o---o   o   o
+            |   |       |       |   |               |           |           |
+            o   o   o---o   o---o   o---o---o---o---o---o---o   o   o---o   o
+            |   |   |                           |           |   |   |   |   |
+            o   o   o   o---o---o---o---o---o   o   o---o   o   o   o   o   o
+            |   |   |               |       |   |   |   |   |       |   |   |
+            o   o   o   o---o---o   o---o---o   o   o   o   o   o   o---o   o
+            |       |           |               |   |   |       |           |
+            o   o   o   o---o   o   o   o---o   o   o---o   o---o---o---o   o
+            |   |   |       |   |   |                                   |   |
+            o   o   o   o   o   o   o   o   o   o---o---o---o---o---o---o   o
+            |   |   |   |   |   |   |   |   |                               |
+            o   o   o   o   o   o   o   o   o   o---o---o---o---o---o---o   o
+            |   |       |   |       |       |                               |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'c00jcp', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |                   |                                       |
+            o   o   o---o---o---o   o   o---o---o---o   o---o   o---o   o   o
+            |   |   |                                                   |   |
+            o   o   o   o---o---o---o---o   o---o---o---o---o   o---o   o   o
+            |   |       |                                   |           |   |
+            o   o   o   o   o---o---o---o---o---o---o---o---o---o   o---o   o
+            |   |   |   |   |   |                               |       |   |
+            o   o   o   o   o   o   o   o   o   o   o---o   o   o   o   o   o
+            |       |       |   |   |   |   |   |       |   |   |   |   |   |
+            o   o---o---o---o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |               |   |   |       |   |   |   |               |
+            o   o   o   o---o   o   o---o---o---o---o   o---o   o---o   o   o
+            |   |   |   |       |   |               |   |           |   |   |
+            o   o   o   o   o---o   o   o---o---o   o---o   o---o   o   o   o
+            |   |                       |       |           |       |   |   |
+            o   o   o---o---o---o---o   o   o   o   o---o---o   o---o   o   o
+            |   |                               |           |       |   |   |
+            o   o   o   o   o---o   o   o---o---o   o---o   o---o   o   o   o
+            |   |   |   |       |   |               |   |           |   |   |
+            o   o   o   o---o   o   o---o---o---o---o   o---o   o---o   o   o
+            |   |               |   |   |       |   |   |   |               |
+            o   o---o---o---o   o   o   o   o   o   o   o   o   o   o   o   o
+            |       |       |       |   |   |   |       |   |   |   |   |   |
+            o   o   o   o   o   o---o   o   o   o   o---o   o   o   o   o   o
+            |   |   |   |   |                                   |       |   |
+            o   o   o   o   o---o---o---o---o---o---o---o---o---o   o---o   o
+            |   |   |   |                                   |           |   |
+            o   o   o   o---o---o---o---o   o---o---o---o---o   o---o   o   o
+            |   |       |                                               |   |
+            o   o   o   o   o---o---o   o---o---o---o   o---o   o---o   o   o
+            |   |   |                                                       |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'chi-86', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |               |       |   |       |           |               |
+            o---o---o   o   o   o   o   o   o   o   o   o   o   o---o---o   o
+            |           |       |       |   |   |   |   |           |       |
+            o   o---o   o   o---o---o   o   o   o   o   o   o   o   o   o   o
+            |       |   |           |   |   |   |   |   |   |   |   |   |   |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |   |   |   |   |           |           |   |   |       |   |
+            o   o---o   o---o---o---o   o---o---o---o---o   o   o---o   o   o
+            |       |       |       |   |                   |       |       |
+            o   o   o---o---o---o   o---o   o   o   o   o---o---o   o---o---o
+            |   |   |               |   |   |   |   |           |           |
+            o---o   o   o---o   o---o   o   o   o   o   o---o---o---o---o   o
+            |       |                   |       |   |           |           |
+            o   o---o---o---o---o---o---o---o---o---o---o---o   o   o---o   o
+            |                       |           |               |       |   |
+            o   o---o---o---o---o---o   o   o   o   o---o---o   o---o   o---o
+            |   |                   |   |       |                   |       |
+            o   o   o---o---o---o   o   o---o---o---o---o   o   o   o   o   o
+            |   |   |               |   |   |       |   |   |   |       |   |
+            o   o   o---o---o---o   o   o   o   o   o   o   o---o---o   o   o
+            |   |               |       |       |       |           |       |
+            o   o   o---o   o---o---o---o   o---o   o   o   o---o   o   o   o
+            |   |   |                               |       |       |   |   |
+            o   o---o---o---o---o---o---o---o---o---o---o---o---o   o   o   o
+            |   |               |           |   |               |   |       |
+            o   o---o---o   o   o   o---o   o   o   o---o---o   o---o---o   o
+            |           |   |       |   |       |                   |   |   |
+            o   o---o   o   o---o---o   o   o---o---o---o---o---o   o   o   o
+            |   |   |   |       |               |                   |       |
+            o   o   o   o   o   o   o---o---o   o---o---o   o   o---o---o   o
+            |   |           |               |               |               |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'chochi', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |           |                                               |   |
+            o   o---o   o   o---o   o---o---o   o---o---o   o---o---o   o   o
+            |       |                   |                                   |
+            o   o   o   o---o   o---o   o   o   o---o   o---o---o---o   o   o
+            |   |               |           |           |       |       |   |
+            o   o   o---o   o   o   o   o   o   o   o---o   o   o   o   o   o
+            |               |       |   |       |   |       |       |   |   |
+            o   o---o---o---o---o---o   o   o   o   o   o   o   o   o   o   o
+            |   |                   |       |       |   |       |       |   |
+            o   o   o   o   o---o   o---o   o   o   o   o   o   o   o   o   o
+            |   |   |   |       |       |       |   |       |       |   |   |
+            o   o   o   o   o   o   o   o   o   o---o   o   o   o   o   o   o
+            |   |       |   |       |   |   |   |       |       |       |   |
+            o   o   o   o   o---o   o---o---o---o   o   o   o   o   o   o   o
+            |   |   |   |       |       |       |   |       |       |   |   |
+            o   o   o   o---o---o---o   o   o   o   o   o   o   o   o   o   o
+            |   |                   |           |       |       |       |   |
+            o   o   o---o   o---o---o---o---o---o   o   o   o   o   o   o   o
+            |   |               |       |           |       |       |   |   |
+            o   o   o   o   o   o   o   o   o   o---o   o   o   o   o   o   o
+            |   |   |   |   |       |   |   |           |       |       |   |
+            o   o   o   o   o---o   o   o---o   o   o---o---o---o---o---o   o
+            |   |                           |   |       |   |   |   |       |
+            o   o---o---o---o---o---o   o---o   o---o   o   o   o   o---o   o
+            |   |           |       |       |                           |   |
+            o   o   o   o   o   o   o---o   o---o   o   o   o   o   o   o   o
+            |   |   |   |   |   |       |       |   |   |   |   |   |   |   |
+            o   o   o   o   o   o   o   o---o   o---o---o---o---o---o   o   o
+            |                       |   |                               |   |
+            o   o   o---o   o---o   o---o---o---o---o---o---o---o---o---o   o
             |   |                                                           |
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
         ` 
@@ -452,6 +1592,44 @@ var mazeData = [
             |           |   |   |           |           |       |   |       |
             o   o---o---o   o---o---o---o   o---o---o---o   o---o   o---o   o
             |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'diag-2', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                           |   |
+            o   o---o---o   o---o   o   o---o---o---o---o   o---o---o   o---o
+            |   |   |       |       |   |               |                   |
+            o   o---o   o---o   o---o   o---o   o---o   o---o   o---o---o   o
+            |   |       |       |           |       |       |       |       |
+            o---o   o---o   o---o---o---o   o   o---o   o   o---o   o---o   o
+            |       |       |           |   |   |   |   |       |       |   |
+            o   o---o   o---o   o---o   o---o   o   o---o---o---o   o   o---o
+            |   |       |       |   |       |   |           |       |       |
+            o   o   o---o   o---o   o   o---o   o---o   o---o   o---o---o   o
+            |       |       |   |   |   |           |   |       |           |
+            o   o---o   o---o---o   o   o---o   o---o---o   o   o---o---o   o
+            |   |       |           |       |               |   |       |   |
+            o   o   o---o   o---o---o   o---o---o---o   o---o   o   o   o   o
+            |       |   |   |       |   |       |   |   |       |   |   |   |
+            o---o---o---o   o   o   o   o   o   o   o---o   o---o   o   o   o
+            |               |   |   |           |   |       |   |   |   |   |
+            o---o---o   o---o   o   o---o---o---o---o   o---o   o   o   o   o
+            |   |       |       |       |       |       |       |   |   |   |
+            o---o   o---o   o---o   o---o   o---o   o---o   o   o---o   o---o
+            |       |       |       |       |       |       |       |       |
+            o   o---o   o---o   o---o   o---o   o---o   o---o---o   o---o   o
+            |   |       |       |       |       |       |       |       |   |
+            o   o   o---o   o---o---o---o   o---o   o   o   o   o---o   o   o
+            |       |       |                   |   |   |   |   |       |   |
+            o   o---o   o---o   o---o---o   o---o   o---o   o---o   o---o   o
+            |   |       |       |           |       |               |       |
+            o   o   o---o   o---o   o---o---o   o---o---o---o   o---o   o   o
+            |       |       |           |       |       |       |       |   |
+            o   o   o---o   o---o   o---o   o---o---o---o   o---o   o---o   o
+            |   |               |           |                       |       |
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
         ` 
     },
@@ -756,6 +1934,310 @@ var mazeData = [
             |   |           |       |       |       |           |       |   |
             o   o---o   o---o   o   o   o   o   o   o   o---o---o   o---o   o
             |   |               |       |       |       |                   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'hk-90', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |           |           |                                       |
+            o   o---o   o   o---o   o   o---o---o---o---o---o---o---o   o   o
+            |   |       |   |       |               |           |       |   |
+            o   o   o---o   o   o---o   o---o---o   o   o---o   o   o---o   o
+            |   |       |   |                       |   |   |       |       |
+            o   o---o   o   o   o---o---o---o---o---o   o   o   o---o   o   o
+            |   |       |   |   |                   |   |               |   |
+            o   o   o---o   o   o   o---o---o---o   o   o---o---o---o---o   o
+            |   |           |   |   |               |       |               |
+            o   o---o---o---o   o   o   o---o---o   o---o   o   o---o---o   o
+            |               |   |   |   |                   |               |
+            o---o---o---o   o---o   o   o   o---o---o---o   o---o---o   o---o
+            |           |   |       |   |               |           |       |
+            o   o---o---o   o   o---o---o---o---o---o   o---o---o   o---o   o
+            |   |       |   |           |       |                   |       |
+            o   o   o   o   o---o   o---o   o   o---o---o---o---o---o   o   o
+            |   |   |   |   |       |           |                       |   |
+            o   o   o   o   o   o---o   o---o---o   o---o---o---o   o---o   o
+            |   |   |   |   |   |       |       |                           |
+            o   o   o   o   o   o   o---o   o   o---o---o---o   o---o   o---o
+            |   |       |   |   |   |       |   |   |               |       |
+            o   o   o   o   o   o   o   o---o   o   o   o   o---o---o---o   o
+            |       |   |   |   |   |   |       |   |   |       |   |       |
+            o   o   o   o   o   o   o   o   o---o   o   o---o   o   o   o---o
+            |   |   |   |   |   |   |   |           |       |       |       |
+            o---o   o   o   o   o   o   o   o---o---o---o   o   o   o---o   o
+            |       |       |       |   |   |               |   |       |   |
+            o   o   o---o---o---o---o---o   o   o---o---o---o   o   o   o   o
+            |   |                           |                   |   |       |
+            o   o   o---o---o---o---o---o   o---o---o---o---o---o---o---o   o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'hk-91', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                               |               |
+            o   o   o---o---o---o---o---o---o---o---o   o   o   o---o---o   o
+            |   |   |       |       |       |       |   |   |   |       |   |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o---o   o   o
+            |   |       |       |       |       |   |   |   |           |   |
+            o   o---o---o---o---o---o---o---o---o   o   o   o---o---o---o   o
+            |   |                                   |   |                   |
+            o   o   o---o---o---o---o---o---o---o---o---o---o   o---o---o---o
+            |   |   |                           |                           |
+            o   o   o   o---o---o---o---o---o   o---o---o   o---o---o---o   o
+            |   |   |   |                       |                       |   |
+            o   o   o   o   o---o---o---o---o---o---o   o---o---o---o   o   o
+            |   |   |   |                   |               |           |   |
+            o   o   o   o---o---o---o   o---o---o   o---o---o   o---o---o   o
+            |   |   |   |           |   |       |       |                   |
+            o   o   o   o   o---o   o   o   o   o---o   o---o---o---o---o   o
+            |   |   |       |       |           |       |               |   |
+            o   o   o---o---o   o---o---o---o---o   o---o   o---o---o   o   o
+            |   |                                   |               |   |   |
+            o   o---o---o---o---o---o---o   o---o---o---o---o---o   o   o   o
+            |               |           |                           |   |   |
+            o---o   o---o   o   o---o   o---o---o---o---o---o---o---o   o   o
+            |           |   |           |                           |   |   |
+            o   o---o   o   o---o---o   o---o---o---o---o---o---o   o   o   o
+            |           |               |                           |   |   |
+            o   o   o---o---o---o---o   o   o---o---o---o---o---o   o   o   o
+            |   |   |                   |                       |   |   |   |
+            o   o   o   o---o---o---o---o---o---o---o---o---o   o   o   o   o
+            |   |   |                                           |       |   |
+            o   o   o---o---o---o---o---o---o---o---o---o---o---o---o---o   o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'hoku-4', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |       |       |       |               |               |       |
+            o   o   o   o   o   o   o   o---o---o   o   o---o   o   o   o   o
+            |   |       |   |   |       |       |       |   |   |       |   |
+            o   o---o   o   o   o   o   o---o---o   o   o   o   o   o---o   o
+            |       |   |       |   |               |   |       |           |
+            o---o   o   o   o   o   o---o---o---o---o   o   o   o   o   o---o
+            |       |   |   |   |                       |   |   |   |       |
+            o   o---o   o---o---o---o   o---o---o   o---o   o   o   o---o   o
+            |   |                   |   |       |   |                   |   |
+            o   o   o---o---o---o   o   o---o---o   o   o---o---o---o   o   o
+            |   |   |           |   |               |   |           |   |   |
+            o   o   o   o---o   o   o---o---o---o---o   o   o---o   o   o   o
+            |       |   |   |   |   |               |   |   |   |   |   |   |
+            o   o   o   o---o   o   o   o---o---o   o   o   o---o   o   o   o
+            |   |   |           |   |   |       |       |           |   |   |
+            o   o   o---o---o---o   o   o   o   o   o---o---o---o---o   o   o
+            |   |                   |           |   |                   |   |
+            o   o---o---o---o---o---o---o---o---o---o---o---o---o   o---o   o
+            |                                                   |           |
+            o   o---o---o---o---o   o---o---o---o---o   o---o   o---o---o   o
+            |               |   |   |   |   |   |   |   |   |   |       |   |
+            o   o---o   o   o---o   o---o---o---o---o   o---o   o   o   o   o
+            |   |   |   |   |   |                       |   |   |   |   |   |
+            o   o---o   o   o   o---o---o---o---o---o---o   o   o   o   o   o
+            |           |   |   |   |   |       |   |   |   |   |   |       |
+            o   o---o---o   o---o---o---o   o   o---o---o---o   o   o   o   o
+            |               |               |                   |   |   |   |
+            o   o---o---o   o---o   o---o---o---o---o   o---o---o   o---o   o
+            |   |   |   |           |               |               |   |   |
+            o   o---o   o   o---o---o   o---o---o   o---o---o   o   o---o   o
+            |   |                       |       |               |           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'iee-88', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o---o---o---o---o---o---o---o---o---o---o---o   o   o
+            |   |                                                   |   |   |
+            o   o   o---o---o---o---o---o---o---o---o   o---o---o   o   o   o
+            |   |   |                               |   |       |   |   |   |
+            o   o   o   o---o---o---o---o---o---o   o   o   o   o   o   o   o
+            |   |       |                           |   |   |   |   |   |   |
+            o   o---o---o   o---o---o---o---o---o---o   o   o   o   o   o   o
+            |   |   |       |       |               |   |   |   |   |   |   |
+            o   o   o   o---o   o   o   o---o---o   o   o   o   o   o   o   o
+            |   |       |       |   |   |           |   |   |   |   |   |   |
+            o   o   o---o   o---o   o   o   o---o   o   o   o   o   o   o   o
+            |   |           |       |   |       |       |   |   |   |   |   |
+            o   o---o---o---o   o---o   o---o---o   o---o   o   o   o   o   o
+            |               |       |           |   |   |   |   |   |   |   |
+            o   o---o---o   o---o   o   o   o   o   o   o   o   o   o   o   o
+            |   |       |           |   |       |   |       |   |   |   |   |
+            o   o   o   o---o---o---o   o---o---o   o   o---o   o   o   o   o
+            |   |   |               |       |       |       |   |   |   |   |
+            o   o   o---o---o   o---o---o   o   o---o---o   o   o   o   o   o
+            |   |           |       |       |           |   |   |   |   |   |
+            o   o---o---o   o---o   o   o---o---o---o   o   o   o   o   o   o
+            |   |       |       |   |               |   |   |   |   |   |   |
+            o   o   o   o---o   o   o---o---o   o   o   o   o   o   o   o   o
+            |       |   |       |               |       |   |   |   |   |   |
+            o---o   o   o   o---o---o---o---o---o---o---o   o   o   o---o   o
+            |       |   |                                   |   |           |
+            o   o   o   o---o---o---o---o---o---o---o---o---o   o---o---o---o
+            |   |   |                                                       |
+            o   o   o---o---o---o---o---o---o---o---o---o---o---o---o---o   o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'ies-90', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                       |                                       |
+            o   o---o---o---o   o---o---o---o---o   o---o---o---o---o---o   o
+            |   |                                                       |   |
+            o   o   o---o   o---o   o   o---o   o---o   o---o   o---o   o   o
+            |   |       |   |       |   |       |       |   |   |   |       |
+            o   o   o---o   o---o---o---o---o---o---o---o---o---o   o---o   o
+            |   |           |       |   |           |       |   |   |   |   |
+            o   o---o   o---o---o   o   o---o   o---o   o---o   o---o   o   o
+            |   |       |       |                                       |   |
+            o   o   o---o---o   o---o---o   o---o   o---o   o---o---o   o   o
+            |   |   |           |               |   |   |       |   |   |   |
+            o   o   o   o---o   o---o---o   o   o   o   o   o   o   o   o   o
+            |               |   |   |       |   |   |       |   |           |
+            o   o   o---o   o   o   o   o---o---o   o   o   o   o   o   o   o
+            |   |                   |   |       |   |   |   |       |   |   |
+            o   o---o   o---o---o   o   o   o   o   o   o---o   o   o   o   o
+            |               |       |   |       |               |   |   |   |
+            o   o---o   o---o---o   o   o   o---o---o---o   o---o---o   o   o
+            |               |       |   |   |                           |   |
+            o   o---o   o---o---o   o   o   o---o---o---o---o---o   o   o   o
+            |   |           |       |   |   |                       |   |   |
+            o   o---o   o---o   o---o   o   o   o---o   o   o   o   o   o   o
+            |   |           |   |   |       |           |   |   |   |   |   |
+            o   o---o   o---o   o   o---o   o   o   o---o   o   o   o   o   o
+            |               |           |   |   |   |   |           |   |   |
+            o   o---o   o   o   o---o   o---o   o   o   o   o   o   o   o   o
+            |   |   |   |   |       |       |               |   |   |   |   |
+            o   o   o   o   o   o   o---o   o---o   o---o---o   o---o   o   o
+            |   |   |   |   |   |   |   |   |                               |
+            o   o   o   o---o   o   o   o   o---o   o---o---o---o---o---o   o
+            |   |                                       |                   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'ies-91', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o   o   o---o---o---o---o---o   o---o---o---o   o   o
+            |   |           |           |                               |   |
+            o   o   o---o   o---o   o---o---o   o---o   o---o---o   o---o   o
+            |   |       |       |       |       |                       |   |
+            o   o   o---o   o---o---o   o   o---o---o   o---o   o---o---o   o
+            |   |                   |                       |   |   |   |   |
+            o   o---o---o   o---o   o---o   o---o---o---o---o   o   o   o   o
+            |       |           |       |               |               |   |
+            o   o   o---o---o   o---o---o---o   o---o---o   o---o---o   o   o
+            |   |   |                       |               |   |   |   |   |
+            o   o   o   o---o   o---o---o   o   o---o   o---o   o   o   o   o
+            |                   |   |       |                           |   |
+            o   o   o---o   o   o   o   o---o---o---o---o   o---o   o   o   o
+            |   |           |       |   |       |                   |   |   |
+            o   o---o   o---o---o---o---o   o   o---o---o---o---o   o---o   o
+            |                           |       |                       |   |
+            o   o---o   o---o---o---o   o---o   o   o---o---o   o---o   o   o
+            |                       |   |   |           |       |       |   |
+            o   o---o   o---o---o   o   o   o---o---o---o---o---o---o---o   o
+            |                                                   |       |   |
+            o   o---o   o---o   o   o---o   o---o   o---o   o   o   o   o   o
+            |               |   |   |       |           |   |       |   |   |
+            o---o---o   o   o---o---o---o---o---o---o---o---o---o   o   o   o
+            |           |   |   |   |   |       |       |   |   |   |   |   |
+            o   o   o   o   o   o   o---o   o---o   o---o   o   o   o   o   o
+            |   |   |                                           |   |   |   |
+            o   o   o   o   o---o   o---o   o---o   o---o   o   o   o---o   o
+            |   |   |   |   |   |       |   |               |           |   |
+            o   o   o   o   o   o   o---o---o---o   o---o   o---o---o---o   o
+            |   |                       |                                   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'ijcf02', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |       |           |                               |       |
+            o   o   o   o   o---o   o   o---o---o---o   o---o---o---o   o   o
+            |   |   |   |   |                               |           |   |
+            o   o   o   o   o   o   o---o   o   o---o   o   o   o---o   o   o
+            |   |   |   |       |           |           |   |       |   |   |
+            o   o   o   o   o---o---o   o---o---o---o   o   o   o   o   o   o
+            |   |       |                   |           |   |   |   |   |   |
+            o   o   o   o   o---o---o---o   o   o---o   o   o   o   o   o   o
+            |   |   |       |                   |       |   |   |   |       |
+            o   o   o   o---o   o---o---o   o   o   o   o   o   o   o   o   o
+            |       |   |       |           |   |   |       |   |       |   |
+            o   o   o   o   o   o   o   o---o   o   o   o   o   o   o   o   o
+            |   |   |       |   |   |               |   |       |   |   |   |
+            o   o   o---o   o   o   o   o---o---o---o---o---o   o   o   o   o
+            |   |           |   |       |       |                   |   |   |
+            o   o   o   o---o---o---o---o   o   o   o---o   o---o---o   o   o
+            |   |   |                   |                           |   |   |
+            o   o   o---o   o   o   o   o---o---o---o---o   o   o   o   o   o
+            |   |   |       |   |   |                   |   |   |   |   |   |
+            o   o   o   o   o   o   o   o---o---o---o---o   o   o   o   o   o
+            |   |       |   |   |   |           |       |                   |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o---o   o   o
+            |   |   |   |               |   |   |   |   |   |       |   |   |
+            o   o   o   o---o   o---o---o   o   o   o   o   o   o   o   o   o
+            |   |   |                       |       |           |   |   |   |
+            o   o   o   o---o   o---o---o   o   o   o   o   o   o   o   o   o
+            |   |       |                       |       |   |   |   |   |   |
+            o   o   o   o   o---o   o---o---o   o   o   o   o   o   o   o   o
+            |   |   |       |   |   |       |   |   |   |   |   |   |   |   |
+            o   o   o   o   o   o   o---o   o   o   o   o   o   o   o   o   o
+            |   |       |       |           |       |       |   |           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'ijcp02', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |                           |                           |   |
+            o   o   o---o---o   o   o---o---o---o---o   o   o---o---o   o   o
+            |   |               |                       |               |   |
+            o   o   o---o---o---o---o   o---o---o   o---o---o---o---o   o   o
+            |   |               |                       |               |   |
+            o   o   o   o---o   o   o---o---o---o---o   o   o---o   o   o   o
+            |       |       |           |       |           |       |       |
+            o   o   o---o   o   o   o   o   o   o   o   o   o   o---o   o   o
+            |   |   |   |   |   |   |       |       |   |   |   |   |   |   |
+            o   o   o   o   o   o   o---o   o   o---o   o   o   o   o   o   o
+            |   |   |   |       |   |   |   |   |   |   |       |   |   |   |
+            o   o   o   o   o---o   o---o   o   o---o   o---o   o   o   o   o
+            |       |   |       |           |           |       |   |       |
+            o   o   o---o   o   o---o---o---o---o---o---o   o   o---o   o   o
+            |   |           |           |       |       |   |           |   |
+            o   o---o---o---o   o---o   o   o   o   o   o   o   o---o---o   o
+            |   |           |           |           |                   |   |
+            o   o   o---o   o   o---o---o---o---o---o---o   o   o---o   o   o
+            |       |   |       |           |           |   |   |   |       |
+            o   o   o   o   o---o   o---o   o   o---o   o---o   o   o   o   o
+            |   |   |   |       |   |   |   |   |   |   |       |   |   |   |
+            o   o   o   o   o   o   o---o   o   o---o   o   o   o   o   o   o
+            |   |   |   |   |   |   |       |       |   |   |   |   |   |   |
+            o   o   o---o   o   o   o   o   o   o   o   o   o   o---o   o   o
+            |       |       |           |       |           |       |       |
+            o   o   o   o---o   o   o---o---o---o---o   o   o---o   o   o   o
+            |   |               |                       |               |   |
+            o   o   o---o---o---o---o   o---o---o   o---o---o---o---o   o   o
+            |   |               |                       |               |   |
+            o   o   o---o---o   o   o---o---o---o---o   o   o---o---o   o   o
+            |   |                           |                           |   |
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
         ` 
     },
@@ -1102,6 +2584,120 @@ var mazeData = [
         ` 
     },
     { 
+        name: 'japan-2011-finals', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o---o---o---o   o   o---o---o---o   o   o   o   o   o
+            |       |               |   |       |       |   |   |   |   |   |
+            o   o   o   o   o---o---o   o   o   o   o   o---o---o   o   o   o
+            |   |   |   |           |       |       |                   |   |
+            o   o   o   o---o---o   o   o   o   o---o   o   o---o   o   o   o
+            |   |   |           |   |   |       |       |           |   |   |
+            o   o   o---o   o---o   o   o   o---o   o---o   o   o---o   o   o
+            |   |       |   |       |               |       |   |       |   |
+            o   o   o---o   o---o   o---o---o---o---o   o   o   o   o---o   o
+            |           |       |   |                   |   |       |       |
+            o---o   o---o---o   o---o   o---o---o   o   o   o   o---o   o---o
+            |                   |                   |           |       |   |
+            o---o   o---o---o---o   o---o---o---o   o---o   o   o---o   o---o
+            |           |       |       |       |   |       |   |           |
+            o---o   o---o   o   o   o   o   o   o---o   o   o---o---o---o   o
+            |           |   |   |   |   |       |       |   |       |       |
+            o---o   o---o   o   o   o   o   o---o   o   o---o   o   o   o   o
+            |   |       |   |   |           |       |   |       |       |   |
+            o   o---o   o   o   o---o   o---o   o   o---o   o   o---o---o   o
+            |   |           |       |           |   |       |   |           |
+            o   o---o---o   o   o   o---o---o---o---o   o   o---o---o---o   o
+            |   |       |       |   |   |   |       |   |   |               |
+            o   o   o---o---o   o   o   o   o   o   o   o   o   o   o---o   o
+            |   |       |       |       |   |   |       |       |   |       |
+            o   o   o---o   o   o---o   o   o   o---o---o   o   o---o---o   o
+            |       |       |   |   |       |   |   |       |       |       |
+            o   o---o   o---o   o   o   o---o   o   o   o---o---o   o---o   o
+            |               |   |   |   |       |   |       |               |
+            o   o   o---o---o   o   o   o   o---o   o---o   o   o---o   o---o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'japan-2011-freshman-final', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o---o   o---o---o---o   o   o---o   o---o   o---o   o
+            |   |   |       |   |           |   |   |   |   |   |       |   |
+            o   o   o---o   o   o   o---o   o   o   o   o   o---o---o   o   o
+            |   |   |       |   |   |   |   |   |   |   |           |   |   |
+            o   o   o---o---o   o   o   o   o   o   o---o   o---o   o   o   o
+            |               |   |   |   |   |   |       |       |   |       |
+            o---o---o---o   o   o   o   o   o   o---o---o---o---o   o---o   o
+            |   |       |   |   |   |   |   |           |       |       |   |
+            o---o---o   o   o   o   o   o   o   o---o---o   o---o   o   o   o
+            |   |       |   |   |   |   |   |   |               |   |   |   |
+            o---o---o---o   o   o   o---o   o   o   o---o   o   o   o   o   o
+            |               |       |       |   |   |   |   |   |   |       |
+            o---o---o   o---o---o---o   o---o---o   o   o   o   o   o   o   o
+            |           |               |           |   |   |       |   |   |
+            o   o---o   o   o---o---o---o   o   o   o   o   o   o   o   o   o
+            |           |               |       |   |   |   |   |   |   |   |
+            o---o---o   o   o   o---o   o---o---o   o   o   o   o   o   o   o
+            |               |   |   |           |   |   |   |   |   |   |   |
+            o   o---o---o   o   o   o   o   o   o   o---o   o   o   o   o   o
+            |   |           |   |   |   |   |   |           |   |   |   |   |
+            o---o   o---o   o   o   o   o   o   o---o---o   o---o   o   o   o
+            |   |           |   |   |   |   |           |               |   |
+            o---o---o---o   o   o   o   o   o   o---o---o---o---o---o---o   o
+            |               |   |   |   |   |   |               |   |   |   |
+            o   o---o   o---o   o   o   o   o   o   o---o   o---o   o   o   o
+            |   |   |   |   |   |           |       |   |           |       |
+            o   o   o   o   o   o---o---o   o   o   o   o   o---o---o   o   o
+            |   |   |       |   |           |   |   |   |   |   |       |   |
+            o   o   o---o   o   o   o---o---o   o   o---o   o---o   o---o   o
+            |   |                               |                   |   |   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'japan-2011-qualifier', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                       |                       |
+            o   o---o---o   o---o   o   o---o---o---o   o   o---o---o   o   o
+            |   |   |   |       |   |       |       |   |   |   |       |   |
+            o   o   o   o---o---o---o   o   o   o   o   o---o   o   o---o   o
+            |       |   |           |   |       |                   |       |
+            o---o   o   o   o---o   o   o   o   o---o   o---o   o---o---o   o
+            |   |               |   |   |   |   |       |       |           |
+            o   o   o   o---o---o   o   o   o   o   o---o   o   o---o---o   o
+            |   |   |       |       |               |       |   |           |
+            o   o   o---o   o---o   o---o---o---o---o   o   o   o   o---o   o
+            |   |   |   |           |                   |       |   |       |
+            o   o   o   o---o   o---o   o---o---o---o   o   o---o   o---o   o
+            |   |       |       |                           |       |       |
+            o   o---o   o   o---o   o---o---o---o---o   o---o   o---o---o   o
+            |   |   |       |   |       |       |       |       |           |
+            o   o   o---o   o   o   o   o   o   o   o---o---o   o   o---o   o
+            |                   |   |   |       |       |       |           |
+            o---o   o---o---o   o   o   o   o---o---o   o   o---o   o   o---o
+            |   |       |       |   |   |       |       |       |   |   |   |
+            o   o---o   o   o   o   o   o   o   o   o---o---o   o   o   o---o
+            |   |   |       |   |           |       |   |       |           |
+            o   o   o   o   o   o---o---o---o---o---o   o   o---o---o---o   o
+            |   |       |   |   |       |   |       |   |   |               |
+            o   o   o---o   o   o---o   o   o   o---o   o   o---o   o---o   o
+            |       |       |       |   |   |   |   |       |       |       |
+            o   o---o   o   o   o   o   o   o   o   o   o---o   o---o---o   o
+            |   |       |       |   |       |       |   |   |       |   |   |
+            o   o   o   o---o   o   o   o---o   o---o   o   o---o   o   o   o
+            |       |               |   |       |           |       |       |
+            o   o   o---o   o---o---o   o   o---o   o---o   o   o---o   o---o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
         name: 'japan-2012-ef', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
@@ -1140,6 +2736,310 @@ var mazeData = [
         ` 
     },
     { 
+        name: 'japan-2013-ef', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |       |                                               |       |
+            o   o---o   o---o---o---o---o---o---o---o---o---o   o   o   o   o
+            |           |                                   |   |   |   |   |
+            o   o---o---o   o   o---o---o---o---o---o---o   o---o   o   o   o
+            |       |       |   |                   |           |       |   |
+            o   o---o   o---o   o   o---o   o---o   o---o---o   o---o---o   o
+            |   |               |   |           |   |       |           |   |
+            o   o---o   o---o---o   o---o   o---o   o   o   o   o---o   o   o
+            |   |           |       |           |       |   |   |       |   |
+            o   o---o   o---o   o---o---o   o---o---o---o   o   o---o   o   o
+            |   |           |       |           |       |   |       |   |   |
+            o   o   o---o   o---o   o---o   o---o   o   o   o---o   o   o   o
+            |   |               |   |               |   |       |   |   |   |
+            o   o   o---o---o   o   o---o   o---o---o   o---o   o   o   o   o
+            |   |           |   |       |       |       |   |   |   |   |   |
+            o   o---o---o   o   o---o   o   o   o   o---o   o   o   o   o   o
+            |   |           |   |       |       |       |       |   |   |   |
+            o   o   o---o---o   o   o---o---o---o---o   o---o   o   o   o   o
+            |   |           |           |       |       |       |   |   |   |
+            o   o---o---o   o---o---o   o   o   o   o---o   o---o   o   o   o
+            |   |           |       |       |       |   |   |       |   |   |
+            o   o   o---o---o   o   o---o---o---o---o   o   o---o   o   o   o
+            |   |               |   |               |       |       |   |   |
+            o   o   o---o---o---o   o   o   o---o   o---o   o   o---o   o   o
+            |   |       |       |       |           |       |   |   |   |   |
+            o   o   o   o   o   o---o---o---o---o   o   o---o   o   o   o   o
+            |   |   |       |           |       |           |   |       |   |
+            o   o   o---o---o   o   o---o   o   o---o---o   o   o   o---o   o
+            |   |   |   |   |   |           |                   |   |       |
+            o   o   o   o   o---o---o---o---o---o---o---o---o---o   o---o   o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'japan-2013-eq', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                       |               |                       |
+            o   o   o---o---o---o---o   o---o---o   o---o   o   o   o---o   o
+            |       |               |   |       |       |           |   |   |
+            o   o   o   o---o   o   o   o   o   o---o   o---o---o---o   o---o
+            |       |   |   |   |       |           |                       |
+            o   o   o   o   o   o---o---o   o   o   o---o---o---o---o---o   o
+            |       |   |   |       |               |                       |
+            o   o---o   o   o   o---o   o   o   o---o   o---o---o---o---o   o
+            |   |       |   |   |               |       |                   |
+            o   o   o---o---o   o---o   o   o---o   o---o   o---o---o---o   o
+            |   |           |       |       |       |       |           |   |
+            o   o---o---o   o---o   o---o---o   o---o   o---o   o   o---o   o
+            |           |           |           |   |   |   |       |       |
+            o   o   o---o   o   o---o   o---o---o---o   o   o---o---o   o   o
+            |       |       |       |   |       |       |               |   |
+            o   o---o   o---o---o   o   o   o   o   o   o   o---o---o---o   o
+            |   |       |       |   |           |   |   |   |           |   |
+            o---o   o---o   o   o   o   o---o---o   o   o   o   o---o   o   o
+            |       |           |   |               |       |   |   |   |   |
+            o   o---o   o   o   o   o---o---o---o---o---o---o   o---o   o   o
+            |   |               |   |       |               |       |   |   |
+            o   o---o   o   o   o   o---o---o   o---o---o   o   o---o   o   o
+            |       |           |   |       |   |       |       |   |       |
+            o   o---o   o---o---o   o   o   o   o   o---o---o   o   o---o---o
+            |   |       |               |       |   |   |   |   |           |
+            o   o---o---o   o   o---o---o---o---o   o   o---o   o   o   o   o
+            |               |       |               |           |           |
+            o   o   o---o---o---o   o---o   o   o   o   o---o---o   o   o   o
+            |   |   |           |       |           |   |                   |
+            o   o   o---o---o---o   o   o---o---o---o   o   o   o   o   o   o
+            |   |                   |                   |                   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'japan-2014-maze-finals', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |       |                                                       |
+            o   o   o   o---o---o---o---o---o---o---o---o---o---o---o---o   o
+            |   |   |       |                                           |   |
+            o   o   o   o---o   o---o---o---o---o---o---o---o---o---o   o   o
+            |   |   |   |           |                               |       |
+            o   o   o   o---o   o---o   o---o---o---o---o---o---o   o---o---o
+            |   |   |   |           |   |                       |       |   |
+            o   o   o   o---o   o---o   o   o---o---o---o---o   o---o   o   o
+            |   |   |   |           |   |           |           |   |       |
+            o   o   o   o---o   o---o   o---o---o   o---o   o   o   o   o   o
+            |   |   |   |           |   |   |       |       |   |       |   |
+            o   o   o   o   o---o---o   o   o   o---o   o   o---o   o---o   o
+            |   |   |   |                       |       |   |               |
+            o   o   o   o---o---o---o   o---o---o   o   o---o   o---o   o---o
+            |   |   |   |       |       |           |   |                   |
+            o   o   o   o   o   o---o   o   o   o   o---o   o---o---o   o---o
+            |   |   |   |   |   |       |       |   |           |   |       |
+            o   o   o   o   o   o   o---o   o---o---o   o---o---o   o---o   o
+            |   |   |   |   |       |           |           |           |   |
+            o   o   o   o   o---o---o   o---o---o   o---o---o   o---o   o   o
+            |   |   |   |   |   |           |           |           |   |   |
+            o   o   o   o   o   o   o---o---o   o---o---o   o   o---o   o   o
+            |   |   |   |   |           |           |       |       |   |   |
+            o   o   o   o   o   o---o---o   o---o---o   o---o---o   o   o   o
+            |   |   |   |           |           |           |       |   |   |
+            o   o   o   o   o---o---o   o---o---o   o---o   o   o   o   o   o
+            |   |   |   |   |   |           |           |       |   |   |   |
+            o   o   o   o---o   o---o   o---o   o   o   o   o   o   o   o   o
+            |   |   |   |           |           |   |       |       |   |   |
+            o   o   o   o   o---o   o---o---o---o---o---o---o---o   o   o   o
+            |   |               |                                   |       |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'japan-2014-maze-qual', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                           |       |                           |
+            o   o---o   o   o---o   o   o   o   o   o---o---o   o   o---o   o
+            |   |       |           |       |       |           |       |   |
+            o   o   o   o---o---o---o---o   o---o---o   o   o---o---o   o   o
+            |       |               |       |           |       |       |   |
+            o   o---o---o---o   o   o   o---o   o   o---o---o   o   o---o   o
+            |       |           |       |       |       |       |           |
+            o   o   o   o   o---o---o   o   o---o---o   o   o---o   o   o---o
+            |   |       |       |       |       |       |           |       |
+            o   o   o---o---o   o   o---o---o   o   o   o   o---o---o---o   o
+            |           |       |       |           |               |       |
+            o---o---o   o   o---o---o   o   o---o---o---o---o---o   o   o   o
+            |           |               |           |               |   |   |
+            o   o   o---o---o   o   o---o---o---o   o   o---o---o---o   o   o
+            |   |       |       |       |               |       |       |   |
+            o   o   o   o   o---o---o   o   o   o---o---o   o   o   o   o   o
+            |       |           |       |       |           |       |       |
+            o   o---o---o---o   o   o   o---o---o   o   o---o---o---o---o   o
+            |       |               |       |       |       |       |       |
+            o   o   o   o   o---o---o---o   o   o---o---o   o   o   o   o---o
+            |   |       |           |       |       |           |           |
+            o   o   o---o---o   o   o   o   o   o   o   o---o---o---o---o   o
+            |   |       |       |       |       |               |           |
+            o   o   o   o   o---o---o   o   o---o---o---o   o   o   o   o---o
+            |       |           |       |       |           |       |       |
+            o   o---o---o---o   o   o---o---o   o   o   o---o---o---o---o   o
+            |       |           |       |           |       |               |
+            o   o   o   o---o   o   o   o   o---o---o---o   o   o   o   o   o
+            |   |       |           |               |           |   |   |   |
+            o   o   o---o   o---o   o---o---o---o   o   o---o   o---o---o   o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'japan-2015-ef', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o---o---o---o---o---o---o---o---o---o---o---o---o   o
+            |   |                                                       |   |
+            o   o   o---o---o---o---o---o---o---o---o---o---o---o   o---o   o
+            |   |   |       |                                   |       |   |
+            o   o   o   o   o   o   o---o---o---o---o   o---o   o---o   o   o
+            |   |   |   |   |   |                       |   |       |       |
+            o   o   o   o   o   o---o   o---o---o   o---o   o---o   o---o   o
+            |   |   |   |   |       |       |       |           |       |   |
+            o   o   o   o   o   o---o---o   o   o---o   o   o---o   o---o   o
+            |   |   |   |   |           |       |       |           |   |   |
+            o   o   o   o   o   o---o---o   o   o---o   o---o   o---o   o---o
+            |   |   |   |   |       |       |       |       |   |           |
+            o   o   o   o   o   o---o   o---o---o   o---o   o---o---o   o---o
+            |   |   |   |       |       |       |       |       |           |
+            o   o   o   o   o---o   o---o   o   o---o   o---o   o   o---o   o
+            |   |   |   |   |       |               |       |       |       |
+            o   o   o   o---o   o---o   o---o---o   o---o   o---o---o   o---o
+            |   |       |       |   |       |       |   |       |           |
+            o   o   o---o   o---o   o---o   o   o---o   o---o   o---o   o---o
+            |   |   |       |           |       |           |       |       |
+            o   o---o   o---o   o   o---o   o   o---o   o   o---o   o---o   o
+            |   |       |       |           |           |       |       |   |
+            o   o---o   o   o---o---o   o---o---o   o---o---o   o   o---o   o
+            |   |           |   |           |           |   |       |       |
+            o   o---o   o   o   o   o---o   o   o---o   o   o   o---o   o---o
+            |       |   |           |   |       |   |           |           |
+            o---o   o   o---o   o---o   o---o---o   o---o   o---o---o   o---o
+            |       |           |           |           |   |       |       |
+            o   o   o---o---o---o   o---o   o   o---o   o---o   o   o---o   o
+            |   |                   |               |           |           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'japan-2015-eq', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |               |                                               |
+            o   o   o---o   o   o   o---o   o   o---o---o---o   o---o---o   o
+            |   |       |       |   |   |   |   |           |               |
+            o   o---o   o---o---o   o---o   o---o   o---o---o---o---o   o---o
+            |               |                                       |       |
+            o---o   o---o   o   o---o---o---o   o   o---o---o---o---o   o   o
+            |       |   |   |       |       |   |               |       |   |
+            o   o   o---o   o   o---o---o   o---o   o---o   o   o   o---o   o
+            |   |               |       |       |   |   |   |       |       |
+            o   o---o---o   o---o   o   o---o   o   o---o   o---o---o   o   o
+            |       |   |   |       |       |   |           |           |   |
+            o   o   o   o   o---o   o---o   o---o   o---o   o   o---o   o   o
+            |   |       |       |       |       |   |   |   |   |   |   |   |
+            o---o   o   o   o---o---o   o---o   o---o   o---o   o---o   o   o
+            |       |       |                                               |
+            o   o---o   o   o---o---o---o   o   o   o---o---o---o---o---o   o
+            |       |   |               |       |       |           |       |
+            o   o   o   o---o   o---o   o---o---o---o   o   o---o   o   o---o
+            |   |       |   |   |   |   |           |       |   |           |
+            o   o---o---o   o   o---o   o   o---o   o---o   o---o   o---o   o
+            |       |       |           |   |   |       |               |   |
+            o---o   o   o   o---o---o   o   o---o   o   o---o   o---o   o   o
+            |   |       |           |   |           |       |       |       |
+            o   o   o---o   o---o   o   o---o   o---o   o   o---o   o---o   o
+            |   |   |       |   |   |       |       |   |       |       |   |
+            o   o   o---o   o---o   o   o   o   o   o   o---o   o---o   o   o
+            |       |   |           |   |       |       |   |               |
+            o   o---o---o---o   o---o   o   o   o---o   o---o   o   o   o   o
+            |   |               |   |       |       |           |   |   |   |
+            o   o   o---o---o---o---o   o---o---o   o   o---o   o---o---o   o
+            |   |                       |       |                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'japan-2016-ef', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |       |                   |       |       |                   |
+            o   o   o   o---o---o   o---o   o   o   o   o   o---o---o---o   o
+            |   |       |       |   |       |       |   |   |               |
+            o   o---o---o   o   o   o   o---o---o   o   o   o   o---o---o---o
+            |   |           |       |       |       |   |   |   |           |
+            o   o   o---o---o---o---o---o   o   o   o   o   o   o---o   o   o
+            |   |   |                       |   |           |   |   |   |   |
+            o   o   o   o---o---o---o---o---o---o   o---o---o   o   o   o   o
+            |   |   |       |       |       |       |       |       |   |   |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |       |       |       |       |       |       |       |   |
+            o   o   o---o---o---o---o---o   o---o---o---o---o---o---o---o   o
+            |   |   |       |           |       |   |   |   |   |           |
+            o   o   o   o   o   o---o   o---o---o   o   o   o   o   o---o   o
+            |   |   |   |   |   |       |                               |   |
+            o   o   o   o   o   o   o---o   o   o   o   o   o   o   o---o   o
+            |   |   |   |   |   |       |       |   |   |   |   |           |
+            o   o   o   o   o   o   o   o---o---o---o---o---o---o---o   o---o
+            |   |   |   |   |   |   |                                       |
+            o   o   o   o   o   o---o---o---o---o---o---o---o---o---o---o   o
+            |   |   |   |       |       |       |       |       |       |   |
+            o   o   o   o---o---o   o   o   o   o   o   o   o   o   o   o   o
+            |   |   |               |       |       |       |       |       |
+            o   o   o---o---o   o---o---o---o---o---o---o---o---o---o---o---o
+            |   |               |   |                               |       |
+            o   o   o---o   o---o   o   o---o---o---o---o---o---o   o---o   o
+            |   |       |               |                           |       |
+            o   o---o   o---o---o---o---o   o---o   o---o   o---o---o   o   o
+            |       |                       |   |                       |   |
+            o   o   o---o---o---o---o---o---o   o---o---o---o---o---o---o   o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'japan-2016-eq', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |               |                               |   |           |
+            o   o   o---o   o---o   o   o---o   o---o   o---o   o---o   o   o
+            |   |       |           |       |       |                   |   |
+            o   o---o   o---o   o   o---o   o---o   o---o   o---o   o---o   o
+            |       |           |       |   |               |       |       |
+            o   o   o   o---o---o   o   o   o---o---o   o---o   o   o   o---o
+            |   |       |           |           |   |           |       |   |
+            o   o---o---o   o   o---o   o---o   o   o---o---o   o---o   o   o
+            |       |       |   |       |       |           |       |       |
+            o   o   o   o---o   o   o---o   o---o   o---o   o---o   o   o---o
+            |   |       |                   |       |           |       |   |
+            o   o---o   o   o---o   o   o---o   o---o   o   o---o   o---o   o
+            |       |       |       |   |               |       |           |
+            o---o   o   o---o   o---o   o   o---o   o---o   o   o---o   o   o
+            |   |               |       |       |   |       |           |   |
+            o   o   o---o   o   o   o---o   o   o   o   o---o   o---o   o---o
+            |       |       |           |       |           |       |       |
+            o   o---o   o---o   o---o   o---o---o   o---o   o   o   o---o   o
+            |           |           |       |       |       |   |           |
+            o   o---o   o---o   o   o---o   o   o---o   o   o   o---o---o   o
+            |       |           |           |           |       |           |
+            o---o   o---o   o   o---o---o   o---o   o---o---o---o   o   o   o
+            |   |           |           |       |   |       |       |   |   |
+            o   o---o   o---o   o---o   o---o   o---o   o---o   o---o   o---o
+            |   |       |       |       |               |       |           |
+            o   o---o   o   o---o   o---o   o---o   o---o   o---o   o---o   o
+            |       |       |       |           |       |                   |
+            o   o   o   o---o   o   o   o---o   o---o   o---o   o   o   o   o
+            |   |       |       |       |       |           |   |   |   |   |
+            o   o   o---o   o---o   o---o   o   o   o---o   o   o---o---o   o
+            |   |           |               |       |                       |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
         name: 'japan-2017-ef', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
@@ -1174,6 +3074,44 @@ var mazeData = [
             |       |   |   |   |                               |   |   |   |
             o   o---o   o   o   o---o---o---o---o---o---o---o---o---o---o   o
             |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'kansai-2017', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |       |                                   |                   |
+            o   o   o   o---o---o---o---o---o---o---o   o---o   o---o   o   o
+            |   |   |   |                   |   |                       |   |
+            o   o   o   o   o---o---o---o   o   o   o---o---o---o   o---o   o
+            |   |   |   |   |           |                           |   |   |
+            o   o   o   o   o---o   o---o---o---o   o---o---o   o---o   o   o
+            |   |   |   |                       |       |           |       |
+            o   o   o   o---o---o   o---o   o   o   o   o   o---o---o   o   o
+            |   |   |   |   |               |   |   |           |       |   |
+            o   o   o   o   o   o---o   o---o   o   o---o   o---o   o---o   o
+            |   |   |       |                   |           |       |       |
+            o   o   o   o   o---o---o---o   o   o---o---o---o   o---o   o   o
+            |   |   |   |               |   |           |       |   |   |   |
+            o   o   o   o   o---o---o   o---o---o   o---o   o---o---o   o   o
+            |   |   |   |           |   |           |       |               |
+            o   o   o   o   o   o---o---o   o   o---o   o   o   o---o---o   o
+            |   |   |   |   |   |       |       |       |   |   |   |   |   |
+            o   o   o   o   o---o   o   o---o---o   o   o   o   o   o---o   o
+            |   |   |       |       |       |       |   |   |   |           |
+            o   o   o   o---o   o---o   o---o   o---o   o   o   o   o---o   o
+            |   |       |       |       |       |                   |   |   |
+            o   o   o   o   o---o   o---o   o   o   o---o---o---o---o---o   o
+            |   |   |       |       |       |   |   |                       |
+            o   o   o   o---o   o---o   o---o   o   o   o---o---o---o---o   o
+            |   |   |   |       |       |   |   |   |               |       |
+            o   o   o   o   o---o   o---o---o   o   o---o---o---o   o   o---o
+            |   |   |       |       |           |               |           |
+            o   o---o   o---o   o---o   o---o   o   o---o---o   o   o---o   o
+            |       |   |       |           |   |   |       |       |       |
+            o   o   o---o   o---o---o---o---o   o   o---o---o   o---o   o---o
+            |   |                                               |       |   |
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
         ` 
     },
@@ -1592,6 +3530,348 @@ var mazeData = [
             |   |   |       |   |                               |       |   |
             o   o   o   o   o---o---o---o   o---o---o---o---o   o   o---o   o
             |   |       |                                                   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'porto-2017', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |       |       |                                               |
+            o   o   o   o---o---o   o---o---o---o---o   o   o---o   o---o   o
+            |   |   |       |       |       |       |   |                   |
+            o   o   o   o   o   o   o   o   o   o   o   o   o---o   o---o   o
+            |       |   |   |   |       |       |   |       |       |       |
+            o   o   o   o   o   o   o   o   o   o   o   o---o   o---o   o   o
+            |   |   |   |   |       |       |   |       |       |       |   |
+            o   o   o   o   o---o   o   o   o   o   o---o   o---o   o---o   o
+            |       |   |   |   |       |           |       |       |       |
+            o   o   o   o   o   o---o   o   o   o---o   o---o   o---o   o   o
+            |   |   |   |   |               |   |       |       |       |   |
+            o   o   o   o   o---o---o---o   o   o   o---o   o---o   o---o   o
+            |       |   |   |       |               |       |       |       |
+            o   o   o   o   o   o---o   o---o---o---o   o---o   o---o   o   o
+            |   |       |   |       |   |           |   |   |   |       |   |
+            o   o   o---o   o---o   o   o   o   o   o   o   o   o   o---o   o
+            |       |       |       |   |       |                           |
+            o   o   o   o   o   o   o   o---o---o---o---o---o---o---o---o---o
+            |   |   |   |       |   |           |       |       |       |   |
+            o   o   o   o---o   o   o---o   o   o   o   o   o   o   o   o   o
+            |       |       |           |   |       |       |       |       |
+            o   o   o   o   o---o   o---o   o   o   o   o   o   o   o   o   o
+            |   |   |   |       |       |       |       |       |       |   |
+            o   o   o   o---o   o---o   o   o   o   o   o   o   o   o   o   o
+            |       |       |       |   |   |       |       |       |       |
+            o   o   o   o   o---o   o   o---o---o---o---o---o---o---o---o   o
+            |   |   |   |       |       |       |       |       |       |   |
+            o   o   o   o---o   o---o   o   o   o   o   o   o   o   o   o   o
+            |       |                   |   |       |       |       |       |
+            o   o   o   o---o   o---o   o   o   o   o   o   o   o   o   o   o
+            |   |   |                           |       |       |       |   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'taiwan-2015-finals', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o---o---o---o---o---o---o---o---o---o---o---o---o   o
+            |       |                                                   |   |
+            o---o   o   o---o   o---o   o   o---o   o---o   o---o   o---o   o
+            |   |   |       |   |   |   |   |       |       |   |           |
+            o   o   o   o---o   o   o   o   o---o   o   o---o   o   o---o   o
+            |       |   |       |   |   |       |       |           |       |
+            o   o---o   o---o   o---o   o   o---o   o---o---o   o   o   o   o
+            |       |                               |           |       |   |
+            o---o   o---o   o---o   o---o---o---o   o---o   o---o   o---o   o
+            |       |   |   |   |   |       |       |       |       |       |
+            o   o---o   o---o   o   o---o   o   o   o   o---o---o   o   o   o
+            |       |           |   |           |               |       |   |
+            o---o   o   o---o   o---o   o---o---o   o   o---o   o   o   o   o
+            |       |           |       |       |   |       |   |   |       |
+            o   o   o   o---o---o   o---o   o   o   o---o   o   o   o   o   o
+            |   |   |   |           |   |       |               |       |   |
+            o   o   o   o---o   o---o   o   o---o---o---o---o---o---o   o   o
+            |       |   |           |       |       |               |       |
+            o   o   o   o   o---o---o   o   o   o---o   o---o---o   o   o   o
+            |   |       |       |       |       |       |   |   |       |   |
+            o   o---o   o---o   o   o---o---o   o---o---o   o   o---o   o   o
+            |               |               |                       |       |
+            o   o---o   o---o---o---o---o   o---o---o---o---o   o---o---o   o
+            |           |               |   |   |                       |   |
+            o   o   o---o   o---o   o---o---o   o---o   o---o   o---o   o   o
+            |   |       |                       |   |           |   |   |   |
+            o   o   o   o---o   o---o   o---o   o   o---o   o---o   o---o   o
+            |       |   |                   |           |                   |
+            o   o   o---o   o---o   o---o   o   o   o   o   o---o   o   o   o
+            |   |                               |   |   |       |   |   |   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'taiwan-2016-maze', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o---o---o---o---o---o---o---o---o---o---o---o   o   o
+            |       |       |                                       |   |   |
+            o   o---o   o   o---o   o---o---o---o---o---o---o---o   o---o   o
+            |   |       |       |                           |               |
+            o   o---o   o---o   o---o---o---o---o---o---o   o---o---o---o   o
+            |   |   |       |   |   |           |   |               |       |
+            o   o   o   o---o   o   o   o---o   o   o   o---o---o   o---o---o
+            |   |       |       |       |   |           |   |       |       |
+            o   o---o   o---o   o   o---o   o---o---o---o   o---o---o   o---o
+            |   |   |       |       |       |           |                   |
+            o   o   o   o---o   o---o   o   o   o   o---o---o---o   o---o   o
+            |   |       |       |       |       |           |               |
+            o   o---o   o---o---o   o---o---o---o---o   o---o   o---o   o   o
+            |       |       |           |       |       |       |       |   |
+            o   o   o---o   o---o   o   o   o   o   o   o   o---o   o---o---o
+            |   |   |   |       |   |   |       |   |   |   |               |
+            o   o   o   o   o   o   o---o   o---o---o   o   o   o---o---o---o
+            |   |       |   |   |       |   |   |       |   |               |
+            o   o   o   o---o   o   o---o   o   o   o   o   o---o---o---o   o
+            |   |   |       |   |       |           |   |   |               |
+            o   o---o---o   o   o---o   o---o   o   o---o   o   o---o---o---o
+            |   |   |       |       |       |   |   |       |               |
+            o   o   o   o---o   o   o---o   o---o---o   o   o---o   o---o   o
+            |   |       |   |   |   |           |   |   |   |   |       |   |
+            o   o   o---o   o---o   o---o   o---o   o   o---o   o---o   o   o
+            |   |       |           |           |       |                   |
+            o   o---o   o---o---o   o---o   o---o   o---o   o---o---o---o   o
+            |   |       |       |                       |   |       |   |   |
+            o   o   o---o   o   o---o---o---o---o---o---o---o   o   o   o   o
+            |   |           |                                   |           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'taiwan-2017', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o   o---o   o   o---o   o---o---o   o---o   o---o   o---o
+            |       |   |   |   |   |   |       |       |                   |
+            o   o---o   o   o   o   o   o   o   o   o---o   o---o   o---o   o
+            |   |       |   |   |       |   |           |                   |
+            o   o---o   o---o   o   o   o   o   o---o---o---o   o---o   o---o
+            |                       |           |                           |
+            o   o---o   o---o---o   o---o   o---o   o---o   o---o   o---o   o
+            |   |           |               |                               |
+            o   o   o   o   o   o---o   o---o   o---o   o---o   o---o   o---o
+            |       |   |               |                                   |
+            o---o   o   o   o---o   o---o   o---o   o---o   o---o   o---o   o
+            |   |                       |                                   |
+            o   o---o   o---o   o---o   o---o---o---o   o---o   o---o   o---o
+            |   |                       |       |   |                       |
+            o   o---o---o   o---o   o---o   o   o   o---o   o---o   o---o   o
+            |   |   |                   |           |                       |
+            o   o   o   o---o   o---o   o---o---o   o   o---o   o---o   o---o
+            |       |                   |           |                       |
+            o---o   o---o   o---o   o---o   o---o   o---o   o---o   o---o   o
+            |       |   |                   |       |                       |
+            o   o   o   o---o   o---o   o---o   o---o   o---o   o---o   o---o
+            |   |       |   |                       |                       |
+            o   o---o   o   o---o   o---o   o---o---o---o   o---o   o---o   o
+            |       |       |                   |                           |
+            o   o---o   o   o---o---o---o---o---o---o---o---o---o---o   o---o
+            |       |   |       |       |   |   |   |   |   |   |   |       |
+            o   o---o   o   o   o   o   o   o   o   o   o   o   o   o---o   o
+            |       |       |       |                                       |
+            o   o   o---o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |   |       |   |       |   |   |   |   |   |   |   |   |   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'uk-nov-2015-maze-b', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o---o---o---o---o---o---o---o---o---o   o---o---o   o
+            |       |               |                                   |   |
+            o   o   o   o---o---o   o   o   o---o---o---o   o   o---o   o   o
+            |   |   |           |   |   |   |               |   |       |   |
+            o   o   o---o---o   o   o   o   o   o---o   o   o   o   o---o   o
+            |   |   |           |   |   |       |       |   |   |   |       |
+            o   o   o   o---o---o   o   o   o---o   o---o   o   o   o   o   o
+            |   |   |   |       |       |                   |   |       |   |
+            o   o   o   o   o   o---o---o---o   o   o---o   o   o---o---o   o
+            |   |   |   |   |   |               |           |           |   |
+            o   o   o   o   o   o   o---o   o---o---o   o   o   o   o   o   o
+            |       |           |   |                   |   |   |   |       |
+            o---o   o   o---o---o   o   o   o---o   o   o   o   o   o---o   o
+            |                   |       |       |   |   |   |   |           |
+            o   o   o   o---o   o   o---o   o   o   o   o   o   o   o---o   o
+            |   |   |           |       |       |       |       |           |
+            o   o   o---o   o---o---o   o---o---o   o---o---o---o---o---o   o
+            |       |               |           |   |               |       |
+            o   o   o   o---o   o   o   o---o   o---o   o   o   o   o   o   o
+            |   |       |       |   |           |       |   |   |       |   |
+            o   o---o---o   o---o   o---o---o---o   o---o   o   o---o   o   o
+            |               |                                       |       |
+            o---o   o   o---o   o---o---o---o   o---o---o   o---o   o---o   o
+            |       |                                                       |
+            o   o   o   o---o---o---o---o   o---o   o   o   o   o   o   o   o
+            |   |                               |   |   |   |   |   |   |   |
+            o   o   o---o---o   o---o   o---o   o   o   o   o   o   o   o   o
+            |                                                               |
+            o   o   o---o   o---o   o---o---o   o   o   o   o   o   o   o   o
+            |   |                               |   |   |   |   |   |   |   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'uk-nov-2017', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |                   |                                       |
+            o   o---o---o   o---o   o   o---o---o   o---o---o---o---o---o   o
+            |           |   |       |       |                           |   |
+            o   o---o   o   o   o---o   o   o   o---o---o---o---o   o   o   o
+            |       |   |   |   |       |   |               |       |       |
+            o   o   o   o   o   o---o   o   o   o---o   o   o   o---o---o   o
+            |   |   |       |       |   |   |           |           |       |
+            o---o   o---o   o---o   o---o   o   o---o   o   o---o---o   o   o
+            |       |   |   |       |       |                   |       |   |
+            o   o   o   o   o   o   o   o   o   o---o   o---o---o   o---o   o
+            |   |   |       |   |       |   |   |           |       |       |
+            o   o---o   o   o   o   o   o   o   o   o---o---o   o---o   o   o
+            |       |   |   |       |   |   |           |       |       |   |
+            o   o   o---o   o---o---o---o---o   o---o---o   o---o   o---o   o
+            |   |       |               |       |   |                       |
+            o---o---o   o---o   o---o   o   o   o   o   o---o---o   o---o---o
+            |       |       |           |       |               |   |       |
+            o   o   o---o   o---o   o   o---o---o---o---o---o   o---o   o   o
+            |   |       |       |   |       |                       |   |   |
+            o   o---o   o   o---o---o   o   o   o---o   o   o---o---o   o   o
+            |               |       |   |   |   |       |   |           |   |
+            o---o---o---o   o   o   o---o   o   o   o   o   o   o---o---o   o
+            |               |   |           |       |                   |   |
+            o   o---o---o   o   o   o---o---o---o   o---o   o---o   o   o   o
+            |               |   |   |   |   |   |       |           |   |   |
+            o   o---o   o---o   o   o   o   o   o---o   o---o---o   o---o   o
+            |       |   |       |                   |       |       |       |
+            o   o   o   o   o   o   o   o   o   o   o---o   o---o---o   o   o
+            |   |   |       |       |   |   |   |       |               |   |
+            o   o   o---o---o---o---o---o---o   o---o   o---o---o---o---o   o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'uk-robofest-2015-maze', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |       |       |       |                                       |
+            o   o   o   o   o   o   o   o---o   o---o---o   o---o---o   o   o
+            |   |   |   |   |   |       |       |                       |   |
+            o   o   o   o   o   o   o   o   o   o   o---o   o---o---o   o   o
+            |   |       |   |       |   |   |                       |       |
+            o   o   o   o   o   o   o   o   o   o---o   o---o---o   o---o   o
+            |       |   |   |   |   |   |       |                           |
+            o   o---o   o   o   o   o   o   o---o   o---o---o   o   o---o   o
+            |       |   |   |   |   |   |   |                   |           |
+            o---o   o   o   o   o   o   o   o   o---o---o---o   o   o---o---o
+            |       |   |   |   |   |   |                   |   |   |       |
+            o   o---o   o   o   o   o   o   o---o---o   o   o   o   o   o   o
+            |       |       |   |   |   |           |   |       |       |   |
+            o---o   o   o   o   o   o   o---o---o   o   o---o---o---o---o   o
+            |       |   |       |   |   |       |   |                   |   |
+            o   o---o   o   o   o   o   o   o   o   o   o---o   o---o   o   o
+            |       |   |   |           |       |   |                   |   |
+            o---o   o   o   o   o---o---o---o   o   o---o   o---o   o---o   o
+            |       |   |       |       |       |       |               |   |
+            o   o---o   o   o---o   o   o---o   o---o   o---o   o---o   o   o
+            |       |       |       |       |       |       |           |   |
+            o---o   o---o---o   o---o---o   o---o   o---o   o---o   o---o   o
+            |                   |       |       |       |       |       |   |
+            o   o---o---o   o   o   o   o---o   o---o   o---o   o---o   o   o
+            |       |       |   |   |       |       |       |       |   |   |
+            o---o   o   o   o   o   o   o   o---o   o---o   o---o   o   o   o
+            |       |   |       |   |   |       |       |       |       |   |
+            o   o   o   o   o   o   o   o---o   o---o   o---o   o---o   o   o
+            |   |   |   |   |   |   |                       |           |   |
+            o   o   o   o   o   o   o   o---o---o---o---o   o---o---o---o   o
+            |   |                   |                                       |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'uk-2016-final', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o---o---o---o   o---o---o---o   o---o---o---o---o   o
+            |       |                                   |                   |
+            o---o   o   o   o---o---o---o---o---o   o---o   o---o   o   o   o
+            |       |   |                                   |       |   |   |
+            o   o   o   o---o   o---o---o   o---o---o---o   o   o   o   o   o
+            |   |   |   |       |                           |   |   |       |
+            o   o   o   o   o   o   o---o---o---o---o---o   o   o   o   o   o
+            |       |       |       |                   |       |       |   |
+            o   o---o---o   o---o   o   o---o---o---o   o---o   o   o   o   o
+            |   |       |       |   |                       |   |   |   |   |
+            o   o   o   o---o   o   o   o---o   o   o   o   o   o   o   o   o
+            |   |   |       |   |   |           |   |   |   |       |   |   |
+            o   o   o---o   o   o   o   o---o---o   o   o   o   o---o   o   o
+            |   |       |           |   |       |   |   |   |   |       |   |
+            o   o---o   o---o---o---o   o   o   o   o   o   o   o   o---o   o
+            |       |   |               |           |       |   |   |       |
+            o   o   o   o   o---o---o   o---o---o---o   o   o   o   o   o---o
+            |   |   |   |               |               |   |       |       |
+            o   o   o   o---o---o---o---o   o---o---o---o   o   o   o   o   o
+            |   |   |                   |                   |   |   |   |   |
+            o   o   o   o   o---o---o   o---o---o---o   o   o   o   o   o   o
+            |       |   |       |                       |   |   |   |   |   |
+            o   o---o   o   o   o   o---o---o   o---o---o   o   o   o   o   o
+            |   |       |   |                               |       |   |   |
+            o   o   o---o   o   o---o   o---o---o---o---o---o   o   o   o   o
+            |   |       |                           |           |   |       |
+            o   o---o   o   o---o---o---o---o---o   o   o---o---o---o   o---o
+            |       |       |                   |       |                   |
+            o   o   o---o---o   o---o---o---o   o---o---o   o---o---o---o   o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'uk-2016-heat', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o---o---o---o---o---o---o---o---o---o   o   o---o   o
+            |   |                               |   |   |   |   |       |   |
+            o   o---o---o---o   o---o   o   o   o   o   o   o   o   o---o   o
+            |               |       |   |   |                           |   |
+            o---o---o---o   o   o---o   o   o   o---o---o   o---o---o   o   o
+            |               |   |                           |           |   |
+            o   o   o---o---o   o---o---o---o---o   o---o   o---o   o---o   o
+            |   |   |                               |   |   |           |   |
+            o   o   o---o---o---o---o---o---o---o---o   o   o   o---o   o   o
+            |           |               |                           |       |
+            o---o   o---o---o---o   o   o---o   o---o   o---o   o   o---o   o
+            |                   |   |           |       |       |       |   |
+            o   o   o---o---o   o---o   o---o---o   o   o   o---o   o   o   o
+            |   |           |       |   |       |   |   |   |       |   |   |
+            o---o   o---o   o---o   o---o   o   o---o   o   o---o---o   o   o
+            |           |       |       |               |   |       |   |   |
+            o   o---o   o---o   o---o   o---o---o---o---o---o   o   o   o   o
+            |       |   |   |       |       |                   |       |   |
+            o---o   o   o   o---o   o---o   o---o   o---o---o---o---o   o   o
+            |                                   |                   |   |   |
+            o   o   o   o---o   o---o---o---o   o---o   o---o   o---o   o   o
+            |   |   |   |   |       |       |       |       |       |   |   |
+            o   o---o---o   o---o   o   o   o---o   o---o   o   o---o   o   o
+            |                   |   |   |       |       |       |       |   |
+            o   o---o   o   o   o   o   o   o   o---o   o---o   o---o   o   o
+            |   |   |   |   |   |       |   |       |       |       |   |   |
+            o   o   o---o---o   o   o   o   o   o   o---o   o---o   o   o   o
+            |   |               |   |       |   |       |       |   |   |   |
+            o   o   o---o---o   o   o---o   o   o---o   o---o   o   o---o   o
+            |   |               |                                           |
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
         ` 
     },
