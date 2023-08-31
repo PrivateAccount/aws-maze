@@ -179,8 +179,7 @@ window.onload = function() {
 					index = (this.y - 1) * mazeArea.colsCount + this.x;
 					break;
 			}
-			if (mazeMap[index]) steps++;
-			if (steps >= Math.floor(Math.random() * MAX_STEPS) + MIN_STEPS) steps = 0;
+			if (++steps >= Math.floor(Math.random() * MAX_STEPS) + MIN_STEPS) steps = 0;
 			return mazeMap[index] && !steps;
 		},
 		isBranchRight: function() {
@@ -199,8 +198,7 @@ window.onload = function() {
 					index = (this.y + 1) * mazeArea.colsCount + this.x;
 					break;
 			}
-			if (mazeMap[index]) steps++;
-			if (steps >= Math.floor(Math.random() * MAX_STEPS) + MIN_STEPS) steps = 0;
+			if (++steps >= Math.floor(Math.random() * MAX_STEPS) + MIN_STEPS) steps = 0;
 			return mazeMap[index] && !steps;
 		},
 		move: function() {
