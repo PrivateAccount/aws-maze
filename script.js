@@ -12,7 +12,8 @@ window.onload = function() {
 	var mazeCount = [];
 	var steps = 0;
 	var markVisited = false;
-	const MAX_STEPS = 5;
+	const MIN_STEPS = 50;
+	const MAX_STEPS = 100;
 	const MOVE_STEP_PERIOD = 20;
 
 	const direction = { UP: 0, RIGHT: 1, DOWN: 2, LEFT: 3 };
@@ -150,8 +151,8 @@ window.onload = function() {
 			var minCounter = currentCount;
 			var factor = 0, counter = 0;
 			for (var i = 0; i < indexes.length; i++) {
-				factor = currentDirection == i ? 1 : 2;
-				counter = mazeCount[indexes[i]] * factor;
+				factor = currentDirection == i ? 0 : 1;
+				counter = mazeCount[indexes[i]] + factor;
 				if (mazeMap[indexes[i]]) {
 					if (counter < minCounter) {
 						minCounter = counter;
@@ -179,7 +180,7 @@ window.onload = function() {
 					break;
 			}
 			if (mazeMap[index]) steps++;
-			if (steps >= Math.floor(Math.random() * MAX_STEPS) + MAX_STEPS) steps = 0;
+			if (steps >= Math.floor(Math.random() * MAX_STEPS) + MIN_STEPS) steps = 0;
 			return mazeMap[index] && !steps;
 		},
 		isBranchRight: function() {
@@ -199,7 +200,7 @@ window.onload = function() {
 					break;
 			}
 			if (mazeMap[index]) steps++;
-			if (steps >= Math.floor(Math.random() * MAX_STEPS) + MAX_STEPS) steps = 0;
+			if (steps >= Math.floor(Math.random() * MAX_STEPS) + MIN_STEPS) steps = 0;
 			return mazeMap[index] && !steps;
 		},
 		move: function() {
