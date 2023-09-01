@@ -19,6 +19,7 @@ window.onload = function() {
 	const direction = { UP: 0, RIGHT: 1, DOWN: 2, LEFT: 3 };
 	const state = { STOP: 0, START: 1 };
 	const finishRange = { LEFT: 28, RIGHT: 36, TOP: 14, BOTTOM: 18 };
+	const areaMiddle = { x: 32, y : 16};
 
 	const mapsControl = document.getElementById('maze-select');
 
@@ -50,6 +51,7 @@ window.onload = function() {
 		rowsCount: 33,
 		cellColor: "#cde",
 		wallColor: '#666',
+		hotColor: '#eca',
 		visitedColor: '#abc',
 		pureMazeData: '',
 		init: function() {
@@ -78,7 +80,12 @@ window.onload = function() {
 					if (data.charCodeAt(index) == 45) color = this.wallColor;
 					if (data.charCodeAt(index) == 124) color = this.wallColor;
 					if (data.charCodeAt(index) == 32) color = this.cellColor;
-					this.paintCell(i, j, color);
+					if (i == areaMiddle.x && j == areaMiddle.y)
+						this.paintCell(i, j, color);
+					else if (i > finishRange.LEFT && i < finishRange.RIGHT && j > finishRange.TOP && j < finishRange.BOTTOM)
+						this.paintCell(i, j, this.hotColor);
+					else
+						this.paintCell(i, j, color);
 					mazeMap.push(data.charCodeAt(index) == 32);
 					mazeCount.push(0);
 					index++;
