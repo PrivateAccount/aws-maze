@@ -19,7 +19,7 @@ window.onload = function() {
 	const direction = { UP: 0, RIGHT: 1, DOWN: 2, LEFT: 3 };
 	const state = { STOP: 0, START: 1 };
 	const finishRange = { LEFT: 28, RIGHT: 36, TOP: 14, BOTTOM: 18 };
-	const areaMiddle = { x: 32, y : 16};
+	const areaMiddle = { x: 32, y : 16 };
 
 	const mapsControl = document.getElementById('maze-select');
 
@@ -117,6 +117,7 @@ window.onload = function() {
 		x: 0,
 		y: 0,
 		direction: direction.RIGHT,
+		branch: {},
 		state: state.STOP,
 		step: 0,
 		color: '#c00',
@@ -215,8 +216,9 @@ window.onload = function() {
 				mazeArea.paintCell(this.x, this.y, mazeArea.cellColor);
 			const index = this.y * mazeArea.colsCount + this.x;
 			mazeCount[index]++;
-			if (this.preferBranch(mazeCount[index], this.direction).found) {
-				this.direction = this.preferBranch(mazeCount[index], this.direction).direction;
+			this.branch = this.preferBranch(mazeCount[index], this.direction);
+			if (this.branch.found) {
+				this.direction = this.branch.direction;
 			}
 			var which = 0, newIndex = 0, found = false;
 			do {
