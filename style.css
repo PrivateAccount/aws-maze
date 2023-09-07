@@ -78,3 +78,11 @@ span#position-x, span#position-y, span#time-min, span#time-sec {
 	font-weight: bold;
 	color: #c00;
 }
+span#record-min, span#record-sec {
+	width: 30px;
+	text-align: right;
+	margin: 0 10px 0 0;
+	display: inline-block;
+	font-weight: bold;
+	color: #090;
+}

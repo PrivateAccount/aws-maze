@@ -11,6 +11,7 @@ window.onload = function() {
 	var mazeMap = [];
 	var mazeCount = [];
 	var steps = 0;
+	var record = 10000000;
 	var markVisited = false;
 	
 	const MIN_STEPS = 50;
@@ -46,6 +47,8 @@ window.onload = function() {
 	const displayPosY = document.getElementById('position-y');
 	const displayTimeMin = document.getElementById('time-min');
 	const displayTimeSec = document.getElementById('time-sec');
+	const displayRecordMin = document.getElementById('record-min');
+	const displayRecordSec = document.getElementById('record-sec');
 
 	const modeDemo = document.getElementById('demo');
 	modeDemo.addEventListener('click', function() {
@@ -56,7 +59,7 @@ window.onload = function() {
 		mazeMouse.mode = modePlay.checked ? mode.PLAY : mode.DEMO;
 	});
 
-	document.addEventListener('keyup', function(event) {
+	document.addEventListener('keydown', function(event) {
 		event.preventDefault();
 		if (mazeMouse.mode == mode.PLAY) {
 			switch (event.key) {
@@ -99,6 +102,8 @@ window.onload = function() {
 					this.paintCell(i, j, this.cellColor);
 				}
 			}
+			displayRecordMin.innerText = '0';
+			displayRecordSec.innerText = '0';
 			stopButton.disabled = true;
 		},
 		paintCell: function(x, y, color) {
@@ -404,6 +409,7 @@ window.onload = function() {
 				mazeArea.paintCell(this.x + 1, this.y + 1, this.finish);
 				mazeArea.paintCell(this.x, this.y + 1, this.finish);
 				this.stop();
+				this.showRecord();
 				startButton.disabled = true;
 			}
 		},
@@ -420,6 +426,19 @@ window.onload = function() {
 				minute = Math.floor(ticks / 60);
 				displayTimeMin.innerText = minute.toString();
 				displayTimeSec.innerText = second.toString();
+			}
+		},
+		showRecord: function() {
+			var dt, minute = 0, second = 0, ticks = 0;
+			if (this.mode == mode.DEMO) dt = 1000 / MOVE_STEP_PERIOD;
+			if (this.mode == mode.PLAY) dt = 1000 / PLAY_STEP_PERIOD;
+			if (this.step && this.step < record) {
+				record = this.step;
+				ticks = record / dt;
+				second = Math.floor(ticks % 60);
+				minute = Math.floor(ticks / 60);
+				displayRecordMin.innerText = minute.toString();
+				displayRecordSec.innerText = second.toString();
 			}
 		},
 	};
