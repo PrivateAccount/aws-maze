@@ -53,10 +53,12 @@ window.onload = function() {
 	const modeDemo = document.getElementById('demo');
 	modeDemo.addEventListener('click', function() {
 		mazeMouse.mode = modeDemo.checked ? mode.DEMO : mode.PLAY;
+		stopButton.click();
 	});
 	const modePlay = document.getElementById('play');
 	modePlay.addEventListener('click', function() {
 		mazeMouse.mode = modePlay.checked ? mode.PLAY : mode.DEMO;
+		stopButton.click();
 	});
 
 	document.addEventListener('keydown', function(event) {
@@ -348,6 +350,8 @@ window.onload = function() {
 				mazeArea.paintCell(this.x, this.y, mazeArea.visitedColor);
 			else
 				mazeArea.paintCell(this.x, this.y, mazeArea.cellColor);
+			const index = this.y * mazeArea.colsCount + this.x;
+			mazeCount[index]++;
 			var newIndex = 0, found = false;
 			do {
 				switch (this.direction) {
