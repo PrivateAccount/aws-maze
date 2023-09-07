@@ -38,6 +38,12 @@ div#panel {
 canvas#game-canvas { 
 	border: 1px solid #aaa; 
 }
+div.group {
+	margin: 2em 0;
+}
+input#demo, input#play {
+	margin: 0em 1.0em 1em 0;
+}
 select {
 	margin: 1em 0;
 	padding: 5px 10px;

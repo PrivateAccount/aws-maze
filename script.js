@@ -12,14 +12,17 @@ window.onload = function() {
 	var mazeCount = [];
 	var steps = 0;
 	var markVisited = false;
+	
 	const MIN_STEPS = 50;
 	const MAX_STEPS = 100;
 	const MOVE_STEP_PERIOD = 20;
+	const PLAY_STEP_PERIOD = 100;
 
 	const direction = { UP: 0, RIGHT: 1, DOWN: 2, LEFT: 3 };
 	const state = { STOP: 0, START: 1 };
 	const finishRange = { LEFT: 28, RIGHT: 36, TOP: 14, BOTTOM: 18 };
 	const areaMiddle = { x: 32, y : 16 };
+	const mode = { DEMO: 1, PLAY: 2 }
 
 	const mapsControl = document.getElementById('maze-select');
 
@@ -43,6 +46,39 @@ window.onload = function() {
 	const displayPosY = document.getElementById('position-y');
 	const displayTimeMin = document.getElementById('time-min');
 	const displayTimeSec = document.getElementById('time-sec');
+
+	const modeDemo = document.getElementById('demo');
+	modeDemo.addEventListener('click', function() {
+		mazeMouse.mode = modeDemo.checked ? mode.DEMO : mode.PLAY;
+	});
+	const modePlay = document.getElementById('play');
+	modePlay.addEventListener('click', function() {
+		mazeMouse.mode = modePlay.checked ? mode.PLAY : mode.DEMO;
+	});
+
+	document.addEventListener('keyup', function(event) {
+		event.preventDefault();
+		if (mazeMouse.mode == mode.PLAY) {
+			switch (event.key) {
+				case 'ArrowUp':
+					mazeMouse.direction = direction.UP;
+					startButton.click();
+					break;
+				case 'ArrowDown':
+					mazeMouse.direction = direction.DOWN;
+					startButton.click();
+					break;
+				case 'ArrowLeft':
+					mazeMouse.direction = direction.LEFT;
+					startButton.click();
+					break;
+				case 'ArrowRight':
+					mazeMouse.direction = direction.RIGHT;
+					startButton.click();
+					break;
+			}
+		}
+	});
 
 	var mazeArea = {
 		cellSize: 18,
@@ -119,6 +155,7 @@ window.onload = function() {
 		direction: direction.RIGHT,
 		branch: {},
 		state: state.STOP,
+		mode: mode.DEMO,
 		step: 0,
 		color: '#c00',
 		finish: '#090',
@@ -301,12 +338,54 @@ window.onload = function() {
 			}
 			this.step++;
 		},
+		play: function() {
+			if (markVisited)
+				mazeArea.paintCell(this.x, this.y, mazeArea.visitedColor);
+			else
+				mazeArea.paintCell(this.x, this.y, mazeArea.cellColor);
+			var newIndex = 0, found = false;
+			do {
+				switch (this.direction) {
+					case direction.UP:
+						newIndex = (this.y - 1) * mazeArea.colsCount + this.x;
+						if (this.isCollision()) stopButton.click();
+						else if (mazeMap[newIndex]) { this.y--; found = true; }
+						break;
+					case direction.DOWN:
+						newIndex = (this.y + 1) * mazeArea.colsCount + this.x;
+						if (this.isCollision()) stopButton.click();
+						else if (mazeMap[newIndex]) { this.y++; found = true; }
+						break;
+					case direction.LEFT:
+						newIndex = this.y * mazeArea.colsCount + this.x - 1;
+						if (this.isCollision()) stopButton.click();
+						else if (mazeMap[newIndex]) { this.x--; found = true; }
+						break;
+					case direction.RIGHT:
+						newIndex = this.y * mazeArea.colsCount + this.x + 1;
+						if (this.isCollision()) stopButton.click();
+						else if (mazeMap[newIndex]) { this.x++; found = true; }
+						break;
+				}
+			}
+			while (!found && this.state == state.START);
+			mazeArea.paintCell(this.x, this.y, this.color);
+			this.checkIsFinish();
+			this.updateDisplay();
+			if (this.state == state.START) {
+				setTimeout(function() {
+					mazeMouse.play();
+				}, PLAY_STEP_PERIOD);
+			}
+			this.step++;
+		},
 		start: function() {
 			startButton.disabled = true;
 			stopButton.disabled = false;
 			mapsControl.disabled = true;
 			this.state = state.START;
-			this.move();
+			if (this.mode == mode.DEMO) this.move();
+			if (this.mode == mode.PLAY) this.play();
 		},
 		stop: function() {
 			startButton.disabled = false;
@@ -329,8 +408,9 @@ window.onload = function() {
 			}
 		},
 		updateDisplay: function() {
-			const dt = 1000 / MOVE_STEP_PERIOD;
-			var minute = 0, second = 0, ticks = 0;
+			var dt, minute = 0, second = 0, ticks = 0;
+			if (this.mode == mode.DEMO) dt = 1000 / MOVE_STEP_PERIOD;
+			if (this.mode == mode.PLAY) dt = 1000 / PLAY_STEP_PERIOD;
 			displayStep.innerText = this.step.toString();
 			displayPosX.innerText = this.x;
 			displayPosY.innerText = this.y;
@@ -347,5 +427,6 @@ window.onload = function() {
 	mazeArea.init();
 	mazeArea.loadMaps();
 	mazeArea.loadMaze(0);
+	modeDemo.click();
 
 }
