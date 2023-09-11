@@ -76,44 +76,6 @@ var mazeData = [
         ` 
     },
     { 
-        name: '2003-kankou', 
-        data: `
-            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
-            |               |                                               |
-            o   o---o---o   o---o   o---o---o---o---o   o---o   o---o   o   o
-            |               |   |   |               |   |       |       |   |
-            o   o---o   o---o---o   o   o---o---o   o   o---o---o   o---o   o
-            |   |               |   |   |       |   |   |               |   |
-            o   o   o---o---o   o   o   o   o   o   o   o   o---o---o   o   o
-            |       |   |   |   |   |   |   |   |   |   |   |   |   |       |
-            o   o---o   o---o   o   o   o---o---o   o---o   o---o   o---o   o
-            |   |           |       |       |       |   |   |           |   |
-            o   o   o---o   o   o---o---o---o---o---o   o   o   o---o   o   o
-            |       |   |   |   |   |               |       |   |   |   |   |
-            o   o---o   o   o---o   o   o---o---o   o   o---o   o   o   o   o
-            |   |   |   |       |   |   |   |   |       |       |   |   |   |
-            o   o   o   o---o   o---o   o---o---o---o---o   o---o   o   o   o
-            |   |   |               |           |   |           |   |   |   |
-            o   o---o   o---o---o   o---o   o   o---o   o---o---o   o   o   o
-            |           |       |   |   |       |       |       |   |   |   |
-            o   o---o   o   o---o   o   o---o---o   o   o---o   o   o   o   o
-            |   |   |   |   |       |               |       |   |   |       |
-            o   o---o   o   o---o   o   o---o---o---o   o---o   o   o---o   o
-            |   |   |   |   |   |   |   |               |   |   |   |       |
-            o   o   o---o   o---o   o   o   o---o---o---o---o   o---o---o   o
-            |   |   |   |   |   |       |   |           |   |   |   |       |
-            o   o   o   o   o   o   o---o   o   o---o   o   o   o   o   o   o
-            |       |           |   |       |   |   |   |           |   |   |
-            o   o   o---o---o---o   o   o---o   o---o   o---o---o---o   o   o
-            |   |                   |   |                               |   |
-            o   o   o---o---o---o---o   o   o---o---o---o---o---o---o---o   o
-            |   |   |                   |               |   |           |   |
-            o   o   o   o---o---o---o---o   o---o---o---o   o   o---o   o   o
-            |   |                                               |   |       |
-            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
-        ` 
-    },
-    { 
         name: '3-path-test', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
@@ -3078,6 +3040,44 @@ var mazeData = [
         ` 
     },
     { 
+        name: 'kankou-2003', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |               |                                               |
+            o   o---o---o   o---o   o---o---o---o---o   o---o   o---o   o   o
+            |               |   |   |               |   |       |       |   |
+            o   o---o   o---o---o   o   o---o---o   o   o---o---o   o---o   o
+            |   |               |   |   |       |   |   |               |   |
+            o   o   o---o---o   o   o   o   o   o   o   o   o---o---o   o   o
+            |       |   |   |   |   |   |   |   |   |   |   |   |   |       |
+            o   o---o   o---o   o   o   o---o---o   o---o   o---o   o---o   o
+            |   |           |       |       |       |   |   |           |   |
+            o   o   o---o   o   o---o---o---o---o---o   o   o   o---o   o   o
+            |       |   |   |   |   |               |       |   |   |   |   |
+            o   o---o   o   o---o   o   o---o---o   o   o---o   o   o   o   o
+            |   |   |   |       |   |   |   |   |       |       |   |   |   |
+            o   o   o   o---o   o---o   o---o---o---o---o   o---o   o   o   o
+            |   |   |               |           |   |           |   |   |   |
+            o   o---o   o---o---o   o---o   o   o---o   o---o---o   o   o   o
+            |           |       |   |   |       |       |       |   |   |   |
+            o   o---o   o   o---o   o   o---o---o   o   o---o   o   o   o   o
+            |   |   |   |   |       |               |       |   |   |       |
+            o   o---o   o   o---o   o   o---o---o---o   o---o   o   o---o   o
+            |   |   |   |   |   |   |   |               |   |   |   |       |
+            o   o   o---o   o---o   o   o   o---o---o---o---o   o---o---o   o
+            |   |   |   |   |   |       |   |           |   |   |   |       |
+            o   o   o   o   o   o   o---o   o   o---o   o   o   o   o   o   o
+            |       |           |   |       |   |   |   |           |   |   |
+            o   o   o---o---o---o   o   o---o   o---o   o---o---o---o   o   o
+            |   |                   |   |                               |   |
+            o   o   o---o---o---o---o   o   o---o---o---o---o---o---o---o   o
+            |   |   |                   |               |   |           |   |
+            o   o   o   o---o---o---o---o   o---o---o---o   o   o---o   o   o
+            |   |                                               |   |       |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
         name: 'kansai-2017', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
@@ -3150,6 +3150,234 @@ var mazeData = [
             |       |           |       |       |       |       |           |
             o   o---o   o---o---o---o---o---o   o---o   o---o   o---o   o---o
             |   |                                           |               |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'kirei2', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |               |               |               |           |
+            o   o   o   o   o   o   o---o   o   o   o---o   o   o   o---o   o
+            |       |   |   |       |   |   |       |   |   |       |   |   |
+            o---o---o   o   o---o---o   o   o---o---o   o   o---o---o   o   o
+            |       |   |   |       |   |   |       |   |   |       |   |   |
+            o   o   o   o---o   o   o   o---o   o   o   o---o   o   o   o---o
+            |   |               |               |               |           |
+            o   o   o---o---o   o   o---o---o   o   o---o---o   o   o---o---o
+            |   |           |   |           |   |           |   |           |
+            o   o   o---o---o   o   o---o---o   o   o---o---o   o   o---o---o
+            |           |               |               |               |   |
+            o---o---o   o   o---o---o   o   o---o---o   o   o---o---o   o   o
+            |   |       |       |       |       |       |       |       |   |
+            o   o   o---o---o   o   o---o---o   o   o---o---o   o   o---o   o
+            |   |               |               |               |           |
+            o   o---o---o---o   o   o---o   o   o---o---o---o   o   o---o---o
+            |   |               |               |               |           |
+            o   o   o   o---o   o   o   o---o   o   o   o---o   o   o   o   o
+            |       |   |   |   |   |   |   |   |   |   |   |       |   |   |
+            o---o---o   o   o---o---o   o   o---o---o   o   o---o---o   o   o
+            |       |   |   |       |   |   |       |   |   |       |   |   |
+            o   o   o---o   o   o   o---o   o   o   o---o   o   o   o---o   o
+            |   |               |               |               |           |
+            o   o   o---o---o   o   o---o---o   o   o---o---o   o   o---o---o
+            |   |           |   |           |   |           |   |           |
+            o   o   o---o---o   o   o---o---o   o   o---o---o   o   o---o---o
+            |           |               |               |               |   |
+            o---o---o   o   o---o---o   o   o---o---o   o   o---o---o   o   o
+            |           |               |               |               |   |
+            o   o   o---o---o   o   o---o---o   o   o---o---o   o   o---o   o
+            |   |               |               |               |           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'koh', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o   o---o---o---o   o---o---o---o---o---o---o---o---o---o   o
+            |   |   |           |   |                   |                   |
+            o   o   o---o---o   o   o---o---o   o---o   o---o---o---o   o   o
+            |   |       |                                           |   |   |
+            o   o   o   o---o---o   o---o---o   o---o---o---o---o   o   o   o
+            |   |   |               |   |                   |   |   |       |
+            o   o   o   o   o---o   o   o---o---o---o---o   o   o   o   o   o
+            |       |   |   |                       |   |       |   |   |   |
+            o   o   o   o   o   o---o---o   o---o   o   o   o   o   o   o   o
+            |   |   |   |       |                           |   |   |       |
+            o   o   o   o   o   o   o---o---o---o---o   o   o   o   o   o   o
+            |   |   |   |   |   |   |               |   |       |   |   |   |
+            o   o   o   o   o   o   o   o---o---o   o   o   o   o   o   o   o
+            |   |   |       |           |       |           |       |   |   |
+            o   o   o---o   o   o   o   o   o   o---o---o   o---o   o   o   o
+            |   |   |       |   |   |   |                           |   |   |
+            o   o   o   o   o   o   o   o---o---o   o   o   o   o   o   o   o
+            |       |   |   |       |   |           |   |   |   |   |   |   |
+            o   o   o   o   o   o   o   o---o---o   o   o   o   o   o   o   o
+            |   |   |   |   |   |   |                   |   |           |   |
+            o   o   o   o   o   o   o---o---o   o---o---o   o   o   o   o   o
+            |           |   |                               |   |   |   |   |
+            o   o   o   o   o   o---o---o   o---o---o---o---o   o   o   o   o
+            |   |   |   |       |                                   |   |   |
+            o   o   o   o---o   o---o---o---o---o---o---o   o---o   o   o   o
+            |   |   |   |                           |       |           |   |
+            o   o   o   o---o---o---o---o---o---o   o   o   o---o---o   o   o
+            |   |   |                   |               |                   |
+            o   o   o---o---o---o---o---o   o---o---o   o---o---o---o---o   o
+            |   |                                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'korea-88', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o---o---o---o---o---o---o   o---o---o---o   o---o---o---o   o---o
+            |                           |           |   |       |           |
+            o   o---o---o   o---o---o   o---o---o---o   o---o---o   o---o   o
+            |   |       |   |                       |               |   |   |
+            o   o---o---o---o   o---o---o---o---o   o   o   o---o   o   o   o
+            |   |           |                   |   |   |   |   |   |   |   |
+            o   o   o---o   o---o---o---o---o---o   o---o   o---o   o   o   o
+            |   |   |   |   |                                   |   |   |   |
+            o   o   o   o   o   o---o   o---o   o---o   o   o---o   o---o   o
+            |   |   |   |   |   |   |   |   |   |   |   |       |           |
+            o   o   o   o   o   o   o   o   o   o   o---o   o---o---o---o   o
+            |   |   |   |   |   |   |   |   |   |       |           |   |   |
+            o   o---o---o   o   o   o   o---o---o---o---o   o   o   o   o   o
+            |               |   |   |   |       |           |   |   |   |   |
+            o---o---o---o   o   o   o---o   o   o---o---o   o   o   o   o   o
+            |       |   |   |   |   |           |       |   |   |   |   |   |
+            o   o   o   o   o   o---o   o---o---o---o---o   o   o   o---o   o
+            |   |   |   |   |           |                   |   |           |
+            o   o   o   o   o   o---o---o---o---o---o---o   o   o   o   o   o
+            |   |   |   |   |   |   |   |               |   |   |   |   |   |
+            o   o   o---o   o   o---o   o---o---o---o---o   o   o   o   o   o
+            |   |           |                               |       |   |   |
+            o   o---o---o---o---o---o---o---o---o---o---o---o---o---o   o---o
+            |   |           |                                   |       |   |
+            o   o---o---o   o   o---o---o---o   o---o---o---o   o---o   o   o
+            |           |   |   |           |   |           |   |   |   |   |
+            o   o---o   o   o   o---o---o---o   o---o---o---o   o   o   o   o
+            |   |   |   |   |               |   |               |   |   |   |
+            o   o   o   o---o---o---o---o   o   o---o---o---o---o---o   o   o
+            |   |   |                       |                           |   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'korea-89', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |   |   |                                           |           |
+            o   o   o   o---o---o---o---o---o---o   o---o   o   o---o---o---o
+            |   |                   |           |       |   |               |
+            o   o   o---o---o---o---o---o   o   o---o---o   o---o---o---o   o
+            |   |   |                       |   |       |   |               |
+            o   o   o   o---o---o---o   o---o   o   o---o---o   o---o---o   o
+            |           |                   |               |   |       |   |
+            o   o---o---o   o---o---o---o---o---o---o---o   o---o---o   o   o
+            |           |                               |               |   |
+            o   o---o   o---o---o   o---o   o---o---o---o   o---o---o---o   o
+            |       |               |       |               |           |   |
+            o---o   o---o   o---o---o   o---o   o   o---o---o   o---o   o   o
+            |       |       |       |       |   |               |   |       |
+            o   o   o   o   o   o   o---o---o---o---o---o---o   o   o   o---o
+            |   |       |       |       |       |   |       |       |   |   |
+            o   o---o---o---o   o   o   o   o   o---o   o---o   o---o   o   o
+            |   |           |   |   |   |                       |       |   |
+            o   o   o---o   o   o   o---o---o---o---o   o   o---o---o   o   o
+            |   |       |   |               |       |   |       |           |
+            o   o   o   o   o---o---o---o   o---o---o---o---o   o---o   o   o
+            |   |   |   |       |       |   |                   |   |   |   |
+            o   o---o   o---o   o   o   o   o---o---o   o---o---o   o   o   o
+            |   |           |       |   |   |   |           |               |
+            o   o---o   o---o   o   o---o   o   o---o---o   o---o---o---o   o
+            |                   |       |   |   |               |       |   |
+            o---o---o   o---o   o---o   o   o   o---o---o---o   o---o   o   o
+            |           |           |       |       |               |   |   |
+            o   o---o   o---o---o---o   o---o---o   o   o---o---o---o   o   o
+            |   |   |       |           |           |                   |   |
+            o   o   o---o   o---o   o   o   o   o---o---o---o   o---o   o   o
+            |   |   |               |       |                       |       |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'korea-92', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |           |                                                   |
+            o   o---o   o   o---o---o---o---o---o---o---o---o---o---o   o   o
+            |   |   |       |   |   |   |   |       |       |       |   |   |
+            o   o   o---o---o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |       |                       |       |       |       |   |
+            o   o---o   o   o---o   o   o   o   o---o---o---o---o---o---o   o
+            |   |       |   |   |   |   |   |   |           |       |   |   |
+            o   o   o   o   o   o---o   o---o---o   o---o---o   o   o   o   o
+            |   |   |       |       |   |       |               |       |   |
+            o   o   o---o---o   o---o---o   o   o   o---o---o---o---o   o   o
+            |   |                           |   |       |               |   |
+            o   o---o---o---o---o---o---o---o   o   o---o   o---o---o---o   o
+            |           |                   |           |               |   |
+            o   o---o---o   o---o---o---o---o---o   o---o   o---o---o   o   o
+            |           |   |           |       |   |                   |   |
+            o   o---o---o   o   o---o   o   o   o---o   o---o---o---o   o   o
+            |           |   |   |       |           |   |           |   |   |
+            o   o---o---o   o   o---o   o---o---o   o---o   o---o---o   o   o
+            |       |                   |   |   |           |           |   |
+            o   o   o   o---o---o---o---o   o   o---o---o   o---o---o   o   o
+            |   |   |                       |           |           |   |   |
+            o   o---o   o   o---o---o---o---o   o---o---o---o   o   o   o   o
+            |           |                                   |   |   |   |   |
+            o---o---o   o   o   o---o---o   o---o---o---o---o   o   o   o   o
+            |       |   |   |           |               |   |       |   |   |
+            o   o   o   o   o   o---o---o   o---o---o---o   o---o   o   o   o
+            |   |           |           |   |   |               |       |   |
+            o   o   o---o---o---o---o   o   o   o---o---o   o   o---o   o   o
+            |   |   |               |   |       |       |   |       |   |   |
+            o   o   o   o---o---o   o   o---o---o   o   o   o   o---o---o   o
+            |   |                   |               |                       |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'korea-93', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                   |   |   |   |               |
+            o   o   o---o   o   o---o---o   o   o   o   o   o   o---o---o   o
+            |   |   |   |   |   |   |       |                           |   |
+            o   o---o   o---o---o   o---o---o   o   o   o   o   o---o   o   o
+            |   |                           |   |   |   |   |   |   |   |   |
+            o   o   o---o---o---o---o---o   o---o---o---o---o---o   o---o   o
+            |   |   |               |   |                               |   |
+            o   o   o   o---o---o   o   o---o---o---o---o---o---o---o   o   o
+            |   |   |                                               |       |
+            o   o   o   o---o---o---o---o   o---o---o   o---o   o---o   o---o
+            |   |   |                   |   |           |       |           |
+            o   o   o   o---o---o---o---o   o   o---o---o---o   o---o   o---o
+            |   |   |                       |                   |           |
+            o   o   o   o---o---o---o   o---o---o---o   o   o   o---o   o---o
+            |   |   |   |           |   |       |   |   |   |   |           |
+            o   o   o   o   o---o   o   o   o   o---o   o---o   o---o   o---o
+            |   |   |               |   |               |       |           |
+            o   o   o   o---o---o   o   o---o---o---o---o   o---o---o---o   o
+            |   |   |           |   |       |       |   |           |       |
+            o   o   o   o---o---o---o   o   o---o---o   o   o---o   o---o   o
+            |   |   |               |   |               |       |   |   |   |
+            o   o   o   o---o---o   o   o---o   o---o   o---o   o   o   o   o
+            |   |   |   |       |   |           |                       |   |
+            o   o   o   o   o---o   o   o---o---o   o   o---o---o   o---o   o
+            |   |               |   |   |           |           |   |       |
+            o   o---o---o   o   o   o---o   o---o---o---o   o   o   o---o   o
+            |           |   |   |       |               |   |   |   |   |   |
+            o   o---o   o   o---o   o---o---o   o   o---o   o   o   o   o   o
+            |   |   |   |                       |                   |       |
+            o   o   o   o---o---o---o---o---o---o---o---o---o---o---o---o   o
+            |   |   |                                                       |
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
         ` 
     },

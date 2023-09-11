@@ -21,10 +21,10 @@ window.onload = function() {
 
 	const direction = { UP: 0, RIGHT: 1, DOWN: 2, LEFT: 3 };
 	const state = { STOP: 0, START: 1 };
-	const areaSize = { cols: 33, rows : 33 };
-	const areaCell = { size: 18, margin: 2 };
+	const areaSize = { COLS: 33, ROWS : 33 };
+	const areaCell = { SIZE: 18, MARGIN: 2 };
 	const finishRange = { LEFT: 14, RIGHT: 18, TOP: 14, BOTTOM: 18 };
-	const areaMiddle = { x: 16, y : 16 };
+	const areaMiddle = { X: 16, Y : 16 };
 	const mode = { DEMO: 1, PLAY: 2 }
 
 	const mapsControl = document.getElementById('maze-select');
@@ -88,10 +88,10 @@ window.onload = function() {
 	});
 
 	var mazeArea = {
-		cellSize: areaCell.size,
-		cellDist: areaCell.margin,
-		colsCount: areaSize.cols,
-		rowsCount: areaSize.rows,
+		cellSize: areaCell.SIZE,
+		cellDist: areaCell.MARGIN,
+		colsCount: areaSize.COLS,
+		rowsCount: areaSize.ROWS,
 		cellColor: "#cde",
 		wallColor: '#666',
 		hotColor: '#eca',
@@ -125,7 +125,7 @@ window.onload = function() {
 					if (data.charCodeAt(index) == 45) color = this.wallColor;
 					if (data.charCodeAt(index) == 124) color = this.wallColor;
 					if (data.charCodeAt(index) == 32) color = this.cellColor;
-					if (i == areaMiddle.x && j == areaMiddle.y)
+					if (i == areaMiddle.X && j == areaMiddle.Y)
 						this.paintCell(i, j, color);
 					else if (i > finishRange.LEFT && i < finishRange.RIGHT && j > finishRange.TOP && j < finishRange.BOTTOM)
 						this.paintCell(i, j, this.hotColor);
