@@ -22,7 +22,7 @@ window.onload = function() {
 	const direction = { UP: 0, RIGHT: 1, DOWN: 2, LEFT: 3 };
 	const state = { STOP: 0, START: 1 };
 	const areaSize = { COLS: 33, ROWS : 33 };
-	const areaCell = { SIZE: 18, MARGIN: 2 };
+	const areaCell = { SIZE: 20, MARGIN: 2 };
 	const finishRange = { LEFT: 14, RIGHT: 18, TOP: 14, BOTTOM: 18 };
 	const areaMiddle = { X: 16, Y : 16 };
 	const mode = { DEMO: 1, PLAY: 2 }
@@ -112,7 +112,7 @@ window.onload = function() {
 		},
 		paintCell: function(x, y, color) {
 			ctx.fillStyle = color;
-			ctx.fillRect(x * this.cellSize + this.cellDist / 2 + 1, y * this.cellSize + this.cellDist / 2 + 1, this.cellSize - this.cellDist, this.cellSize - this.cellDist);
+			ctx.fillRect(x * this.cellSize + this.cellDist, y * this.cellSize + this.cellDist, this.cellSize - this.cellDist, this.cellSize - this.cellDist);
 		},
 		paintWalls: function(data) {
 			var index = 0, color = '#fff';
