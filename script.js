@@ -21,8 +21,10 @@ window.onload = function() {
 
 	const direction = { UP: 0, RIGHT: 1, DOWN: 2, LEFT: 3 };
 	const state = { STOP: 0, START: 1 };
-	const finishRange = { LEFT: 28, RIGHT: 36, TOP: 14, BOTTOM: 18 };
-	const areaMiddle = { x: 32, y : 16 };
+	const areaSize = { cols: 33, rows : 33 };
+	const areaCell = { size: 18, margin: 2 };
+	const finishRange = { LEFT: 14, RIGHT: 18, TOP: 14, BOTTOM: 18 };
+	const areaMiddle = { x: 16, y : 16 };
 	const mode = { DEMO: 1, PLAY: 2 }
 
 	const mapsControl = document.getElementById('maze-select');
@@ -86,10 +88,10 @@ window.onload = function() {
 	});
 
 	var mazeArea = {
-		cellSize: 18,
-		cellDist: 2,
-		colsCount: 65,
-		rowsCount: 33,
+		cellSize: areaCell.size,
+		cellDist: areaCell.margin,
+		colsCount: areaSize.cols,
+		rowsCount: areaSize.rows,
 		cellColor: "#cde",
 		wallColor: '#666',
 		hotColor: '#eca',
@@ -136,11 +138,21 @@ window.onload = function() {
 			}
 		},
 		loadMaze: function(mazeIndex) {
-			var gap = String.fromCharCode(10);
+			var gap = String.fromCharCode(10), stepsData = [];
+			const patterns = [
+				{ from: '---', to: '-' },
+				{ from: '    ', to: 'D' },
+				{ from: '   ', to: 'S' },
+				{ from: 'D', to: '  ' },
+				{ from: 'S', to: ' ' },
+			];
 			const gapDepth = mazeData[mazeIndex].data.indexOf('o') - 1;
 			for (var i = 0; i < gapDepth; i++)
 				gap += String.fromCharCode(32);
-			this.pureMazeData = mazeData[mazeIndex].data.replace(new RegExp(gap, 'g'), String.fromCharCode(10));
+			stepsData[stepsData.length] = mazeData[mazeIndex].data.replace(new RegExp(gap, 'g'), String.fromCharCode(10));
+			for (var i = 0; i < patterns.length; i++)
+				stepsData[i + 1] = stepsData[i].replace(new RegExp(patterns[i].from, 'g'), patterns[i].to);
+			this.pureMazeData = stepsData[patterns.length];
 			this.paintWalls(this.pureMazeData);
 			mazeMouse.init();
 		},
