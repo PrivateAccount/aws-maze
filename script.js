@@ -204,7 +204,7 @@ window.onload = function() {
 			}
 			return !mazeMap[index];
 		},
-		preferBranch: function(currentCount, currentDirection) {
+		preferBranch: function(currentCount) {
 			var result = { found: false, direction: 0 };
 			var indexes = [
 				(this.y - 1) * mazeArea.colsCount + this.x,
@@ -213,10 +213,9 @@ window.onload = function() {
 				this.y * mazeArea.colsCount + this.x - 1,
 			];
 			var minCounter = currentCount;
-			var factor = 0, counter = 0;
+			var counter = 0;
 			for (var i = 0; i < indexes.length; i++) {
-				factor = currentDirection == i ? 0 : 1;
-				counter = mazeCount[indexes[i]] + factor;
+				counter = mazeCount[indexes[i]];
 				if (mazeMap[indexes[i]]) {
 					if (counter < minCounter) {
 						minCounter = counter;
@@ -272,7 +271,7 @@ window.onload = function() {
 				mazeArea.paintCell(this.x, this.y, mazeArea.cellColor);
 			const index = this.y * mazeArea.colsCount + this.x;
 			mazeCount[index]++;
-			this.branch = this.preferBranch(mazeCount[index], this.direction);
+			this.branch = this.preferBranch(mazeCount[index]);
 			if (this.branch.found) {
 				this.direction = this.branch.direction;
 			}
