@@ -213,14 +213,16 @@ window.onload = function() {
 				this.y * mazeArea.colsCount + this.x - 1,
 			];
 			var minCounter = currentCount;
-			var counter = 0;
+			var counter = 0, which, idx;
+			which = Math.floor(Math.random() * 2);
 			for (var i = 0; i < indexes.length; i++) {
-				counter = mazeCount[indexes[i]];
-				if (mazeMap[indexes[i]]) {
+				idx = which ? i : indexes.length - i - 1;
+				counter = mazeCount[indexes[idx]];
+				if (mazeMap[indexes[idx]]) {
 					if (counter < minCounter) {
 						minCounter = counter;
 						result.found = true;
-						result.direction = i;
+						result.direction = idx;
 					}
 				}
 			}
