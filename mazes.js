@@ -152,6 +152,44 @@ var mazeData = [
         ` 
     },
     { 
+        name: '58', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |                                                               |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |                                                               |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |                                                               |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |                                                               |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |                                                               |
+            o   o   o   o   o   o   o---o---o---o---o---o---o---o   o   o   o
+            |                       |                           |           |
+            o   o   o   o   o   o   o   o---o---o   o   o   o   o   o   o   o
+            |                       |           |   |   |   |   |           |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |                       |   |       |   |   |   |   |           |
+            o   o   o   o   o   o   o   o---o---o   o   o   o   o   o   o   o
+            |                       |                           |           |
+            o   o   o   o---o---o---o---o---o---o   o---o---o   o   o   o   o
+            |           |       |       |       |               |           |
+            o---o---o---o   o   o   o   o   o   o---o---o---o   o   o   o   o
+            |               |       |       |                   |           |
+            o   o---o---o   o   o   o   o   o   o---o---o---o---o   o   o   o
+            |   |       |       |       |       |                           |
+            o   o   o   o---o---o---o---o---o---o   o   o   o   o   o   o   o
+            |   |                                                           |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |                                                           |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |                                                               |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
         name: '5x5', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
@@ -300,6 +338,82 @@ var mazeData = [
             |   |   |   |       |               |                   |       |
             o   o   o   o   o   o   o---o---o   o---o---o   o   o---o---o   o
             |   |           |               |               |               |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: '87-us-1', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |               |       |   |       |           |               |
+            o---o---o   o   o   o   o   o   o   o   o   o   o   o---o---o   o
+            |           |       |       |   |   |   |   |           |       |
+            o   o---o   o   o---o---o   o   o   o   o   o   o   o   o   o   o
+            |       |   |           |   |   |   |   |   |   |   |   |   |   |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |   |   |   |   |           |           |   |   |       |   |
+            o   o---o   o---o---o---o   o---o---o---o---o   o   o---o   o   o
+            |       |       |       |   |                   |       |       |
+            o   o   o---o---o---o   o---o   o   o   o   o---o---o   o---o---o
+            |   |   |               |   |   |   |   |           |           |
+            o---o   o   o---o   o---o   o   o   o   o   o---o---o---o---o   o
+            |       |                   |       |   |           |           |
+            o   o---o---o---o---o---o---o---o---o---o---o---o   o   o---o   o
+            |                       |   |       |               |       |   |
+            o   o---o---o---o---o---o   o   o   o   o---o---o   o---o   o---o
+            |   |                   |   |       |                   |       |
+            o   o   o---o---o---o   o   o   o---o---o---o   o   o   o   o---o
+            |   |   |               |   |   |       |   |   |   |   |   |   |
+            o   o   o---o---o---o   o   o   o   o   o   o   o---o---o   o   o
+            |   |               |       |       |       |           |   |   |
+            o   o   o---o   o---o---o---o   o---o   o   o   o---o   o   o   o
+            |   |   |                               |       |       |   |   |
+            o   o---o---o---o---o---o---o---o---o---o---o---o---o   o   o   o
+            |   |               |           |   |               |   |       |
+            o   o---o---o   o   o   o---o   o   o   o---o---o   o---o---o   o
+            |           |   |       |   |       |                   |   |   |
+            o   o---o   o   o---o---o   o   o---o---o---o---o---o   o   o   o
+            |   |   |   |       |               |                   |       |
+            o   o   o   o   o   o   o---o---o   o---o---o   o   o---o---o   o
+            |   |           |               |               |               |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: '88', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |                                                               |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |                                                               |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o   o   o   o
+            |                                                   |           |
+            o   o---o   o---o---o---o---o   o---o   o---o   o   o   o   o   o
+            |       |   |   |           |                   |   |           |
+            o   o   o   o   o---o   o---o---o---o---o---o---o   o   o   o   o
+            |   |   |   |                                   |   |           |
+            o   o---o   o---o---o---o   o   o---o   o   o   o   o   o   o   o
+            |                   |       |           |   |       |           |
+            o   o---o   o---o   o---o---o   o---o   o---o   o---o   o   o   o
+            |                           |       |   |       |   |           |
+            o---o   o---o   o---o   o---o   o   o---o   o---o   o   o   o   o
+            |                           |       |       |   |   |           |
+            o   o---o   o---o   o---o   o---o---o   o---o   o   o   o   o   o
+            |                               |   |       |   |   |           |
+            o---o   o---o   o---o   o---o   o   o---o   o   o   o   o   o   o
+            |                               |       |       |   |           |
+            o   o---o   o---o   o---o   o---o   o   o---o   o---o   o   o   o
+            |                           |   |   |       |       |           |
+            o---o---o---o   o---o---o---o   o   o---o   o---o   o   o   o   o
+            |                       |   |   |   |               |           |
+            o   o---o   o---o   o---o   o   o   o   o---o---o---o   o   o   o
+            |   |               |   |   |               |   |   |           |
+            o   o   o---o---o---o   o   o---o---o   o   o   o   o   o   o   o
+            |   |       |           |           |   |           |           |
+            o   o   o   o   o---o---o---o---o---o   o---o   o   o   o   o   o
+            |   |   |                           |   |       |               |
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
         ` 
     },
@@ -1976,6 +2090,44 @@ var mazeData = [
         ` 
     },
     { 
+        name: 'hk-91-q', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                               |                               |
+            o   o---o   o---o   o   o---o   o   o---o---o---o---o---o---o   o
+            |   |       |       |                           |           |   |
+            o   o   o---o   o   o   o---o---o---o---o---o   o   o---o   o   o
+            |       |       |   |                           |       |       |
+            o   o---o   o---o   o---o   o---o---o---o---o---o---o   o   o   o
+            |           |       |       |                       |       |   |
+            o   o   o---o   o   o   o---o---o---o---o---o---o   o   o---o   o
+            |   |   |       |       |                       |       |   |   |
+            o   o---o   o---o   o---o   o---o---o---o---o   o   o   o   o   o
+            |   |   |   |       |       |               |       |   |   |   |
+            o   o   o   o   o   o---o---o   o---o---o   o   o   o   o   o   o
+            |   |   |   |   |           |           |       |   |   |   |   |
+            o   o   o   o   o   o---o   o---o---o   o   o---o   o   o   o   o
+            |       |   |   |   |       |       |   |   |   |   |   |       |
+            o---o   o   o   o   o   o---o   o   o   o   o   o   o   o   o---o
+            |       |   |   |   |   |           |       |   |   |   |       |
+            o   o   o   o   o   o   o   o---o---o   o---o   o   o   o   o   o
+            |   |   |   |   |   |   |               |       |   |   |   |   |
+            o   o   o   o   o   o   o---o---o---o---o   o---o   o   o   o   o
+            |   |   |   |   |   |               |           |       |   |   |
+            o   o   o   o   o   o---o   o---o---o   o---o   o---o---o   o   o
+            |   |   |   |   |                       |       |           |   |
+            o   o   o   o   o---o   o---o---o---o---o   o---o   o---o   o   o
+            |   |   |   |                               |       |       |   |
+            o   o   o   o---o---o---o---o---o---o   o---o   o---o   o---o   o
+            |   |                                           |       |       |
+            o   o   o---o---o---o---o---o---o---o---o---o---o   o---o---o   o
+            |   |                                               |           |
+            o   o---o---o---o---o---o---o   o   o---o---o---o---o   o   o---o
+            |   |                           |                       |       |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
         name: 'hoku-4', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
@@ -2090,6 +2242,44 @@ var mazeData = [
         ` 
     },
     { 
+        name: 'ies-90-f', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                       |                                       |
+            o   o---o---o---o   o---o---o---o---o---o   o---o---o---o---o   o
+            |   |                                                       |   |
+            o   o   o---o   o---o   o   o---o   o---o   o---o   o---o   o   o
+            |   |       |   |       |   |       |       |   |   |   |       |
+            o   o   o---o   o---o---o---o---o---o---o---o---o---o   o---o   o
+            |   |           |       |   |           |       |   |   |   |   |
+            o   o---o   o---o---o   o   o---o   o---o   o---o   o---o   o   o
+            |       |           |                                       |   |
+            o   o   o---o---o   o---o---o---o---o   o---o   o---o---o   o   o
+            |   |   |           |               |   |   |       |   |   |   |
+            o   o   o   o---o   o---o---o   o   o   o   o   o   o   o   o   o
+            |                   |   |       |       |       |   |       |   |
+            o   o   o---o   o   o   o   o---o---o   o   o   o   o   o   o   o
+            |   |           |       |   |       |       |   |       |   |   |
+            o   o---o---o---o---o   o   o   o   o---o---o---o   o   o   o   o
+            |               |       |           |               |   |   |   |
+            o   o---o   o---o---o   o---o---o---o---o   o---o---o---o   o   o
+            |   |           |       |   |   |                           |   |
+            o   o---o   o---o---o   o   o   o---o---o---o---o---o---o   o   o
+            |   |           |           |   |                       |       |
+            o   o---o   o---o   o---o   o   o   o---o---o   o   o   o   o   o
+            |   |           |   |   |       |   |   |   |   |   |   |   |   |
+            o---o---o   o---o   o   o---o   o   o---o---o   o   o   o   o   o
+            |               |           |       |   |   |           |   |   |
+            o   o   o---o   o---o---o   o---o   o---o---o   o---o   o   o   o
+            |   |   |   |   |   |   |       |               |   |   |   |   |
+            o   o   o   o   o---o---o   o   o---o   o---o---o   o---o   o   o
+            |   |   |   |   |   |       |   |                               |
+            o   o   o   o---o   o   o---o---o---o   o---o---o---o---o---o   o
+            |   |           |                                               |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
         name: 'ies-91', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
@@ -2124,6 +2314,44 @@ var mazeData = [
             |   |   |   |   |   |       |   |               |           |   |
             o   o   o   o   o   o   o---o---o---o   o---o   o---o---o---o   o
             |   |                       |                                   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'ies-91-f', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                               |               |
+            o   o---o---o---o---o---o   o   o---o---o---o---o   o---o   o---o
+            |   |                       |                           |       |
+            o   o   o---o---o---o---o   o---o   o---o---o   o---o---o   o   o
+            |   |           |       |                           |       |   |
+            o   o---o   o   o   o   o   o---o---o   o---o   o---o   o---o   o
+            |   |   |   |   |   |                           |       |       |
+            o   o   o   o   o---o---o   o---o---o   o---o---o   o---o   o   o
+            |       |                                   |       |   |   |   |
+            o---o   o---o---o---o   o---o---o   o---o---o   o---o   o   o   o
+            |       |           |                   |       |       |   |   |
+            o   o---o   o---o   o---o   o---o---o   o   o---o---o   o   o   o
+            |           |   |       |               |   |   |               |
+            o   o   o---o   o---o   o---o---o---o---o   o   o   o   o   o   o
+            |   |   |                   |               |       |   |   |   |
+            o   o   o   o   o---o---o   o   o   o---o---o---o   o   o---o---o
+            |   |       |           |   |       |           |           |   |
+            o   o   o   o---o   o---o   o---o---o   o   o---o   o---o   o   o
+            |   |   |                   |           |   |           |       |
+            o   o   o   o   o   o---o   o   o---o   o   o   o   o   o   o   o
+            |           |   |   |   |                   |   |   |       |   |
+            o---o---o   o---o   o   o   o---o---o---o   o---o---o   o---o---o
+            |       |   |                   |                   |           |
+            o   o   o   o   o   o   o---o   o---o   o---o   o   o---o   o   o
+            |   |   |       |   |   |       |           |   |   |   |   |   |
+            o   o   o   o---o---o---o---o---o---o---o---o---o   o   o---o   o
+            |               |   |   |   |       |       |   |   |           |
+            o   o   o   o---o   o   o---o   o---o   o---o   o   o   o   o   o
+            |   |   |                           |               |   |   |   |
+            o   o   o---o   o---o---o---o---o---o---o   o   o---o   o---o   o
+            |   |                                       |                   |
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
         ` 
     },
@@ -3800,6 +4028,44 @@ var mazeData = [
         ` 
     },
     { 
+        name: 'porto-2017-final', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |       |       |       |       |       |       |       |       |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |       |   |   |       |   |   |       |   |       |       |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |   |   |       |   |   |       |   |   |       |       |   |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |   |   |   |   |   |   |   |   |   |       |   |   |   |   |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |       |   |   |   |   |   |   |   |   |   |       |   |   |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |   |   |   |       |   |       |           |       |       |   |
+            o   o   o   o   o   o   o   o---o---o---o   o   o   o   o   o   o
+            |   |   |   |   |       |   |           |       |   |   |   |   |
+            o   o   o   o---o---o---o---o   o   o   o---o   o   o   o   o   o
+            |   |   |   |       |       |       |       |       |   |   |   |
+            o   o   o   o   o   o   o   o---o---o---o   o---o   o   o   o   o
+            |   |   |   |   |   |   |   |           |       |       |   |   |
+            o   o   o   o   o   o   o   o   o   o   o---o   o---o   o   o   o
+            |   |   |   |   |       |   |   |   |       |       |       |   |
+            o   o   o   o   o   o---o   o   o   o   o   o---o   o---o   o   o
+            |   |   |   |       |       |       |   |       |       |   |   |
+            o   o   o   o   o---o   o---o   o---o   o---o   o---o   o---o   o
+            |   |   |       |       |       |   |       |       |       |   |
+            o   o   o   o---o   o---o   o---o   o   o   o---o   o---o   o   o
+            |   |   |   |       |       |       |   |       |       |       |
+            o   o   o---o   o---o   o---o   o   o   o   o   o---o   o---o   o
+            |   |   |       |       |       |   |   |   |       |       |   |
+            o   o---o   o---o   o---o   o---o   o   o   o   o   o---o   o   o
+            |   |                               |           |               |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
         name: 'taiwan-2015-finals', 
         data: `
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
@@ -3834,6 +4100,44 @@ var mazeData = [
             |       |   |                   |           |                   |
             o   o   o---o   o---o   o---o   o   o   o   o   o---o   o   o   o
             |   |                               |   |   |       |   |   |   |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'taiwan-2015-practice', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o---o---o---o---o---o---o---o---o---o---o---o---o   o
+            |       |                           |                           |
+            o   o   o---o   o---o   o---o   o---o   o---o   o---o   o---o   o
+            |   |                               |   |       |   |           |
+            o   o   o   o---o   o---o   o---o   o   o   o---o   o   o---o   o
+            |   |   |                       |   |       |           |       |
+            o   o---o---o---o---o---o---o---o   o   o---o---o   o   o   o   o
+            |   |                           |   |   |           |       |   |
+            o   o---o   o---o   o---o   o---o   o   o---o   o---o   o---o   o
+            |   |                               |           |       |       |
+            o   o   o---o   o---o   o---o   o   o---o   o---o---o   o   o   o
+            |   |       |   |   |           |   |               |       |   |
+            o   o---o   o---o   o---o---o---o---o   o   o---o   o   o   o   o
+            |       |                   |       |   |       |   |   |       |
+            o   o   o---o---o---o   o---o   o   o   o---o   o   o   o   o   o
+            |   |           |           |       |               |       |   |
+            o   o---o   o---o---o   o---o   o---o---o---o---o---o---o   o   o
+            |   |   |       |                   |   |               |       |
+            o   o   o---o   o---o---o---o---o   o---o   o---o---o   o   o   o
+            |   |       |           |           |       |   |   |       |   |
+            o   o---o   o---o   o---o   o---o   o   o---o   o   o---o   o   o
+            |   |       |       |           |   |                   |       |
+            o   o   o---o   o---o   o---o---o---o---o---o   o---o   o---o   o
+            |   |           |           |       |                       |   |
+            o   o---o   o---o   o---o---o   o   o   o   o   o   o---o   o   o
+            |   |       |           |       |   |   |   |   |   |   |       |
+            o   o   o---o   o---o---o   o---o   o   o   o   o   o   o---o   o
+            |   |           |               |                               |
+            o   o   o---o---o---o---o---o---o---o   o   o   o   o   o   o   o
+            |   |                               |   |   |   |   |   |   |   |
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
         ` 
     },
@@ -4100,6 +4404,44 @@ var mazeData = [
             |   |               |   |       |   |       |       |   |   |   |
             o   o   o---o---o   o   o---o   o   o---o   o---o   o   o---o   o
             |   |               |                                           |
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+        ` 
+    },
+    { 
+        name: 'user-demo', 
+        data: `
+            o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
+            |                                                               |
+            o   o---o---o---o---o---o---o---o---o---o---o---o---o---o   o   o
+            |   |                                                   |       |
+            o   o   o---o---o---o---o---o---o---o---o---o---o---o   o   o   o
+            |   |   |                                           |   |       |
+            o   o   o   o   o---o---o---o---o   o   o   o   o   o   o   o   o
+            |   |   |       |       |       |                   |   |       |
+            o   o   o---o---o   o   o   o   o---o   o   o   o   o   o   o   o
+            |   |               |       |       |               |   |       |
+            o   o---o---o---o   o   o   o   o   o   o   o   o   o   o   o   o
+            |               |       |       |   |               |   |       |
+            o   o   o   o   o---o---o---o---o   o   o   o   o   o   o   o   o
+            |                               |   |               |   |       |
+            o   o   o   o   o   o   o   o---o   o   o   o   o   o   o   o   o
+            |                           |       |               |   |       |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |                           |       |               |   |       |
+            o   o   o   o   o   o   o   o---o---o   o   o   o   o   o   o   o
+            |                                                   |   |       |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |                                                   |   |       |
+            o   o   o   o---o---o---o---o   o   o---o---o---o---o   o   o   o
+            |           |       |       |       |       |       |   |       |
+            o---o---o---o   o   o   o   o---o---o   o   o   o   o   o   o   o
+            |               |       |               |       |       |       |
+            o   o---o---o   o   o   o   o---o---o   o   o   o   o---o   o   o
+            |   |       |       |       |       |       |       |           |
+            o   o   o   o---o---o---o---o   o   o---o---o---o---o   o   o   o
+            |   |   |                                                       |
+            o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o   o
+            |       |                                                       |
             o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
         ` 
     },
