@@ -25,7 +25,7 @@ window.onload = function() {
 	const areaCell = { SIZE: 20, MARGIN: 2 };
 	const finishRange = { LEFT: 14, RIGHT: 18, TOP: 14, BOTTOM: 18 };
 	const areaMiddle = { X: 16, Y : 16 };
-	const mode = { DEMO: 1, PLAY: 2 }
+	const mode = { DEMO: 1, PLAY: 2, EDIT: 3 }
 
 	const mapsControl = document.getElementById('maze-select');
 
@@ -54,12 +54,18 @@ window.onload = function() {
 
 	const modeDemo = document.getElementById('demo');
 	modeDemo.addEventListener('click', function() {
-		mazeMouse.mode = modeDemo.checked ? mode.DEMO : mode.PLAY;
+		mazeMouse.mode = mode.DEMO;
 		stopButton.click();
 	});
 	const modePlay = document.getElementById('play');
 	modePlay.addEventListener('click', function() {
-		mazeMouse.mode = modePlay.checked ? mode.PLAY : mode.DEMO;
+		mazeMouse.mode = mode.PLAY;
+		stopButton.click();
+	});
+
+	const modeEdit = document.getElementById('edit');
+	modeEdit.addEventListener('click', function() {
+		mazeMouse.mode = mode.EDIT;
 		stopButton.click();
 	});
 
@@ -84,6 +90,25 @@ window.onload = function() {
 				case 'ArrowRight':
 					mazeMouse.direction = direction.RIGHT;
 					startButton.click();
+					break;
+			}
+		}
+		if (mazeMouse.mode == mode.EDIT && mazeEditor.active) {
+			switch (event.key) {
+				case 'ArrowUp':
+					mazeEditor.move(event.key);
+					break;
+				case 'ArrowDown':
+					mazeEditor.move(event.key);
+					break;
+				case 'ArrowLeft':
+					mazeEditor.move(event.key);
+					break;
+				case 'ArrowRight':
+					mazeEditor.move(event.key);
+					break;
+				case ' ':
+					mazeEditor.change();
 					break;
 			}
 		}
@@ -410,11 +435,13 @@ window.onload = function() {
 			this.state = state.START;
 			if (this.mode == mode.DEMO) this.move();
 			if (this.mode == mode.PLAY) this.play();
+			if (this.mode == mode.EDIT) mazeEditor.init();
 		},
 		stop: function() {
 			startButton.disabled = false;
 			stopButton.disabled = true;
 			mapsControl.disabled = false;
+			if (this.mode == mode.EDIT) mazeEditor.complete();
 			this.state = state.STOP;
 		},
 		checkIsFinish: function() {
@@ -459,6 +486,70 @@ window.onload = function() {
 				displayRecordMin.innerText = minute.toString();
 				displayRecordSec.innerText = second.toString();
 			}
+		},
+	};
+
+	var mazeEditor = {
+		x: 0,
+		y: 0,
+		index: 0,
+		color: '#fc0',
+		active: false,
+		step: 0,
+		init: function() {
+			this.x = 1;
+			this.y = 1;
+			this.index = this.y * mazeArea.colsCount + this.x;
+			this.active = true;
+			this.step = 0;
+			this.show();
+			this.updateDisplay();
+		},
+		show: function() {
+			mazeArea.paintCell(this.x, this.y, this.color);
+		},
+		hide: function() {
+			const idx = this.y * mazeArea.colsCount + this.x;
+			const color = mazeMap[idx] ? mazeArea.cellColor : mazeArea.wallColor;
+			mazeArea.paintCell(this.x, this.y, color);
+		},
+		complete: function() {
+			this.active = false;
+			this.hide();
+			mazeMouse.move();
+		},
+		move: function(direction) {
+			this.hide();
+			switch (direction) {
+				case 'ArrowUp':
+					if (this.y > 1) this.y--;
+					if (this.x >= finishRange.LEFT && this.x <= finishRange.RIGHT && this.y >= finishRange.TOP && this.y <= finishRange.BOTTOM) this.y++;
+					break;
+				case 'ArrowDown':
+					if (this.y < mazeArea.rowsCount - 2) this.y++;
+					if (this.x >= finishRange.LEFT && this.x <= finishRange.RIGHT && this.y >= finishRange.TOP && this.y <= finishRange.BOTTOM) this.y--;
+					break;
+				case 'ArrowLeft':
+					if (this.x > 1) this.x--;
+					if (this.x >= finishRange.LEFT && this.x <= finishRange.RIGHT && this.y >= finishRange.TOP && this.y <= finishRange.BOTTOM) this.x++;
+					break;
+				case 'ArrowRight':
+					if (this.x < mazeArea.colsCount - 2) this.x++;
+					if (this.x >= finishRange.LEFT && this.x <= finishRange.RIGHT && this.y >= finishRange.TOP && this.y <= finishRange.BOTTOM) this.x--;
+					break;
+			}
+			this.index = this.y * mazeArea.colsCount + this.x;
+			this.show();
+			this.step++;
+			this.updateDisplay();
+		},
+		change: function() {
+			mazeMap[this.index] = !mazeMap[this.index];
+		},
+		updateDisplay: function() {
+			displayStep.innerText = this.step.toString();
+			displayPosX.innerText = this.x;
+			displayPosY.innerText = this.y;
 		},
 	};
 
