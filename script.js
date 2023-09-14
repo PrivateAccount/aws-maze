@@ -64,7 +64,9 @@ window.onload = function() {
 	});
 
 	document.addEventListener('keydown', function(event) {
-		event.preventDefault();
+		if (mazeMouse.state == state.START) {
+			event.preventDefault();
+		}
 		if (mazeMouse.mode == mode.PLAY) {
 			switch (event.key) {
 				case 'ArrowUp':
