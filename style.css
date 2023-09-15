@@ -86,3 +86,6 @@ span#record-min, span#record-sec {
 	font-weight: bold;
 	color: #090;
 }
+div#msg {
+	color: #090;
+}

@@ -69,6 +69,8 @@ window.onload = function() {
 		stopButton.click();
 	});
 
+	const message = document.getElementById('msg');
+
 	document.addEventListener('keydown', function(event) {
 		if (mazeMouse.state == state.START) {
 			event.preventDefault();
@@ -96,19 +98,19 @@ window.onload = function() {
 		if (mazeMouse.mode == mode.EDIT && mazeEditor.active) {
 			switch (event.key) {
 				case 'ArrowUp':
-					mazeEditor.move(event.key);
-					break;
 				case 'ArrowDown':
-					mazeEditor.move(event.key);
-					break;
 				case 'ArrowLeft':
-					mazeEditor.move(event.key);
-					break;
 				case 'ArrowRight':
 					mazeEditor.move(event.key);
 					break;
 				case ' ':
-					mazeEditor.change();
+					mazeEditor.changeCell();
+					break;
+				case 'c':
+					mazeEditor.insertColumn();
+					break;
+				case 'r':
+					mazeEditor.insertRow();
 					break;
 			}
 		}
@@ -374,7 +376,7 @@ window.onload = function() {
 						break;
 				}
 			}
-			while (!found);
+			while (!found && mazeMap[newIndex]);
 			mazeArea.paintCell(this.x, this.y, this.color);
 			this.checkIsFinish();
 			this.updateDisplay();
@@ -493,7 +495,8 @@ window.onload = function() {
 		x: 0,
 		y: 0,
 		index: 0,
-		color: '#fc0',
+		cellColor: '#fc0',
+		wallColor: '#36f',
 		active: false,
 		step: 0,
 		init: function() {
@@ -506,17 +509,23 @@ window.onload = function() {
 			this.updateDisplay();
 		},
 		show: function() {
-			mazeArea.paintCell(this.x, this.y, this.color);
+			const idx = this.y * mazeArea.colsCount + this.x;
+			const color = mazeMap[idx] ? this.cellColor : this.wallColor;
+			mazeArea.paintCell(this.x, this.y, color);
+			message.innerText = 'Use keys: Up, Down, Left, Right, Space, C, R.';
 		},
 		hide: function() {
 			const idx = this.y * mazeArea.colsCount + this.x;
 			const color = mazeMap[idx] ? mazeArea.cellColor : mazeArea.wallColor;
 			mazeArea.paintCell(this.x, this.y, color);
+			message.innerText = '';
 		},
 		complete: function() {
 			this.active = false;
 			this.hide();
-			mazeMouse.move();
+			const index = mazeMouse.y * mazeArea.colsCount + mazeMouse.x;
+			mazeMap[index] = true;
+			mazeArea.paintCell(mazeMouse.x, mazeMouse.y, mazeMouse.color);
 		},
 		move: function(direction) {
 			this.hide();
@@ -543,8 +552,29 @@ window.onload = function() {
 			this.step++;
 			this.updateDisplay();
 		},
-		change: function() {
+		changeCell: function() {
 			mazeMap[this.index] = !mazeMap[this.index];
+			this.show();
+		},
+		insertColumn: function() {
+			var idx = 0;
+			for (var i = 0; i < mazeArea.rowsCount; i++) {
+				if (this.x >= finishRange.LEFT && this.x <= finishRange.RIGHT && i >= finishRange.TOP && i <= finishRange.BOTTOM) continue;
+				idx = i * mazeArea.colsCount + this.x;
+				mazeMap[idx] = false;
+				mazeArea.paintCell(this.x, i, mazeArea.wallColor);
+			}
+			this.show();
+		},
+		insertRow: function() {
+			var idx = 0;
+			for (var i = 0; i < mazeArea.colsCount; i++) {
+				if (i >= finishRange.LEFT && i <= finishRange.RIGHT && this.y >= finishRange.TOP && this.y <= finishRange.BOTTOM) continue;
+				idx = this.y * mazeArea.colsCount + i;
+				mazeMap[idx] = false;
+				mazeArea.paintCell(i, this.y, mazeArea.wallColor);
+			}
+			this.show();
 		},
 		updateDisplay: function() {
 			displayStep.innerText = this.step.toString();
