@@ -112,7 +112,13 @@ window.onload = function() {
 				case 'r':
 					mazeEditor.insertRow();
 					break;
-			}
+				case 'C':
+					mazeEditor.removeColumn();
+					break;
+				case 'R':
+					mazeEditor.removeRow();
+					break;
+				}
 		}
 	});
 
@@ -558,7 +564,7 @@ window.onload = function() {
 		},
 		insertColumn: function() {
 			var idx = 0;
-			for (var i = 0; i < mazeArea.rowsCount; i++) {
+			for (var i = 1; i < mazeArea.rowsCount - 1; i++) {
 				if (this.x >= finishRange.LEFT && this.x <= finishRange.RIGHT && i >= finishRange.TOP && i <= finishRange.BOTTOM) continue;
 				idx = i * mazeArea.colsCount + this.x;
 				mazeMap[idx] = false;
@@ -568,11 +574,31 @@ window.onload = function() {
 		},
 		insertRow: function() {
 			var idx = 0;
-			for (var i = 0; i < mazeArea.colsCount; i++) {
+			for (var i = 1; i < mazeArea.colsCount - 1; i++) {
 				if (i >= finishRange.LEFT && i <= finishRange.RIGHT && this.y >= finishRange.TOP && this.y <= finishRange.BOTTOM) continue;
 				idx = this.y * mazeArea.colsCount + i;
 				mazeMap[idx] = false;
 				mazeArea.paintCell(i, this.y, mazeArea.wallColor);
+			}
+			this.show();
+		},
+		removeColumn: function() {
+			var idx = 0;
+			for (var i = 1; i < mazeArea.rowsCount - 1; i++) {
+				if (this.x >= finishRange.LEFT && this.x <= finishRange.RIGHT && i >= finishRange.TOP && i <= finishRange.BOTTOM) continue;
+				idx = i * mazeArea.colsCount + this.x;
+				mazeMap[idx] = true;
+				mazeArea.paintCell(this.x, i, mazeArea.cellColor);
+			}
+			this.show();
+		},
+		removeRow: function() {
+			var idx = 0;
+			for (var i = 1; i < mazeArea.colsCount - 1; i++) {
+				if (i >= finishRange.LEFT && i <= finishRange.RIGHT && this.y >= finishRange.TOP && this.y <= finishRange.BOTTOM) continue;
+				idx = this.y * mazeArea.colsCount + i;
+				mazeMap[idx] = true;
+				mazeArea.paintCell(i, this.y, mazeArea.cellColor);
 			}
 			this.show();
 		},
