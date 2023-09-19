@@ -118,7 +118,10 @@ window.onload = function() {
 				case 'R':
 					mazeEditor.removeRow();
 					break;
-				}
+				case 'Delete':
+					mazeEditor.clearArea();
+					break;	
+			}
 		}
 	});
 
@@ -518,7 +521,7 @@ window.onload = function() {
 			const idx = this.y * mazeArea.colsCount + this.x;
 			const color = mazeMap[idx] ? this.cellColor : this.wallColor;
 			mazeArea.paintCell(this.x, this.y, color);
-			message.innerText = 'Use keys: Up, Down, Left, Right, Space, C, R.';
+			message.innerText = 'Use keys: Up, Down, Left, Right, Space, (Shift) C, (Shift) R, Delete.';
 		},
 		hide: function() {
 			const idx = this.y * mazeArea.colsCount + this.x;
@@ -599,6 +602,18 @@ window.onload = function() {
 				idx = this.y * mazeArea.colsCount + i;
 				mazeMap[idx] = true;
 				mazeArea.paintCell(i, this.y, mazeArea.cellColor);
+			}
+			this.show();
+		},
+		clearArea: function() {
+			var idx = 0;
+			for (var i = 1; i < mazeArea.rowsCount - 1; i++) {
+				for (var j = 1; j < mazeArea.colsCount - 1; j++) {
+					if (j >= finishRange.LEFT && j <= finishRange.RIGHT && i >= finishRange.TOP && i <= finishRange.BOTTOM) continue;
+					idx = i * mazeArea.colsCount + j;
+					mazeMap[idx] = true;
+					mazeArea.paintCell(j, i, mazeArea.cellColor);
+				}
 			}
 			this.show();
 		},
