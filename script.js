@@ -443,6 +443,9 @@ window.onload = function() {
 			startButton.disabled = true;
 			stopButton.disabled = false;
 			mapsControl.disabled = true;
+			modeDemo.disabled = true;
+			modePlay.disabled = true;
+			modeEdit.disabled = true;
 			this.state = state.START;
 			if (this.mode == mode.DEMO) this.move();
 			if (this.mode == mode.PLAY) this.play();
@@ -452,6 +455,9 @@ window.onload = function() {
 			startButton.disabled = false;
 			stopButton.disabled = true;
 			mapsControl.disabled = false;
+			modeDemo.disabled = false;
+			modePlay.disabled = false;
+			modeEdit.disabled = false;
 			if (this.mode == mode.EDIT) mazeEditor.complete();
 			this.state = state.STOP;
 		},
