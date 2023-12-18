@@ -30,10 +30,14 @@ div#main {
 	display: inline-block;
 }
 div#panel {
-	width: auto;
-	height: auto;
 	text-align: left;
-	display: inline-block;
+	display: block;
+	position: fixed;
+	right: 100px;
+	top: 371px;
+	padding: 10px 15px 30px 30px;
+	background-color: #eee;
+	border: 1px solid #999;
 }
 canvas#game-canvas { 
 	border: 1px solid #aaa; 
