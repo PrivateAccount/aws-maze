@@ -185,11 +185,13 @@ window.onload = function() {
 				{ from: 'S', to: ' ' },
 			];
 			const gapDepth = mazeData[mazeIndex].data.indexOf('o') - 1;
-			for (var i = 0; i < gapDepth; i++)
+			for (var i = 0; i < gapDepth; i++) {
 				gap += String.fromCharCode(32);
+			}
 			stepsData[stepsData.length] = mazeData[mazeIndex].data.replace(new RegExp(gap, 'g'), String.fromCharCode(10));
-			for (var i = 0; i < patterns.length; i++)
+			for (var i = 0; i < patterns.length; i++) {
 				stepsData[i + 1] = stepsData[i].replace(new RegExp(patterns[i].from, 'g'), patterns[i].to);
+			}
 			this.pureMazeData = stepsData[patterns.length];
 			this.paintWalls(this.pureMazeData);
 			mazeMouse.init();
@@ -197,7 +199,7 @@ window.onload = function() {
 		loadMaps: function() {
 			var options = '';
 			for (var i = 0; i < mazeData.length; i++) {
-				options += '<option value="' + i + '">' + mazeData[i].name + '</option>'
+				options += '<option value="' + i + '">' + mazeData[i].name + '</option>';
 			}
 			mapsControl.innerHTML = options;
 			mapsControl.addEventListener('change', function() {
@@ -632,7 +634,8 @@ window.onload = function() {
 
 	mazeArea.init();
 	mazeArea.loadMaps();
-	mazeArea.loadMaze(0);
+	mazeArea.loadMaze(mapsControl.value);
 	modeDemo.click();
+	markHistory.click();
 
 }
