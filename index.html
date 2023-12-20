@@ -12,8 +12,8 @@
 <body>
 	<div id="page">
 		<div id="title">
-			<h1>Maze Demo</h1>
-			<h3>Find a path to area in the middle</h3>
+			<h1>Maze Finder Demo</h1>
+			<h3>Resolve a path to area in the middle</h3>
 			<div><a href="https://github.com/PrivateAccount/aws-maze">https://github.com/PrivateAccount/aws-maze</a></div>
 		</div>
 		<div id="content">
@@ -22,9 +22,9 @@
 			</div>
 			<div id="panel">
 				<div class="group">
-					<div><input type="radio" name="run-mode" id="demo">Demo</div>
-					<div><input type="radio" name="run-mode" id="play">Play</div>
-					<div><input type="radio" name="run-mode" id="edit">Edit</div>
+					<div><input type="radio" name="run-mode" id="demo"><label for="demo">Demo</label></div>
+					<div><input type="radio" name="run-mode" id="play"><label for="play">Play</label></div>
+					<div><input type="radio" name="run-mode" id="edit"><label for="edit">Edit</label></div>
 				</div>
 				<div><span class="label">Step:</span><span id="step"></span></div>
 				<div><span class="label">Position:</span><span id="position-x"></span>:<span id="position-y"></span></div>
@@ -32,7 +32,7 @@
 				<div><span class="label">Record:</span><span id="record-min"></span>:<span id="record-sec"></span></div>
 				<div>Map:</div>
 				<div><select name="maze-select" id="maze-select"></select></div>
-				<div><input type="checkbox" id="mark-history">Mark history</div>
+				<div><input type="checkbox" id="mark-history"><label for="mark-history">Mark history</label></div>
 				<div>
 					<button id="start">Start</button>
 					<button id="stop">Stop</button>
